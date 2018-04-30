@@ -46,3 +46,7 @@ Given our lack of experience with any of these technologies / frameworks, we mad
 In particular, we decided on:
 - **C#** because it is one of the most popular langauges for creating games
 - **MonoGame** because using engines such as Unity or Unreal would largely reduce any coding to configuration
+
+### Project Management
+Task management: [Trello](https://trello.com/b/XOhmT1sG/ktse)
+Knowledge management: [GitHub Wiki](https://github.com/KTSE-2018/KTSE/wiki)
