@@ -1,0 +1,11 @@
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/MonoGame.Framework.dll.config
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/Content/fakers_academy_v1.xnb
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/KTSE.MacOS.exe
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/KTSE.MacOS.pdb
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/MonoGame.Framework.dll
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/MonoGame.Framework.xml
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/obj/x86/Debug/KTSE.MacOS.csprojResolveAssemblyReference.cache
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/obj/x86/Debug/KTSE.MacOS.csproj.CoreCompileInputs.cache
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/obj/x86/Debug/KTSE.MacOS.exe
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/obj/x86/Debug/KTSE.MacOS.pdb
+/Users/thomasduffy/Documents/Programming/Learning/Makers Academy/FinalProjectC#/KTSE/main/KTSE/bin/Debug/Content/placeholderhero.xnb

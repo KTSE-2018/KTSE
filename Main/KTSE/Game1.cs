@@ -14,6 +14,8 @@ namespace KTSE.MacOS
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D background;
+        Texture2D hero;
+        Vector2 pos;
 
         public Game1()
         {
@@ -33,7 +35,7 @@ namespace KTSE.MacOS
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            pos = new Vector2(325, 250);
             base.Initialize();
         }
 
@@ -46,6 +48,7 @@ namespace KTSE.MacOS
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             background = Content.Load<Texture2D>("fakers_academy_v1");
+            hero = Content.Load<Texture2D>("placeholderhero");
 
             //TODO: use this.Content to load your game content here 
         }
@@ -76,6 +79,7 @@ namespace KTSE.MacOS
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            spriteBatch.Draw(hero, pos, Color.White);
             spriteBatch.End();
             //TODO: Add your drawing code here
 
