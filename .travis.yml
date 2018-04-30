@@ -1,2 +1,9 @@
 language: csharp
-solution: KTSE.sln
+solution: "./Main/KTSE.sln"
+install:
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./Main/KTSE.sln
+script:
+- xbuild ./Main/KTSE.sln
+
+notifications:
+  email: false
