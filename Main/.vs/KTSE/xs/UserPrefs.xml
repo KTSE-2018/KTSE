@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}|Default">
-  <MonoDevelop.Ide.ItemProperties.KTSE.MacOS PreferredExecutionTarget="Test1" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.KTSE.MacOS PreferredExecutionTarget="Test1" />
   <MonoDevelop.Ide.Workbench ActiveDocument="KTSE/Game1.cs">
     <Files>
       <File FileName="KTSE/Game1.cs" Line="1" Column="1" />
