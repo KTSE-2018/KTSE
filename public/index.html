@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <title>Gamedev Canvas Workshop</title>
+   <style>
+       * { padding: 0; margin: 0; }
+       canvas { background: #eee; display: block; margin: 0 auto; }
+   </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var x, y, dx, dy
+    x = canvas.width/2;
+    y = canvas.height - 25;
+    dx = 2;
+    dy = -2;
+    var squareWidth = 25;
+    var rightPressed = false;
+    var leftPressed = false;
+    var upPressed = false;
+    var downPressed = false;
+
+    function draw(){
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+      drawSquare();
+      // if (y + dy <squareWidth/2 || y + dy > canvas.height - squareWidth/2)
+      // {dy = -dy};
+      // if (x + dx <squareWidth/2 || x + dx > canvas.width - squareWidth/2)
+      // {dx = -dx};
+      // x += dx;
+      // y += dy;
+      if(rightPressed && x < canvas.width) {
+        x += 7;
+      }
+      else if(leftPressed && x > 0) {
+        x -= 7;
+      }
+      else if(downPressed && x < canvas.width) {
+        y += 7;
+      }
+      else if(upPressed && x > 0) {
+        y -= 7;
+      }
+    }
+
+    function drawSquare(){
+      ctx.beginPath();
+      ctx.rect(x,y,squareWidth,squareWidth);
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.closePath();
+    }
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    function keyDownHandler(e) {
+     if(e.keyCode == 39) {
+         rightPressed = true;
+     }
+     else if(e.keyCode == 37) {
+         leftPressed = true;
+     }
+     else if(e.keyCode == 38) {
+         upPressed = true;
+     }
+     else if(e.keyCode == 40) {
+         downPressed = true;
+     }
+
+  }
+
+  function keyUpHandler(e) {
+     if(e.keyCode == 39) {
+         rightPressed = false;
+     }
+     else if(e.keyCode == 37) {
+         leftPressed = false;
+     }
+     else if(e.keyCode == 38) {
+         upPressed = false;
+     }
+     else if(e.keyCode == 40) {
+         downPressed = false;
+     }
+  }
+
+    setInterval(draw, 10);
+
+</script>
+
+</body>
+</html>
