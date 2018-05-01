@@ -17,7 +17,7 @@
     var ctx = canvas.getContext("2d");
     var x, y, dx, dy
     x = canvas.width/2;
-    y = canvas.height - 25;
+    y = canvas.height/2;
     dx = 2;
     dy = -2;
     var squareWidth = 25;
@@ -25,27 +25,32 @@
     var leftPressed = false;
     var upPressed = false;
     var downPressed = false;
+	var acc = 5;
+
+	function isCollide(a, b) {
+    return !(
+        ((a.y + a.height) < (b.y)) ||
+        (a.y > (b.y + b.height)) ||
+        ((a.x + a.width) < b.x) ||
+        (a.x > (b.x + b.width))
+    );
+}
 
     function draw(){
       ctx.clearRect(0,0,canvas.width, canvas.height);
       drawSquare();
-      // if (y + dy <squareWidth/2 || y + dy > canvas.height - squareWidth/2)
-      // {dy = -dy};
-      // if (x + dx <squareWidth/2 || x + dx > canvas.width - squareWidth/2)
-      // {dx = -dx};
-      // x += dx;
-      // y += dy;
-      if(rightPressed && x < canvas.width) {
-        x += 7;
+
+      if(rightPressed && x + acc < canvas.width - squareWidth) {
+        x += acc;
       }
-      else if(leftPressed && x > 0) {
-        x -= 7;
+      else if(leftPressed && x - acc > 0) {
+        x -= acc;
       }
-      else if(downPressed && x < canvas.width) {
-        y += 7;
+      else if(downPressed && y + acc < canvas.height - squareWidth) {
+        y += acc;
       }
-      else if(upPressed && x > 0) {
-        y -= 7;
+      else if(upPressed && y - acc > 0) {
+        y -= acc;
       }
     }
 
