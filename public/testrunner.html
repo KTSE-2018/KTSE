@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mocha Tests</title>
-    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
-  </head>
-  <body>
-    <canvas id="myCanvas" width="736" height="640"></canvas>
 
-    <div id="mocha"></div>
-    <script src="../node_modules/mocha/mocha.js"></script>
-    <script src="../node_modules/chai/chai.js"></script>
-    <script src="blanket.min.js" data-cover-adapter="mocha-blanket.js"></script>
-    <script>mocha.setup('bdd')</script>
+<head>
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+</head>
 
-    <!-- load code you want to test here -->
-    <script src="src/player.js"></script>
-    <!-- load your test files here -->
-    <script src="../test/playerTest.js"></script>
+<body>
+  <canvas id="myCanvas" width="736" height="640"></canvas>
 
-    <script>
-      mocha.run();
-    </script>
-  </body>
+  <div id="mocha"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="blanket.min.js" data-cover-adapter="mocha-blanket.js"></script>
+  <script>
+    mocha.setup('bdd')
+  </script>
+
+  <!-- load code you want to test here -->
+  <script src="src/player.js"></script>
+  <!-- load your test files here -->
+  <script src="../test/playerTest.js"></script>
+  <script src="../test/actionPointsTest.js"></script>
+
+  <script>
+    mocha.run();
+  </script>
+</body>
+
 </html>
