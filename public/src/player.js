@@ -1,4 +1,4 @@
-(function(exports){
+// (function(exports){
     function Player() {
       this._canvas = document.getElementById("myCanvas");
       this._ctx = this._canvas.getContext("2d");
@@ -36,9 +36,9 @@
         }
         else if(myPlayer._upPressed && myPlayer._y - myPlayer._acc > 0) {
           myPlayer._y -= myPlayer._acc;
-        }
-      }
+        };
+      };
 
-
-  exports.Player = Player;
-})(this);
+      module.exports = Player
+  // exports.Player = Player;
+// })(this);
