@@ -20,20 +20,21 @@
         this._ctx.closePath();
       }
 
-      Player.prototype.draw = function() {
-        // this._ctx.clearRect(0,0,this._canvas.width, this._canvas.height);
-        this.drawSquare();
+      Player.prototype.draw = function(myPlayer) {
+        console.log("HI")
+        myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);
+        myPlayer.drawSquare();
 
-        if(this._rightPressed && x < this._canvas.width) {
+        if(myPlayer._rightPressed && x < myPlayer._canvas.width) {
           x += 5;
         }
-        else if(this._leftPressed && x > 0) {
+        else if(myPlayer._leftPressed && x > 0) {
           x -= 5;
         }
-        else if(this._downPressed && x < this._canvas.width) {
+        else if(myPlayer._downPressed && x < myPlayer._canvas.width) {
           y += 5;
         }
-        else if(this._upPressed && x > 0) {
+        else if(myPlayer._upPressed && x > 0) {
           y -= 5;
         }
       }

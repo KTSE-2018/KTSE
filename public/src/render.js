@@ -4,11 +4,13 @@ $(document).ready(function() {
         player = new Player();
         dialogue = new Dialogue();
         dialogue.draw();
-      // });
-      //
-      // $(function() {
+        setInterval(player.draw(player), 20);
+      });
+
+      $(function() {
         $(this).keydown(function(e) {
             if (e.keyCode == 39) {
+              console.log(this)
               player._rightPressed = true;
             } else if (e.keyCode == 37) {
               player._leftPressed = true;
@@ -30,6 +32,6 @@ $(document).ready(function() {
                 player._downPressed = false;
               }
             })
-          setInterval(player.draw, 200000000000000000000000000000);
+
           });
       });
