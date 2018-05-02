@@ -7,4 +7,12 @@ describe('ActionPoints', function() {
       chai.expect(ap.points).to.eq(10);
     });
   });
+
+  describe('.consumeAP', function() {
+    it('should consume 1 AP', function() {
+      ap = new ActionPoints();
+      ap.consumeAP()
+      chai.expect(ap.points).to.eq(9);
+    });
+  });
 });
