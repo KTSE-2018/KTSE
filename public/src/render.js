@@ -4,6 +4,7 @@ $(document).ready(function() {
         dialogue = new Dialogue();
         dialogue.draw();
         setInterval(function(){player.draw(player)}, 20);
+        $("#id").text(Array.prototype.slice.call(player._ctx.getImageData(343, 500, 50, 50).data))
       });
 
       $(function() {
