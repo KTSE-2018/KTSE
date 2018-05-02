@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc --timeout=3000"
   },
   "author": "",
   "license": "ISC",
@@ -15,9 +15,10 @@
     "phaser-ce": "^2.10.3"
   },
   "devDependencies": {
+    "blanket": "^1.2.3",
+    "chai": "^4.1.2",
     "http-server": "^0.11.1",
-    "zombie": "^6.1.2",
     "mocha": "^5.1.1",
-    "chai": "^4.1.2"
+    "zombie": "^6.1.2"
   }
 }
