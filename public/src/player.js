@@ -12,7 +12,7 @@
       this._downPressed = false;
     }
 
-      Player.prototype.drawSquare = function(){
+      Player.prototype.drawSquare = function() {
         this._ctx.beginPath();
         this._ctx.rect(this._x,this._y,this._squareWidth,this._squareWidth);
         this._ctx.fillStyle = "red";
@@ -20,8 +20,8 @@
         this._ctx.closePath();
       }
 
-      Player.prototype.draw = function(){
-        this._ctx.clearRect(0,0,this._canvas.width, this._canvas.height);
+      Player.prototype.draw = function() {
+        // this._ctx.clearRect(0,0,this._canvas.width, this._canvas.height);
         this.drawSquare();
 
         if(this._rightPressed && x < this._canvas.width) {

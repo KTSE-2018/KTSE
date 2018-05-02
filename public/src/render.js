@@ -2,11 +2,8 @@ $(document).ready(function() {
       $(function() {
         // alert("HI");
         player = new Player();
-        player.draw();
         dialogue = new Dialogue();
         dialogue.draw();
-        setInterval(updateGameArea, 20);
-
       // });
       //
       // $(function() {
@@ -33,6 +30,6 @@ $(document).ready(function() {
                 player._downPressed = false;
               }
             })
-
+          setInterval(player.draw, 200000000000000000000000000000);
           });
       });
