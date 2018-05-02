@@ -1,7 +1,3 @@
-// const expect = require('chai').expect;
-// const Player = require('../public/src/player.js');
-console.log(Player);
-
 describe('Player movement', function() {
   var player, test_x, test_y, test_acc
 
@@ -13,18 +9,13 @@ describe('Player movement', function() {
     test_acc = player._acc;
   })
 
-  it('should not be a blank canvas on start-up', function() {
+  it('should have a red pixel on the canvas on load', function() {
     // Arrange
-    // var blank = document.createElement('canvas');
-    // blank.width = player._canvas.width
-    // blank.height = player._canvas.height
-    // console.log(player._ctx.getImageData(0, 0, 736, 640))
     // Action
-    // Assert
-    // chai.expect(player._canvas.toDataURL()).to.not.equal(blank.toDataURL());
+    player.draw(player)
     ctx_array = Array.prototype.slice.call(player._ctx.getImageData(343, 500, 50, 50).data)
-    console.log(ctx_array)
-    chai.expect(ctx_array).to.include(128)
+    // Assert
+    chai.expect(ctx_array).to.include(255)
   });
 
   it('should be able to move right', function() {
