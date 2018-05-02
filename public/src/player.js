@@ -25,17 +25,33 @@
         myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);
         myPlayer.drawSquare();
 
-        if(myPlayer._rightPressed && myPlayer._x + myPlayer._acc < myPlayer._canvas.width - myPlayer._squareWidth) {
+        if(myPlayer._rightPressed) {
+          if (myPlayer._x + myPlayer._acc > myPlayer._canvas.width - myPlayer._squareWidth) {
+          myPlayer._x = (myPlayer._canvas.width - myPlayer._squareWidth)
+        } else {
           myPlayer._x += myPlayer._acc;
         }
-        else if(myPlayer._leftPressed && myPlayer._x - myPlayer._acc > 0) {
+        }
+        else if(myPlayer._leftPressed) {
+          if (myPlayer._x - myPlayer._acc < 0) {
+          myPlayer._x = 0;
+        } else {
           myPlayer._x -= myPlayer._acc;
         }
-        else if(myPlayer._downPressed && myPlayer._y + myPlayer._acc < myPlayer._canvas.height - myPlayer._squareWidth) {
+        }
+        else if(myPlayer._downPressed) {
+          if (myPlayer._y + myPlayer._acc > myPlayer._canvas.height - myPlayer._squareWidth) {
+          myPlayer._y = (myPlayer._canvas.height - myPlayer._squareWidth)
+        } else {
           myPlayer._y += myPlayer._acc;
         }
-        else if(myPlayer._upPressed && myPlayer._y - myPlayer._acc > 0) {
+        }
+        else if(myPlayer._upPressed) {
+          if (myPlayer._y - myPlayer._acc < 0) {
+          myPlayer._y = 0;
+        } else {
           myPlayer._y -= myPlayer._acc;
+        }
         };
       };
 
