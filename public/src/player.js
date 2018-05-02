@@ -4,6 +4,7 @@
       this._ctx = this._canvas.getContext("2d");
       this._x = this._canvas.width/2;
       this._y = this._canvas.height - 50;
+      this._acc = 5;
 
       this._squareWidth = 50;
       this._rightPressed = false;
@@ -21,23 +22,23 @@
       }
 
       Player.prototype.draw = function(myPlayer) {
-        console.log("HI")
         myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);
         myPlayer.drawSquare();
 
-        if(myPlayer._rightPressed && x < myPlayer._canvas.width) {
-          x += 5;
+        if(myPlayer._rightPressed && myPlayer._x + myPlayer._acc < myPlayer._canvas.width - myPlayer._squareWidth) {
+          myPlayer._x += myPlayer._acc;
         }
-        else if(myPlayer._leftPressed && x > 0) {
-          x -= 5;
+        else if(myPlayer._leftPressed && myPlayer._x - myPlayer._acc > 0) {
+          myPlayer._x -= myPlayer._acc;
         }
-        else if(myPlayer._downPressed && x < myPlayer._canvas.width) {
-          y += 5;
+        else if(myPlayer._downPressed && myPlayer._y + myPlayer._acc < myPlayer._canvas.height - myPlayer._squareWidth) {
+          myPlayer._y += myPlayer._acc;
         }
-        else if(myPlayer._upPressed && x > 0) {
-          y -= 5;
+        else if(myPlayer._upPressed && myPlayer._y - myPlayer._acc > 0) {
+          myPlayer._y -= myPlayer._acc;
         }
       }
+
 
   exports.Player = Player;
 })(this);
