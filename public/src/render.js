@@ -2,8 +2,10 @@ $(document).ready(function() {
       $(function() {
         player = new Player();
         dialogue = new Dialogue();
-        dialogue.draw();
+        // dialogue.draw();
         setInterval(function(){player.draw(player)}, 20);
+        // setInterval(function(){collisionBox1.draw(collisionBox1)}, 20);
+
       });
 
       $(function() {

@@ -5,6 +5,8 @@
       this._x = this._canvas.width/2;
       this._y = this._canvas.height - 50;
       this._acc = 5;
+      collisionBox1 = new CollisionBox(30, 30, 100, 100);
+
 
       this._squareWidth = 50;
       this._rightPressed = false;
@@ -24,6 +26,12 @@
       Player.prototype.draw = function(myPlayer) {
         myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);
         myPlayer.drawSquare();
+        collisionBox1.drawCollisionBox();
+        // We need a game class that calls draw and draws all the objects.
+        // Currently if we have multiple set Interval loops the game flickers
+        // This is because they occasionally overwrite themselves.
+        // Also it's better SRP, player class shouldn't be drawing itself.
+        // It's also inefficient to be drawing lots of things to the screen lots of times.
 
         if(myPlayer._rightPressed) {
           if (myPlayer._x + myPlayer._acc > myPlayer._canvas.width - myPlayer._squareWidth) {
