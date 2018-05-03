@@ -3,12 +3,12 @@ function CollisionBox(x, y, width, height) {
     this.ctx = this.canvas.getContext("2d");
     this._x = x;
     this._y = y;
-    this._width = width;
-    this._height = height;
+    this._spriteWidth = width;
+    this._spriteHeight = height;
 
     CollisionBox.prototype.drawCollisionBox = function(){
       this.ctx.beginPath();
-      this.ctx.rect(this._x, this._y, this._width, this._height);
+      this.ctx.rect(this._x, this._y, this._spriteWidth, this._spriteHeight);
       this.ctx.fillStyle = "blue";
       this.ctx.fill();
       this.ctx.closePath();
