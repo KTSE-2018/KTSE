@@ -3,10 +3,18 @@ function Player() {
   this._ctx = this._canvas.getContext("2d");
   this._x = (this._canvas.width - this._width) / 2;
   this._y = this._canvas.height - 50;
-  this._width = 50;
-  this._height = 50;
-  this._acc = 5;
+  this._acc = 50;
   this._collisionable = []
+  
+  this._sprite = new Image();
+  this._sprite.src = '../img/heroine.png';
+  this._sprite_x = 288;
+  this._sprite_y = 0;
+  this._spriteWidth = 32;
+  this._spriteHeight = 45;
+
+  this._currentFrame = 0;
+  this._frameCount = 3; 
  
   this._rightPressed = false;
   this._leftPressed = false;
@@ -14,18 +22,32 @@ function Player() {
   this._downPressed = false;
 }
 
-Player.prototype.drawSquare = function() {
-  this._ctx.beginPath();
-  this._ctx.rect(this._x, this._y, this._width, this._height);
-  this._ctx.fillStyle = "red";
-  this._ctx.fill();
-  this._ctx.closePath();
-}
+      Player.prototype.drawSquare = function() {
+        // before?
+        this._ctx.beginPath();
+        // or after? find out on next week's episode
+        if (this._downPressed) {
+          this._sprite_y = 0;
+        } else if (this._leftPressed) {
+          this._sprite_y = 45;
+        } else if (this._rightPressed) {
+          this._sprite_y = 90;
+        } else if (this._upPressed) {
+          this._sprite_y = 135;
+        }
+        this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, 35, 50);
+        this._ctx.closePath();
+      }
 
-Player.prototype.reposition = function(myPlayer) {
-  myPlayer._ctx.clearRect(0, 0, myPlayer._canvas.width, myPlayer._canvas.height);
-  myPlayer.drawSquare();
-
+      Player.prototype.updateSquare = function() {
+        this._currentFrame = ++this._currentFrame % this._frameCount;
+        this._sprite_x = this._currentFrame * this._spriteWidth;
+      }
+        
+      Player.prototype.reposition = function(myPlayer) {
+        myPlayer._ctx.clearRect(0, 0, myPlayer._canvas.width, myPlayer._canvas.height);
+        myPlayer.updateSquare();
+        myPlayer.drawSquare();
 
   if (myPlayer._rightPressed) {
     if (myPlayer._x + myPlayer._acc > myPlayer._canvas.width - myPlayer._width) {
