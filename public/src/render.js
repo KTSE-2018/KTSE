@@ -3,7 +3,7 @@ $(document).ready(function() {
         player = new Player();
         dialogue = new Dialogue();
         dialogue.draw();
-        setInterval(function(){player.draw(player)}, 20);
+        setInterval(function(){player.draw(player)}, 80);
       });
 
       $(function() {

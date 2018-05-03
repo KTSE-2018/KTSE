@@ -4,7 +4,7 @@
       this._ctx = this._canvas.getContext("2d");
       this._x = this._canvas.width/2;
       this._y = this._canvas.height - 50;
-      this._acc = 5;
+      this._acc = 50;
       
       this._sprite = new Image();
       this._sprite.src = '../img/heroine.png';
@@ -14,7 +14,7 @@
       this._spriteHeight = 45;
 
       this._currentFrame = 0;
-      this._frameCount = 3;
+      this._frameCount = 3; 
 
       this._squareWidth = 50;
       this._rightPressed = false;
@@ -24,8 +24,19 @@
     }
 
       Player.prototype.drawSquare = function() {
+        // before?
         this._ctx.beginPath();
-        this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
+        // or after? find out on next week's episode
+        if (this._downPressed) {
+          this._sprite_y = 0;
+        } else if (this._leftPressed) {
+          this._sprite_y = 45;
+        } else if (this._rightPressed) {
+          this._sprite_y = 90;
+        } else if (this._upPressed) {
+          this._sprite_y = 135;
+        }
+        this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, 35, 50);
         this._ctx.closePath();
       }
 
@@ -35,7 +46,7 @@
       }
 
       Player.prototype.draw = function(myPlayer) {
-        myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);
+        myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);     
         myPlayer.updateSquare();
         myPlayer.drawSquare();
 
