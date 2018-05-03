@@ -1,9 +1,10 @@
 $(document).ready(function() {
       $(function() {
+        game = new Game();
         player = new Player();
-        dialogue = new Dialogue();
-        dialogue.draw();
-        setInterval(function(){player.draw(player)}, 20);
+        collisionBox1 = new CollisionBox(30, 30, 100, 100);
+        player._collisionable.push(collisionBox1)
+        setInterval(function(){ game.draw([player, collisionBox1]) }, 20);
       });
 
       $(function() {
