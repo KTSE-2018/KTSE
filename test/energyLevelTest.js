@@ -20,7 +20,12 @@ describe('EnergyLevel', function() {
       el = new EnergyLevel()
       el.decreaseEnergy()
       chai.expect(el.points).to.eq(90);
+    });
 
+    it('cant decrease by more than held energy', function() {
+      el = new EnergyLevel()
+      el.decreaseEnergy(101)
+      chai.expect(el.points).to.eq(100);
     });
   });
 });
