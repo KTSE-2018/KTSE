@@ -22,8 +22,12 @@ describe('ActionPoints', function() {
     });
 
     it('cant consume more AP than you currently have', function() {
+      const err = Error('Insufficient AP');
+
       ap = new ActionPoints();
-      chai.expect(ap.consumeAP(11)).to.throw('You do not have enough AP.')
+      ap.consumeAP(11)
+
+      chai.expect(ap.points).to.eq(10)
     });
   });
 });
