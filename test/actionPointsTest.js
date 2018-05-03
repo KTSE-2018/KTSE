@@ -29,4 +29,11 @@ describe('ActionPoints', function() {
       chai.expect(ap.points).to.eq(10)
     });
   });
+
+  describe('.increaseAP', function() {
+    it('increases AP by 1 as default', function() {
+      ap.increaseAP(11)
+      chai.expect(ap.points).to.eq(11)
+    });
+  });
 });
