@@ -55,34 +55,41 @@ Player.prototype.reposition = function(myPlayer) {
     if (myPlayer._x + myPlayer._moveDelta > myPlayer._canvas.width - myPlayer._spriteWidth) {
       myPlayer._x = (myPlayer._canvas.width - myPlayer._spriteWidth)
     } else {
-      // if (collisionOnR(player, this._collisionable[0]) === true) {} else {
-      myPlayer._x += myPlayer._moveDelta;
-      // }
+      if (collisionOnR(player, player._collisionable, player._acc) === true) {
+
+      } else {
+        myPlayer._x += myPlayer._moveDelta;
+       }
     }
   } else if (myPlayer._leftPressed) {
     if (myPlayer._x - myPlayer._moveDelta < 0) {
       myPlayer._x = 0;
     } else {
-      // if (collisionOnL(player, this._collisionable[0]) === true) {} else {
-      myPlayer._x -= myPlayer._moveDelta;
-      // }
+      if (collisionOnL(player, player._collisionable, player._acc) === true) {
+
+      } else {
+        myPlayer._x -= myPlayer._moveDelta;
+      }
     }
   } else if (myPlayer._downPressed) {
     if (myPlayer._y + myPlayer._moveDelta > myPlayer._canvas.height - myPlayer._spriteHeight) {
       myPlayer._y = (myPlayer._canvas.height - myPlayer._spriteHeight)
     } else {
-      // if (collisionOnD(player, this._collisionable[0]) === true) {} else {
-      myPlayer._y += myPlayer._moveDelta;
-      // }
+      if (collisionOnD(player, player._collisionable, player._acc) === true) {
+
+      } else {
+        myPlayer._y += myPlayer._moveDelta;
+     }
     }
   } else if (myPlayer._upPressed) {
     if (myPlayer._y - myPlayer._moveDelta < 0) {
       myPlayer._y = 0;
     } else {
-      // if (collisionOnU(player, this._collisionable[0]) === true) {} else {
-      myPlayer._y -= myPlayer._moveDelta;
-      // }
+      if (collisionOnU(player, player._collisionable, player._acc) === true) {
 
+      } else {
+        myPlayer._y -= myPlayer._moveDelta;
+      }
     }
   };
 };
