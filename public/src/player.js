@@ -32,33 +32,42 @@ Player.prototype.reposition = function(myPlayer) {
     if (myPlayer._x + myPlayer._acc > myPlayer._canvas.width - myPlayer._width) {
       myPlayer._x = (myPlayer._canvas.width - myPlayer._width)
     } else {
-      // if (collisionOnR(player, this._collisionable[0]) === true) {} else {
+      if (collisionOnR(player, player._collisionable, player._acc) === true) {
+
+      } else {
         myPlayer._x += myPlayer._acc;
-      // }
+       }
     }
   } else if (myPlayer._leftPressed) {
     if (myPlayer._x - myPlayer._acc < 0) {
       myPlayer._x = 0;
     } else {
-      // if (collisionOnL(player, this._collisionable[0]) === true) {} else {
+      if (collisionOnL(player, player._collisionable, player._acc) === true) {
+
+      } else {
         myPlayer._x -= myPlayer._acc;
-      // }
+      }
     }
   } else if (myPlayer._downPressed) {
     if (myPlayer._y + myPlayer._acc > myPlayer._canvas.height - myPlayer._width) {
       myPlayer._y = (myPlayer._canvas.height - myPlayer._width)
     } else {
-      // if (collisionOnD(player, this._collisionable[0]) === true) {} else {
+      if (collisionOnD(player, player._collisionable, player._acc) === true) {
+
+      } else {
         myPlayer._y += myPlayer._acc;
-      // }
+     }
     }
   } else if (myPlayer._upPressed) {
     if (myPlayer._y - myPlayer._acc < 0) {
       myPlayer._y = 0;
     } else {
-      // if (collisionOnU(player, this._collisionable[0]) === true) {} else {
+      console.log(collisionOnU(player, player._collisionable, player._acc))
+      if (collisionOnU(player, player._collisionable, player._acc) === true) {
+
+      } else {
         myPlayer._y -= myPlayer._acc;
-      // }
+      }
 
     }
   };
