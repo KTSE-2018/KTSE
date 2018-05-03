@@ -1,14 +1,13 @@
 function Player() {
   this._canvas = document.getElementById("myCanvas");
   this._ctx = this._canvas.getContext("2d");
-  this._x = this._canvas.width / 2;
+  this._x = (this._canvas.width - this._width) / 2;
   this._y = this._canvas.height - 50;
-  this._acc = 5;
-  this._collisionable = []
-
   this._width = 50;
   this._height = 50;
-
+  this._acc = 5;
+  this._collisionable = []
+ 
   this._rightPressed = false;
   this._leftPressed = false;
   this._upPressed = false;
