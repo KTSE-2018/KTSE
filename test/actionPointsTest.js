@@ -32,7 +32,7 @@ describe('ActionPoints', function() {
 
   describe('.increaseAP', function() {
     it('increases AP by 1 as default', function() {
-      ap.increaseAP(11)
+      ap.increaseAP()
       chai.expect(ap.points).to.eq(11)
     });
   });

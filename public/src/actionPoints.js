@@ -12,4 +12,9 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
   }
 };
 
+ActionPoints.prototype.increaseAP = function(x = 1) {
+  this.points += x
+
+};
+
 module.exports = ActionPoints
