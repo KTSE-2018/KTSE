@@ -26,7 +26,6 @@ describe('ActionPoints', function() {
 
       ap = new ActionPoints();
       ap.consumeAP(11)
-
       chai.expect(ap.points).to.eq(10)
     });
   });
