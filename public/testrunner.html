@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+</head>
+
+<body>
+  <canvas id="myCanvas" width="736" height="640"></canvas>
+
+  <div id="mocha"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="blanket.min.js" data-cover-adapter="mocha-blanket.js"></script>
+  <script>
+    mocha.setup('bdd')
+  </script>
+
+  <!-- load code you want to test here -->
+  <script src="src/player.js"></script>
+  <script src="src/actionPoints.js" charset="utf-8"></script>
+  <script src="src/energyLevel.js" charset="utf-8"></script>
+  <script src="src/projectScore.js" charset="utf-8"></script>
+
+  <!-- load your test files here -->
+  <script src="../test/playerTest.js"></script>
+  <script src="../test/actionPointsTest.js"></script>
+  <script src="../test/energyLevelTest.js"></script>
+  <script src="../test/projectScoreTest.js"></script>
+
+  <script>
+    mocha.run();
+  </script>
+</body>
+
+</html>
