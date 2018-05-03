@@ -11,7 +11,7 @@ describe('EnergyLevel', function() {
     it('increases EnergyLevel points by 10 as default', function() {
       el = new EnergyLevel()
       el.increaseEnergy()
-      chai.expect(el.points).toEqual(110);
+      chai.expect(el.points).to.eq(110);
     });
   });
 });
