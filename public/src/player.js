@@ -7,7 +7,11 @@
       this._acc = 5;
       
       this._sprite = new Image();
-      this._sprite.src = '../img/coin.png'
+      this._sprite.src = '../img/coin.png';
+      this._sprite_x = 46;
+      this._sprite_y = 0;
+      this._spriteWidth = 46;
+      this._spriteHeight = 40;
 
       this._squareWidth = 50;
       this._rightPressed = false;
@@ -19,7 +23,7 @@
       Player.prototype.drawSquare = function() {
         this._ctx.beginPath();
         // this._ctx.rect(this._x,this._y,this._squareWidth,this._squareWidth);
-        this._ctx.drawImage(this._sprite, this._x, this._y)
+        this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
         // this._ctx.fillStyle = "red";
         // this._ctx.fill();
         this._ctx.closePath();
