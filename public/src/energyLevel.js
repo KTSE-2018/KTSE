@@ -7,5 +7,10 @@ EnergyLevel.prototype.increaseEnergy = function(x = 10) {
 };
 
 EnergyLevel.prototype.decreaseEnergy = function(x = 10) {
-  this.points -= x
+  if (x > this.points) {
+    console.error('insufficient Energy');
+  } else {
+    this.points -= x
+
+  }
 };
