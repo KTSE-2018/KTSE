@@ -13,9 +13,9 @@ describe('Player movement', function() {
     // Arrange
     // Action
     player.draw(player)
-    ctx_array = Array.prototype.slice.call(player._ctx.getImageData(343, 500, 50, 50).data)
+    ctx_array = Array.prototype.slice.call(player._ctx.getImageData(343, 500, 1, 1).data)
     // Assert
-    chai.expect(ctx_array).to.include(255)
+    chai.expect(ctx_array).to.eql([255,0,0,255])
   });
 
   it('should be able to move right', function() {
