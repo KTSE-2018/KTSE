@@ -55,8 +55,9 @@ Player.prototype.reposition = function(myPlayer) {
     if (myPlayer._x + myPlayer._moveDelta > myPlayer._canvas.width - myPlayer._spriteWidth) {
       myPlayer._x = (myPlayer._canvas.width - myPlayer._spriteWidth)
     } else {
-      if (collisionOnR(player, player._collisionable, player._moveDelta) === true) {
-
+      if (collisionOnR(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
+        var object = collisionOnR(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
+        myPlayer._x = (object._x - myPlayer._spriteWidth)
       } else {
         myPlayer._x += myPlayer._moveDelta;
       }
@@ -65,8 +66,9 @@ Player.prototype.reposition = function(myPlayer) {
     if (myPlayer._x - myPlayer._moveDelta < 0) {
       myPlayer._x = 0;
     } else {
-      if (collisionOnL(player, player._collisionable, player._moveDelta) === true) {
-
+      if (collisionOnL(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
+        var object = collisionOnL(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
+        myPlayer._x = (object._x + object._spriteWidth)
       } else {
         myPlayer._x -= myPlayer._moveDelta;
       }
@@ -75,8 +77,9 @@ Player.prototype.reposition = function(myPlayer) {
     if (myPlayer._y + myPlayer._moveDelta > myPlayer._canvas.height - myPlayer._spriteHeight) {
       myPlayer._y = (myPlayer._canvas.height - myPlayer._spriteHeight)
     } else {
-      if (collisionOnD(player, player._collisionable, player._moveDelta) === true) {
-
+      if (collisionOnD(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
+        var object = collisionOnD(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
+        myPlayer._y = (object._y - myPlayer._spriteHeight)
       } else {
         myPlayer._y += myPlayer._moveDelta;
       }
@@ -85,8 +88,9 @@ Player.prototype.reposition = function(myPlayer) {
     if (myPlayer._y - myPlayer._moveDelta < 0) {
       myPlayer._y = 0;
     } else {
-      if (collisionOnU(player, player._collisionable, player._moveDelta) === true) {
-
+      if (collisionOnU(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
+        var object = collisionOnU(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
+        myPlayer._y = (object._y + object._spriteHeight)
       } else {
         myPlayer._y -= myPlayer._moveDelta;
       }
