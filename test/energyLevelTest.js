@@ -6,4 +6,12 @@ describe('EnergyLevel', function() {
       chai.expect(el.points).to.eq(100);
     });
   });
+
+  describe('.increaseEnergy', function() {
+    it('increases EnergyLevel points by 10 as default', function() {
+      el = new EnergyLevel()
+      el.increaseEnergy()
+      chai.expect(el.points).toEqual(110);
+    });
+  });
 });
