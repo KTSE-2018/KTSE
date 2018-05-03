@@ -1,6 +1,6 @@
 (function(exports) {
     collisionLogic = function(player, collisionObjects, stepSize, direction) {
-      
+
       var bool
       var obj
 
