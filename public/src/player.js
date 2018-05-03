@@ -7,11 +7,14 @@
       this._acc = 5;
       
       this._sprite = new Image();
-      this._sprite.src = '../img/coin.png';
-      this._sprite_x = 46;
+      this._sprite.src = '../img/heroine.png';
+      this._sprite_x = 288;
       this._sprite_y = 0;
-      this._spriteWidth = 46;
-      this._spriteHeight = 40;
+      this._spriteWidth = 32;
+      this._spriteHeight = 45;
+
+      this._currentFrame = 0;
+      this._frameCount = 3;
 
       this._squareWidth = 50;
       this._rightPressed = false;
@@ -22,15 +25,18 @@
 
       Player.prototype.drawSquare = function() {
         this._ctx.beginPath();
-        // this._ctx.rect(this._x,this._y,this._squareWidth,this._squareWidth);
         this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
-        // this._ctx.fillStyle = "red";
-        // this._ctx.fill();
         this._ctx.closePath();
+      }
+
+      Player.prototype.updateSquare = function() {
+        this._currentFrame = ++this._currentFrame % this._frameCount;
+        this._sprite_x = this._currentFrame * this._spriteWidth;
       }
 
       Player.prototype.draw = function(myPlayer) {
         myPlayer._ctx.clearRect(0,0,myPlayer._canvas.width, myPlayer._canvas.height);
+        myPlayer.updateSquare();
         myPlayer.drawSquare();
 
         if(myPlayer._rightPressed) {
