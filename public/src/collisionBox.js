@@ -9,7 +9,7 @@ function CollisionBox(x, y, width, height) {
     CollisionBox.prototype.drawCollisionBox = function(){
       this.ctx.beginPath();
       this.ctx.rect(this._x, this._y, this._spriteWidth, this._spriteHeight);
-      this.ctx.fillStyle = "blue";
+      this.ctx.fillStyle = "rgba(255, 255, 255, 0)";
       this.ctx.fill();
       this.ctx.closePath();
     }
