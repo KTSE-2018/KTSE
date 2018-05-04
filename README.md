@@ -12,16 +12,12 @@ Katsu-to-SpaceEx (KTSE)* is a strategic survival simulation (SSS) game where a p
 * The player must manage random events and decision-points which will affect them in various ways.
 * The player can interact with Non-Playable Characters (NPCs) who may, within limits, offer bonus effects to support the player’s performance.
 KTSE has been developed using the following technologies*:
-* Primary Language: <del>C#</del> Javascript
-* Test Framework: Mocha, Chai, Zombie
-* Web Application Framework: Express
 
 ## Architecture Model
 
 ## Domain Model
 
 ## Project Approach
-MVP
 
 ## Project Kick Off
 * Brainstorming (generated 6 ideas)
@@ -31,7 +27,12 @@ MVP
 * Define overarching game concept (objective, features, high level mechanics)
 * Refine MVP
 
-## Deciding the Tech Stack
+## Tech Stack
+* Primary Language: <del>C#</del> Javascript
+* Test Framework: Mocha, Chai, Zombie
+* Web Application Framework: Express
+
+We made our decision to go with these technologies via:
 * Online research
 * Seeking advice from coaches
 * Seeking advice from MA alumni
