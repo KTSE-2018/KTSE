@@ -21,6 +21,7 @@ KTSE has been developed using the following technologies*:
 ## Domain Model
 
 ## Project Approach
+MVP
 
 ## Project Kick Off
 * Brainstorming (generated 6 ideas)
@@ -37,9 +38,16 @@ KTSE has been developed using the following technologies*:
 * Seeking advice from expert game developers
 
 ## C# vs Javascript
-* To be completed
+When deciding what technologies we wanted to create our game in, we had an interesting segway at the start of our project to attempt to create our game in C#. Reasons for this included:
+- C# is a popular language in the gamedev industry
+- Availability of libraries and frameworks such as Unity and XNA/MonoGame
+- The challenge of learning another language
 
+However, after a day and a half of setting up our developer environment, we decided to make the move back to JavaScript as the software and utilities available to those using a Mac were immature compared to their Windows counterparts. Visual Studio also has UI differences between the two operating systems, causing further confusion as we attempted to navigate and gain a foothold in making a start on the language.
+
+We did manage to get sprites working and a game building and running successfully using the MonoGame framework - and some of our members are considering revisiting C# post-course on our Windows environments to work on a game as a side project.
 
 ## Project Management
 Task management: Trello  
 Knowledge management: GitHub Wiki
+Communication: Slack
