@@ -13,7 +13,7 @@ $(document).ready(function() {
     collisionBox7 = new CollisionBox(455, 670, 50, 50, 'box7');
     collisionBox8 = new CollisionBox(455, 450, 50, 110, 'box8');
     collisionBox9 = new CollisionBox(455, 160, 50, 175, 'box9');
-    collisionBox10 = new CollisionBox(545, 50, 60, 40, 'box10');
+    collisionBox10 = new CollisionBox(545, 50, 60, 40, 'npc1');
     collisionBox11 = new CollisionBox(355, 0, 60, 30, 'box11');
     collisionBox12 = new CollisionBox(353, 160, 62, 62, 'box12');
     collisionBox13 = new CollisionBox(353, 353, 62, 62, 'box13');

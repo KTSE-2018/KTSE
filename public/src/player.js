@@ -110,8 +110,8 @@ Player.prototype.moveUp = function(myPlayer, collisionObject) {
 
 Player.prototype.canInteract = function(collisionObject) {
   if ((collisionObject['object']._id).includes("npc")) {
-    collisionLogic.interact("NPC");
+    collisionLogic.interact("TAKE A BREAK!");
   } else {
-    collisionLogic.interact("BOX");
+    collisionLogic.interact("ME NO SPEAKY");
   }
 }
