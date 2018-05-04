@@ -16,5 +16,3 @@ ActionPoints.prototype.increaseAP = function(x = 1) {
   this.points += x
 
 };
-
-module.exports = ActionPoints
