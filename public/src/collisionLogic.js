@@ -2,7 +2,7 @@
   collisionLogic = function(player, collisionObjects, stepSize, direction) {
     var bool
     var obj
-
+    
     collisionObjects.some(function(e) {
       if (
         ((player._y - (direction === 'U' ? stepSize : 0) >= (e._y + e._spriteHeight)) ||
