@@ -17,9 +17,18 @@
       ctx.closePath();
     }
 
+    Dialogue.prototype.drawDialogueText = function(){
+    ctx.beginPath();
+    ctx.font = '14pt Calibri';
+    ctx.fillStyle = 'black';
+    ctx.fillText(input_text, 60, 545);
+    ctx.closePath();
+    }
+
     Dialogue.prototype.draw = function(){
       //ctx.clearRect(0,0,canvas.width, canvas.height);
       this.drawDialogueBox();
+      this.drawDialogueText();
     }
   }
 
