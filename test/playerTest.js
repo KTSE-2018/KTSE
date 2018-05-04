@@ -2,10 +2,6 @@ describe('Player movement', function() {
   var player, test_x, test_y, test_moveDelta
   var expect = chai.expect;
 
-  // var chai = require("chai");
-  // var sinonChai = require("sinon-chai");
-  // chai.use(sinonChai);
-
   beforeEach(function() {
     player = new Player();
     collisionLogic = new CollisionLogic
