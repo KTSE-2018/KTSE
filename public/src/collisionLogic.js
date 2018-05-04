@@ -24,7 +24,6 @@
 //   exports.collisionLogic = collisionLogic;
 // })(this)
 
-
 (function(exports) {
     function CollisionLogic() {
     }
@@ -51,7 +50,7 @@
     }
 
     CollisionLogic.prototype.interact = function() {
-      alert("hi")
+      console.log("MESSAGE")
     };
 
   exports.CollisionLogic = CollisionLogic;

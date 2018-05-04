@@ -9,9 +9,10 @@ describe('collisionLogic', function() {
 
   it('should cause player to interact with object on collision', function() {
     // Arrange
-    
+
     // Action
 
     // Assert
 
-  }
+  })
+})
