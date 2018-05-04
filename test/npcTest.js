@@ -1,7 +1,7 @@
 describe('Npc', function(){
     beforeEach(function() {
-      var npc = new Npc;
-      var script = new Script;
+      var npc = new Npc();
+      var script = new Script();
       scriptStub = sinon.stub(script, "container")
       scriptStub.returns([{m: "Do you want to meditate?"}])
     });

@@ -1,12 +1,13 @@
 describe('Player Interaction', function() {
   var player, collide_object, message_box
+  var expect = chai.expect;
 
   beforeEach(function() {
     player = new Player();
     player._y = 500;
 
-    collisionLogic = new CollisionLogic
-    consoleSpy = sinon.spy(console, 'log');
+    collisionLogic = new CollisionLogic()
+    sinon.spy(console, 'log');
     collisionStub = sinon.stub(collisionLogic, "collision")
     collision_box = {
       '_id': 'box'
@@ -26,7 +27,7 @@ describe('Player Interaction', function() {
   })
 
   afterEach(function() {
-    consoleSpy.restore();
+    (console.log).restore();
   })
 
   it('should not allow a player to interact with an object on right-collision', function() {
@@ -36,7 +37,10 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("BOX")
+    expect((console.log).calledWith("ME NO SPEAKY")).to.be.true
+    // console.log(consoleSpy);
+    // expect(consoleSpy).to.equal("ME NO SPEAKY")
+    //assert(consoleSpy.calledWith("BLAH")
   })
 
   it('should not allow a player to interact with an object on left-collision', function() {
@@ -46,7 +50,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("BOX")
+    expect((console.log).calledWith("ME NO SPEAKY")).to.be.true
   })
 
   it('should not allow a player to interact with an object on up-collision', function() {
@@ -56,7 +60,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("BOX")
+    expect((console.log).calledWith("ME NO SPEAKY")).to.be.true
   })
 
   it('should not allow a player to interact with an object on down-collision', function() {
@@ -66,7 +70,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("BOX")
+    expect((console.log).calledWith("ME NO SPEAKY")).to.be.true
   })
 
 
@@ -77,7 +81,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("NPC")
+    expect((console.log).calledWith("TAKE A BREAK!")).to.be.true
   })
 
   it('should allow a player to interact with an NPC on left-collision', function() {
@@ -87,7 +91,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("NPC")
+    expect((console.log).calledWith("TAKE A BREAK!")).to.be.true
   })
 
   it('should allow a player to interact with an NPC on up-collision', function() {
@@ -97,7 +101,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("NPC")
+    expect((console.log).calledWith("TAKE A BREAK!")).to.be.true
   })
 
   it('should allow a player to interact with an NPC on down-collision', function() {
@@ -107,7 +111,7 @@ describe('Player Interaction', function() {
     // Action
     player.reposition(player);
     // Assert
-    consoleSpy.returned("NPC")
+    expect((console.log).calledWith("TAKE A BREAK!")).to.be.true
   })
 
 })
