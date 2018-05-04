@@ -12,17 +12,14 @@
   <div id="mocha"></div>
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
-  <script src="blanket.min.js" data-cover-adapter="mocha-blanket.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/5.0.3/sinon.min.js"></script>
   <script>
     mocha.setup('bdd')
   </script>
 
   <!-- load code you want to test here -->
   <script src="src/player.js"></script>
-  <script src="src/collisionOnD.js"></script>
-  <script src="src/collisionOnL.js"></script>
-  <script src="src/collisionOnR.js"></script>
-  <script src="src/collisionOnU.js"></script>
+  <script src="src/collisionLogic.js"></script>
   <script src="src/actionPoints.js" charset="utf-8"></script>
   <script src="src/energyLevel.js" charset="utf-8"></script>
   <script src="src/projectScore.js" charset="utf-8"></script>
@@ -33,7 +30,12 @@
   <script src="../test/actionPointsTest.js"></script>
   <script src="../test/energyLevelTest.js"></script>
   <script src="../test/projectScoreTest.js"></script>
+<<<<<<< HEAD
   <script src="../test/cycleTest.js"></script>
+=======
+  <script src="../test/collisionLogicTest.js"></script>
+  <script src="../test/interactionTest.js"></script>
+>>>>>>> dcfa85cf442c301b7b3e12e6f783195811418846
 
   <script>
     mocha.run();

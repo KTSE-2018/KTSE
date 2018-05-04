@@ -15,6 +15,7 @@ function Player() {
   this._y = this._canvas.height - this._spriteHeight;
   this._moveDelta = 50;
   this._collisionable = [];
+  this._interact = false;
 
   this._rightPressed = false;
   this._leftPressed = false;
@@ -23,9 +24,7 @@ function Player() {
 }
 
 Player.prototype.drawSprite = function() {
-  // console.log("DrawSprite", this._sprite)
   this._ctx.beginPath();
-  // or after? find out on next week's episode
   if (this._downPressed) {
     this._sprite_y = 0;
   } else if (this._leftPressed) {
@@ -34,66 +33,85 @@ Player.prototype.drawSprite = function() {
     this._sprite_y = 90;
   } else if (this._upPressed) {
     this._sprite_y = 135;
-  }
-  this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
+  };
+  this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth,
+    this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
   this._ctx.closePath();
-}
+};
 
 Player.prototype.updateSprite = function() {
-  // console.log("updateSprite")
   this._currentFrame = ++this._currentFrame % this._frameCount;
   this._sprite_x = this._currentFrame * this._spriteWidth;
-}
+};
 
 Player.prototype.reposition = function(myPlayer) {
-  // console.log("reposition")
   myPlayer._ctx.clearRect(0, 0, myPlayer._canvas.width, myPlayer._canvas.height);
   myPlayer.updateSprite();
   myPlayer.drawSprite();
 
   if (myPlayer._rightPressed) {
-    if (myPlayer._x + myPlayer._moveDelta > myPlayer._canvas.width - myPlayer._spriteWidth) {
-      myPlayer._x = (myPlayer._canvas.width - myPlayer._spriteWidth)
-    } else {
-      if (collisionOnR(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
-        var object = collisionOnR(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
-        myPlayer._x = (object._x - myPlayer._spriteWidth)
-      } else {
-        myPlayer._x += myPlayer._moveDelta;
-      }
-    }
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'R');
+    myPlayer.moveRight(myPlayer, object);
   } else if (myPlayer._leftPressed) {
-    if (myPlayer._x - myPlayer._moveDelta < 0) {
-      myPlayer._x = 0;
-    } else {
-      if (collisionOnL(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
-        var object = collisionOnL(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
-        myPlayer._x = (object._x + object._spriteWidth)
-      } else {
-        myPlayer._x -= myPlayer._moveDelta;
-      }
-    }
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'L');
+    myPlayer.moveLeft(myPlayer, object);
   } else if (myPlayer._downPressed) {
-    if (myPlayer._y + myPlayer._moveDelta > myPlayer._canvas.height - myPlayer._spriteHeight) {
-      myPlayer._y = (myPlayer._canvas.height - myPlayer._spriteHeight)
-    } else {
-      if (collisionOnD(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
-        var object = collisionOnD(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
-        myPlayer._y = (object._y - myPlayer._spriteHeight)
-      } else {
-        myPlayer._y += myPlayer._moveDelta;
-      }
-    }
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'D');
+    myPlayer.moveDown(myPlayer, object);
   } else if (myPlayer._upPressed) {
-    if (myPlayer._y - myPlayer._moveDelta < 0) {
-      myPlayer._y = 0;
-    } else {
-      if (collisionOnU(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['collide'] === true) {
-        var object = collisionOnU(myPlayer, myPlayer._collisionable, myPlayer._moveDelta)['object']
-        myPlayer._y = (object._y + object._spriteHeight)
-      } else {
-        myPlayer._y -= myPlayer._moveDelta;
-      }
-    }
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'U');
+    myPlayer.moveUp(myPlayer, object);
   };
 };
+
+Player.prototype.moveRight = function(myPlayer, collisionObject) {
+  if (myPlayer._x + myPlayer._moveDelta > myPlayer._canvas.width - myPlayer._spriteWidth) {
+    myPlayer._x = (myPlayer._canvas.width - myPlayer._spriteWidth);
+  } else if (collisionObject['collide'] === true) {
+    myPlayer._x = (collisionObject['object']._x - myPlayer._spriteWidth);
+    myPlayer.canInteract(collisionObject);
+  } else {
+    myPlayer._x += myPlayer._moveDelta;
+  };
+};
+
+Player.prototype.moveLeft = function(myPlayer, collisionObject) {
+  if (myPlayer._x - myPlayer._moveDelta < 0) {
+    myPlayer._x = 0;
+  } else if (collisionObject['collide'] === true) {
+    myPlayer._x = (collisionObject['object']._x + collisionObject['object']._spriteWidth)
+    myPlayer.canInteract(collisionObject);
+  } else {
+    myPlayer._x -= myPlayer._moveDelta;
+  };
+}
+
+Player.prototype.moveDown = function(myPlayer, collisionObject) {
+  if (myPlayer._y + myPlayer._moveDelta > myPlayer._canvas.height - myPlayer._spriteHeight) {
+    myPlayer._y = (myPlayer._canvas.height - myPlayer._spriteHeight)
+  } else if (collisionObject['collide'] === true) {
+    myPlayer._y = (collisionObject['object']._y - myPlayer._spriteHeight)
+    myPlayer.canInteract(collisionObject);
+  } else {
+    myPlayer._y += myPlayer._moveDelta;
+  };
+}
+
+Player.prototype.moveUp = function(myPlayer, collisionObject) {
+  if (myPlayer._y - myPlayer._moveDelta < 0) {
+    myPlayer._y = 0;
+  } else if (collisionObject['collide'] === true) {
+    myPlayer._y = (collisionObject['object']._y + collisionObject['object']._spriteHeight)
+    myPlayer.canInteract(collisionObject);
+  } else {
+    myPlayer._y -= myPlayer._moveDelta;
+  };
+}
+
+Player.prototype.canInteract = function(collisionObject) {
+  if ((collisionObject['object']._id).includes("npc")) {
+    collisionLogic.interact("TAKE A BREAK!");
+  } else {
+    collisionLogic.interact("ME NO SPEAKY");
+  }
+}
