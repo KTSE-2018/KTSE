@@ -1,9 +1,10 @@
 $(document).ready(function() {
       $(function() {
         game = new Game();
+        collisionLogic = new CollisionLogic();
         player = new Player();
-        collisionBox1 = new CollisionBox(400, 400, 100, 100);
-        collisionBox2 = new CollisionBox(200, 200, 100, 100);
+        collisionBox1 = new CollisionBox(400, 400, 100, 100, 'red_box', 'red');
+        collisionBox2 = new CollisionBox(200, 200, 100, 100, 'blue_box', 'blue');
         player._collisionable.push(collisionBox1, collisionBox2)
         setInterval(function(){ game.draw([player, collisionBox1, collisionBox2]) }, 100);
       });
