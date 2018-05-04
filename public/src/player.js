@@ -50,16 +50,16 @@ Player.prototype.reposition = function(myPlayer) {
   myPlayer.drawSprite();
 
   if (myPlayer._rightPressed) {
-    var object = collisionLogic(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'R');
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'R');
     myPlayer.moveRight(myPlayer, object);
   } else if (myPlayer._leftPressed) {
-    var object = collisionLogic(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'L');
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'L');
     myPlayer.moveLeft(myPlayer, object);
   } else if (myPlayer._downPressed) {
-    var object = collisionLogic(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'D');
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'D');
     myPlayer.moveDown(myPlayer, object);
   } else if (myPlayer._upPressed) {
-    var object = collisionLogic(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'U');
+    var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'U');
     myPlayer.moveUp(myPlayer, object);
   };
 };
@@ -69,6 +69,7 @@ Player.prototype.moveRight = function(myPlayer, collisionObject) {
     myPlayer._x = (myPlayer._canvas.width - myPlayer._spriteWidth);
   } else if (collisionObject['collide'] === true) {
     myPlayer._x = (collisionObject['object']._x - myPlayer._spriteWidth);
+    myPlayer.canInteract(collisionObject);
   } else {
     myPlayer._x += myPlayer._moveDelta;
   };
@@ -79,6 +80,7 @@ Player.prototype.moveLeft = function(myPlayer, collisionObject) {
     myPlayer._x = 0;
   } else if (collisionObject['collide'] === true) {
     myPlayer._x = (collisionObject['object']._x + collisionObject['object']._spriteWidth)
+    myPlayer.canInteract(collisionObject);
   } else {
     myPlayer._x -= myPlayer._moveDelta;
   };
@@ -89,6 +91,7 @@ Player.prototype.moveDown = function(myPlayer, collisionObject) {
     myPlayer._y = (myPlayer._canvas.height - myPlayer._spriteHeight)
   } else if (collisionObject['collide'] === true) {
     myPlayer._y = (collisionObject['object']._y - myPlayer._spriteHeight)
+    myPlayer.canInteract(collisionObject);
   } else {
     myPlayer._y += myPlayer._moveDelta;
   };
@@ -99,7 +102,16 @@ Player.prototype.moveUp = function(myPlayer, collisionObject) {
     myPlayer._y = 0;
   } else if (collisionObject['collide'] === true) {
     myPlayer._y = (collisionObject['object']._y + collisionObject['object']._spriteHeight)
+    myPlayer.canInteract(collisionObject);
   } else {
     myPlayer._y -= myPlayer._moveDelta;
   };
+}
+
+Player.prototype.canInteract = function(collisionObject) {
+  if ((collisionObject['object']._id).includes("npc")) {
+    collisionLogic.interact("NPC");
+  } else {
+    collisionLogic.interact("BOX");
+  }
 }

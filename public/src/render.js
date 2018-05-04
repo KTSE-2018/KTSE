@@ -2,23 +2,24 @@ $(document).ready(function() {
   $(function() {
     game = new Game();
     player = new Player();
+    collisionLogic = new CollisionLogic();
 
-    collisionBox1 = new CollisionBox(36, 90, 250, 80);
-    collisionBox2 = new CollisionBox(36, 280, 250, 80);
-    collisionBox3 = new CollisionBox(36, 470, 250, 80);
-    collisionBox4 = new CollisionBox(70, 640, 50, 50);
-    collisionBox5 = new CollisionBox(200, 640, 50, 50);
-    collisionBox6 = new CollisionBox(550, 670, 50, 50);
-    collisionBox7 = new CollisionBox(455, 670, 50, 50);
-    collisionBox8 = new CollisionBox(455, 450, 50, 110);
-    collisionBox9 = new CollisionBox(455, 160, 50, 175);
-    collisionBox10 = new CollisionBox(545, 50, 60, 40);
-    collisionBox11 = new CollisionBox(355, 0, 60, 30);
-    collisionBox12 = new CollisionBox(353, 160, 62, 62);
-    collisionBox13 = new CollisionBox(353, 353, 62, 62);
-    collisionBox14 = new CollisionBox(353, 545, 62, 62);
-    collisionBox15 = new CollisionBox(353, 705, 60, 30);
-    collisionBox16 = new CollisionBox(577, 383, 60, 160);
+    collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
+    collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');
+    collisionBox3 = new CollisionBox(36, 470, 250, 80, 'box3');
+    collisionBox4 = new CollisionBox(70, 640, 50, 50, 'box4');
+    collisionBox5 = new CollisionBox(200, 640, 50, 50, 'box5');
+    collisionBox6 = new CollisionBox(550, 670, 50, 50, 'box6');
+    collisionBox7 = new CollisionBox(455, 670, 50, 50, 'box7');
+    collisionBox8 = new CollisionBox(455, 450, 50, 110, 'box8');
+    collisionBox9 = new CollisionBox(455, 160, 50, 175, 'box9');
+    collisionBox10 = new CollisionBox(545, 50, 60, 40, 'box10');
+    collisionBox11 = new CollisionBox(355, 0, 60, 30, 'box11');
+    collisionBox12 = new CollisionBox(353, 160, 62, 62, 'box12');
+    collisionBox13 = new CollisionBox(353, 353, 62, 62, 'box13');
+    collisionBox14 = new CollisionBox(353, 545, 62, 62, 'box14');
+    collisionBox15 = new CollisionBox(353, 705, 60, 30, 'box15');
+    collisionBox16 = new CollisionBox(577, 383, 60, 160, 'box16');
 
 
     player._collisionable.push(collisionBox1,

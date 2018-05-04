@@ -1,4 +1,6 @@
 describe('CollisionLogic', function() {
+  var expect = chai.expect;
+  var collisionLogic = new CollisionLogic();
 
   var object1
   var object2
@@ -43,25 +45,25 @@ describe('CollisionLogic', function() {
     stepSize = 500
 
     it('should return true if player attempts to move upwards into an object above it', function() {
-      chai.expect(collisionLogic(player, [object1], stepSize, 'U')['collide']).to.eq(true);
+      expect(collisionLogic.collision(player, [object1], stepSize, 'U')['collide']).to.eq(true);
     });
     it('should return true if player attempts to move downwards into an object below it', function() {
-      chai.expect((collisionLogic(player, [object2], stepSize, 'D'))['collide']).to.eq(true);
+      expect((collisionLogic.collision(player, [object2], stepSize, 'D'))['collide']).to.eq(true);
     });
     it('should return true if player attempts to move left into an object to the left of it', function() {
-      chai.expect((collisionLogic(player, [object3], stepSize, 'L'))['collide']).to.eq(true);
+      expect((collisionLogic.collision(player, [object3], stepSize, 'L'))['collide']).to.eq(true);
     });
     it('should return true if player attempts to move right into an object to the right of it', function() {
-      chai.expect((collisionLogic(player, [object4], stepSize, 'R'))['collide']).to.eq(true);
+      expect((collisionLogic.collision(player, [object4], stepSize, 'R'))['collide']).to.eq(true);
     });
   });
 
   describe('#return values', function() {
     it('if a collision occurs then the object it collided with should be returned', function() {
-      chai.expect(collisionLogic(player, [object1, object2, object3, object4], stepSize, 'R')['object']).to.eq(object4);
+      expect(collisionLogic.collision(player, [object1, object2, object3, object4], stepSize, 'R')['object']).to.eq(object4);
     });
     it('if a collision does not occur then nothing should be returned', function() {
-      chai.expect(collisionLogic(player, [object1, object2, object3], stepSize, 'R')['object']).to.eq(undefined);
+      expect(collisionLogic.collision(player, [object1, object2, object3], stepSize, 'R')['object']).to.eq(undefined);
     });
   });
 });

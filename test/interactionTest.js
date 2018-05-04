@@ -1,37 +1,113 @@
-describe('Player can interact with other objects', function() {
+describe('Player Interaction', function() {
   var player, collide_object, message_box
 
   beforeEach(function() {
     player = new Player();
-    collide_object = {id: 'c_box'};
-    collision_return = {'collide': true, 'object': collide_object}
+    player._y = 500;
+
+    collisionLogic = new CollisionLogic
+    consoleSpy = sinon.spy(console, 'log');
+    collisionStub = sinon.stub(collisionLogic, "collision")
+    collision_box = {
+      '_id': 'box'
+    };
+    box_return = {
+      'collide': true,
+      'object': collision_box
+    }
+
+    collision_npc = {
+      '_id': 'npc'
+    };
+    npc_return = {
+      'collide': true,
+      'object': collision_npc
+    }
   })
 
-  it('should open a dialogue box on right-collision between player and object', function() {
+  afterEach(function() {
+    consoleSpy.restore();
+  })
+
+  it('should not allow a player to interact with an object on right-collision', function() {
     // Arrange
-    // player._rightPressed = true;
-    // player._x = 50;
-    // player._moveDelta = 50;
-    // player._spriteWidth = 50;
-    
+    player._rightPressed = true;
+    collisionStub.returns(box_return)
     // Action
-    allow(player).to_receive(collisionOnR).and_return(collide_object)
+    player.reposition(player);
     // Assert
-    expect()
+    consoleSpy.returned("BOX")
+  })
 
-    // arrange
-    collisionCalcutor = { detectCollisions: () => true }
-    var player = new Player(collisionCalculator);
+  it('should not allow a player to interact with an object on left-collision', function() {
+    // Arrange
+    player._leftPressed = true;
+    collisionStub.returns(box_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("BOX")
+  })
 
-    // action
-    player.moveRight();
+  it('should not allow a player to interact with an object on up-collision', function() {
+    // Arrange
+    player._upPressed = true;
+    collisionStub.returns(box_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("BOX")
+  })
 
-    // assert
-    expect()
-  }
+  it('should not allow a player to interact with an object on down-collision', function() {
+    // Arrange
+    player._downPressed = true;
+    collisionStub.returns(box_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("BOX")
+  })
 
 
+  it('should allow a player to interact with an NPC on right-collision', function() {
+    // Arrange
+    player._rightPressed = true;
+    collisionStub.returns(npc_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("NPC")
+  })
 
-//Strategy pattern - objects take on elemnets of state and logic,
-//Whats the current state? This is what can happen in this state.
-//Encapsulte this in a class - "state machine"
+  it('should allow a player to interact with an NPC on left-collision', function() {
+    // Arrange
+    player._leftPressed = true;
+    collisionStub.returns(npc_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("NPC")
+  })
+
+  it('should allow a player to interact with an NPC on up-collision', function() {
+    // Arrange
+    player._upPressed = true;
+    collisionStub.returns(npc_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("NPC")
+  })
+
+  it('should allow a player to interact with an NPC on down-collision', function() {
+    // Arrange
+    player._downPressed = true;
+    collisionStub.returns(npc_return)
+    // Action
+    player.reposition(player);
+    // Assert
+    consoleSpy.returned("NPC")
+  })
+
+})

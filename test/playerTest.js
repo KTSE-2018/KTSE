@@ -1,12 +1,17 @@
 describe('Player movement', function() {
   var player, test_x, test_y, test_moveDelta
+  var expect = chai.expect;
 
   beforeEach(function() {
     player = new Player();
+    collisionLogic = new CollisionLogic
     player._y = 500; //Move off bottom of canvas
     test_x = player._x;
     test_y = player._y;
     test_moveDelta = player._moveDelta;
+    //Stub the CollisionLogic constructor method --> always return false
+    collisionStub = sinon.stub(collisionLogic, "collision")
+    collisionStub.returns({'collide':false})
   })
 
   it('should be able to move right', function() {
@@ -16,7 +21,7 @@ describe('Player movement', function() {
     // Action
     player.reposition(player);
     // Assert
-    chai.expect(player._x).to.equal(expected_x);
+    expect(player._x).to.equal(expected_x);
   });
 
   it('should not be able to move past the right wall', function() {
@@ -28,7 +33,7 @@ describe('Player movement', function() {
     }
     var expected_x = player._canvas.width - player._spriteWidth;
     // Assert
-    chai.expect(player._x).to.equal(expected_x);
+    expect(player._x).to.equal(expected_x);
   });
 
   it('should be able to move left', function() {
@@ -38,7 +43,7 @@ describe('Player movement', function() {
     // Action
     player.reposition(player);
     // Assert
-    chai.expect(player._x).to.equal(expected_x);
+    expect(player._x).to.equal(expected_x);
   });
 
 
@@ -51,7 +56,7 @@ describe('Player movement', function() {
     }
     var expected_x = 0;
     // Assert
-    chai.expect(player._x).to.equal(expected_x);
+    expect(player._x).to.equal(expected_x);
   });
 
   it('should be able to move up', function() {
@@ -61,7 +66,7 @@ describe('Player movement', function() {
     // Action
     player.reposition(player);
     // Assert
-    chai.expect(player._y).to.equal(expected_y);
+    expect(player._y).to.equal(expected_y);
   });
 
   it('should not be able to move past the upper wall', function() {
@@ -73,17 +78,18 @@ describe('Player movement', function() {
     }
     var expected_y = 0;
     // Assert
-    chai.expect(player._y).to.equal(expected_y);
+    expect(player._y).to.equal(expected_y);
   });
 
   it('should be able to move down', function() {
     // Arrange
     player._downPressed = true;
+    collisionStub.returns({'collide':false})
     var expected_y = test_y + test_moveDelta
     // Action
     player.reposition(player);
     // Assert
-    chai.expect(player._y).to.equal(expected_y);
+    expect(player._y).to.equal(expected_y);
   });
 
   it('should not be able to move past the bottom wall', function() {
@@ -95,7 +101,7 @@ describe('Player movement', function() {
     }
     var expected_y = player._canvas.height - player._spriteHeight;
     // Assert
-    chai.expect(player._y).to.equal(expected_y);
+    expect(player._y).to.equal(expected_y);
   });
 
 });
