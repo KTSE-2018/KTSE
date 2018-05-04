@@ -1,8 +1,9 @@
-function CollisionBox(x, y, width, height) {
+function CollisionBox(x, y, width, height, id) {
     this.canvas = document.getElementById("myCanvas");
     this.ctx = this.canvas.getContext("2d");
     this._x = x;
     this._y = y;
+    this._id = id;
     this._spriteWidth = width;
     this._spriteHeight = height;
 
