@@ -1,10 +1,11 @@
 $(document).ready(function() {
   $(function() {
     game = new Game();
+    script = new Script();
+    npc = new Npc('dana',1,1,1,1);
     player = new Player();
     collisionLogic = new CollisionLogic();
-    script = new Script();
-    npc = new Npc();
+
 
     collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
     collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');

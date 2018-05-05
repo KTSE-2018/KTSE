@@ -1,3 +1,4 @@
+(function(exports) {
 function CollisionBox(x, y, width, height, id, colour = "rgba(255, 255, 255, 0)") {
     this.canvas = document.getElementById("myCanvas");
     this.ctx = this.canvas.getContext("2d");
@@ -19,4 +20,12 @@ function CollisionBox(x, y, width, height, id, colour = "rgba(255, 255, 255, 0)"
     CollisionBox.prototype.reposition = function(collisionBox){
       this.drawCollisionBox();
     }
+
+    CollisionBox.prototype.getScript = function(){
+
+      return "ME NO SPEAKY"
+    }
+
   }
+  exports.CollisionBox = CollisionBox;
+})(this);

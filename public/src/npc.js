@@ -8,9 +8,9 @@
     this._script = script;
   }
 
-  Npc.prototype.getScript = function(id) {
-    all_scripts = this._script.container(id);
-    return all_scripts;
+  Npc.prototype.getScript = function() {
+    return this._script.container(this._id);
+
   }
   exports.Npc = Npc;
 })(this);

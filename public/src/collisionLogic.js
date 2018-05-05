@@ -1,5 +1,6 @@
 (function(exports) {
   function CollisionLogic() {
+    this._script = []
   }
 
   CollisionLogic.prototype.collision = function(player, collisionObjects, stepSize, direction) {
@@ -23,8 +24,8 @@
     }
   }
 
-  CollisionLogic.prototype.interact = function(message) {
-    console.log(message)
+  CollisionLogic.prototype.interact = function(object) {
+   return object.getScript();
   };
 
   exports.CollisionLogic = CollisionLogic;
