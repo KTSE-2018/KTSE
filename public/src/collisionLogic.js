@@ -13,8 +13,6 @@
           (player._x - (direction === 'L' ? stepSize : 0) >= (e._x + e._spriteWidth))) === false) {
         bool = true;
         obj = e;
-        this._obj = e;
-        this._objid = e._id;
         return bool, obj
       }
     })
