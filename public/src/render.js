@@ -3,6 +3,8 @@ $(document).ready(function() {
     game = new Game();
     player = new Player();
     collisionLogic = new CollisionLogic();
+    script = new Script();
+    npc = new Npc();
 
     collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
     collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');

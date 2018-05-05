@@ -10,4 +10,5 @@
   Script.prototype.container = function(id) {
     return this._all_scripts[id];
   }
+  exports.Script = Script;
 })(this);
