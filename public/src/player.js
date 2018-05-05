@@ -21,6 +21,9 @@ function Player() {
   this._leftPressed = false;
   this._upPressed = false;
   this._downPressed = false;
+
+  this.AP = new ActionPoints()
+  this.EL = new EnergyLevel()
 }
 
 Player.prototype.drawSprite = function() {
@@ -34,8 +37,7 @@ Player.prototype.drawSprite = function() {
   } else if (this._upPressed) {
     this._sprite_y = 135;
   };
-  this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth,
-    this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
+  this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._spriteWidth, this._spriteHeight, this._x, this._y, this._spriteWidth, this._spriteHeight);
   this._ctx.closePath();
 };
 
