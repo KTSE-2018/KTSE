@@ -39,6 +39,10 @@ function DialogueBox() {
 
   DialogueBox.prototype.dialogueStep = function(){
   return this._dialogue[this._count]["m"]
-}
+  }
+
+DialogueBox.prototype.finalDialogue = function() {
+    return (this._count === (this._dialogue.length - 1)) ? true : false
+   }
 
 }

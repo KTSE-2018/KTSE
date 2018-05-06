@@ -30,19 +30,41 @@ describe('DialogueBox', function() {
     it('returns the dialogue that matches the count', function() {
       dialogueBox._count += 1
       expect(dialogueBox.dialogueStep()).to.eq("MORE engaging dialogue")
-      })
+    })
+  })
+
+  describe('#finalDialogue', function() {
+
+    var expect = chai.expect
+    var dialogueBox = new DialogueBox()
+
+    it('returns true if it is the last step in the dialogue', function() {
+      dialogueBox._count = 1
+      expect(dialogueBox.finalDialogue()).to.eq(true)
     })
 
-    describe('#finalDialogue', function() {
+    it('returns false if it is the last step in the dialogue', function() {
+      dialogueBox._count = 0
+      expect(dialogueBox.finalDialogue()).to.eq(false)
+    })
+  })
 
-      var expect = chai.expect
-      var dialogueBox = new DialogueBox()
+  describe('#show', function() {
 
-      it('returns true if it is the last step in the dialogue', function() {
-        dialogueBox._count = 1
-        expect(dialogueBox.finalDialogue()).to.eq(true)
-        })
-      })
+    var expect = chai.expect
+    var dialogueBox = new DialogueBox()
+
+    it('calls getScript from npc, sets inUse to true', function() {
+      var npc = {
+        getScript: function() { [{'m': 'Engaging dialogue'}, {'m': 'MORE engaging dialogue'}] }
+      }
+      var mock = sinon.mock(npc);
+      mock.expects("getScript").once();
+      dialogueBox._inUse = false;
+      dialogueBox.show(npc)
+      expect(dialogueBox._inUse).to.eq(true)
+    })
+  })
 
 
 })
