@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $(function() {
-    game = new Game();
+    game = new Game(new ActionPoints(), new EnergyLevel());
     script = new Script();
-    npc = new Npc('dana',1,1,1,1);
+    npc = new Npc('dana',1,1,1,1, game);
     player = new Player();
     collisionLogic = new CollisionLogic();
 
@@ -26,6 +26,8 @@ $(document).ready(function() {
 
     dialogueBoxProject = new DialogueBox();
 
+    actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'A');
+    energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'E');
 
     player._collisionable.push(collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
@@ -37,7 +39,7 @@ $(document).ready(function() {
               collisionBox4, collisionBox5, collisionBox6, collisionBox7,
               collisionBox8, collisionBox9, collisionBox10, collisionBox11,
               collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
-              dialogueBoxProject
+              dialogueBoxProject, actionPointsBar, energyPointsBar
             ])
           }, 100);
         });
