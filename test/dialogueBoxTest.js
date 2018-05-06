@@ -23,6 +23,10 @@ describe('DialogueBox', function() {
   })
 
   describe('#dialogueStep', function() {
+
+    var expect = chai.expect
+    var dialogueBox = new DialogueBox()
+    
     it('returns the dialogue that matches the count', function() {
       dialogueBox._count += 1
       expect(dialogueBox.dialogueStep()).to.eq("MORE engaging dialogue")

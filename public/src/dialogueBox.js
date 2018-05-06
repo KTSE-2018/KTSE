@@ -15,7 +15,7 @@ function DialogueBox() {
 
   DialogueBox.prototype.drawDialogueBox = function() {
     this._ctx.beginPath();
-    this.drawTextBG(this._ctx, "Hi", '20px arial', this._x, this._y);
+    this.drawTextBG(this._ctx, this.dialogueStep(), '20px arial', this._x, this._y);
     this._ctx.closePath();
   }
 
@@ -36,5 +36,9 @@ function DialogueBox() {
       this.drawDialogueBox();
     }
   }
+
+  DialogueBox.prototype.dialogueStep = function(){
+  return this._dialogue[this._count]["m"]
+}
 
 }
