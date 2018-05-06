@@ -1,6 +1,8 @@
 $(document).ready(function() {
   $(function() {
-    game = new Game();
+    game = new Game(new ActionPoints(), new EnergyLevel());
+    script = new Script();
+    npc = new Npc('dana', 1, 1, 1, 1, game);
     player = new Player();
     collisionLogic = new CollisionLogic();
 
@@ -21,16 +23,36 @@ $(document).ready(function() {
     collisionBox15 = new CollisionBox(353, 705, 60, 30, 'box15');
     collisionBox16 = new CollisionBox(577, 383, 60, 160, 'box16');
 
+    dialogueBoxProject = new DialogueBox();
 
-    player._collisionable.push(collisionBox1,
-      collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
-      collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-      collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
+    actionPointsBar = new ApBar(10, 15, 200, 20, 'yellow', game, 'A');
+    energyPointsBar = new EnergyBar(10, 45, 200, 20, 'green', game, 'E');
+
+    player._collisionable.push(collisionBox1, collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6, collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11, collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
+
     setInterval(function() {
-      game.draw([player, collisionBox1, collisionBox2, collisionBox3,
-        collisionBox4, collisionBox5, collisionBox6, collisionBox7,
-        collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-        collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16])
+      game.draw([
+        player,
+        collisionBox1,
+        collisionBox2,
+        collisionBox3,
+        collisionBox4,
+        collisionBox5,
+        collisionBox6,
+        collisionBox7,
+        collisionBox8,
+        collisionBox9,
+        collisionBox10,
+        collisionBox11,
+        collisionBox12,
+        collisionBox13,
+        collisionBox14,
+        collisionBox15,
+        collisionBox16,
+        dialogueBoxProject,
+        actionPointsBar,
+        energyPointsBar
+      ])
     }, 100);
   });
 
@@ -56,6 +78,23 @@ $(document).ready(function() {
         player._upPressed = false;
       } else if (e.keyCode == 40) {
         player._downPressed = false;
+      }
+    })
+
+    $(this).keyup(function(e) {
+      if (e.keyCode == 88) {
+        dialogueBoxProject.hide();
+      }
+    })
+
+    $(this).keyup(function(e) {
+      if (e.keyCode == 32) {
+        if (dialogueBoxProject.finalDialogue() === true) {
+          dialogueBoxProject.gameAction();
+          dialogueBoxProject.hide();
+        } else {
+          dialogueBoxProject._count += 1
+        }
       }
     })
 
