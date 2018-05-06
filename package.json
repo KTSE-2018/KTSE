@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --timeout=3000"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +18,6 @@
     "http-server": "^0.11.1",
     "mocha": "^5.1.1",
     "sinon": "^5.0.3",
-    "sinon-chai": "^3.0.0",
     "zombie": "^6.1.2"
   }
 }

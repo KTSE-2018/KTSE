@@ -11,6 +11,10 @@ app.get('/', function (req, res) {
   res.sendFile('/views/index.html', options)
 })
 
+app.get('/intro', function (req, res) {
+  res.sendFile('/views/intro.html', options)
+})
+
 app.listen(8000, function () {
   console.log('Example app listening on port 8000!')
 })
