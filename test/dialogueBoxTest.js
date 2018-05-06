@@ -76,7 +76,7 @@ describe('DialogueBox', function() {
       dialogueBox._inUse = true
       dialogueBox.hide()
       expect(dialogueBox._count).to.eq(0)
-      expect(dialogueBox._inUser).to.eq(false)
+      expect(dialogueBox._inUse).to.eq(false)
 
     })
 

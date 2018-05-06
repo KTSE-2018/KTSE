@@ -31,23 +31,28 @@ function DialogueBox() {
     ctx.restore();
   }
 
-  DialogueBox.prototype.reposition = function(){
+  DialogueBox.prototype.reposition = function() {
     if (this._inUse === true) {
       this.drawDialogueBox();
     }
   }
 
-  DialogueBox.prototype.dialogueStep = function(){
-  return this._dialogue[this._count]["m"]
+  DialogueBox.prototype.dialogueStep = function() {
+    return this._dialogue[this._count]["m"]
   }
 
-DialogueBox.prototype.finalDialogue = function() {
+  DialogueBox.prototype.finalDialogue = function() {
     return (this._count === (this._dialogue.length - 1)) ? true : false
-   }
+  }
 
-   DialogueBox.prototype.show = function(npc) {
-     this._npc = npc
-     this._dialogue = this._npc.getScript();
-     this._inUse = true;
-   }
+  DialogueBox.prototype.show = function(npc) {
+    this._npc = npc
+    this._dialogue = this._npc.getScript();
+    this._inUse = true;
+  }
+
+  DialogueBox.prototype.hide = function() {
+    this._inUse = false;
+    this._count = 0;
+  }
 }
