@@ -3,10 +3,11 @@ Dana = Lana
 Ed W = Ned
 Eddie = Freddie
 Mark = Matt
-Sam =
-Sam =
+Sam = Jam
+Sam = Ham
 Mary = Mariah
 Sophie =
+Kay = Neo
 
 
 **Intro**
@@ -52,7 +53,7 @@ Great question.
 What do YOU think the answer should be?
 
 **Freddie**
-
+INTERESTING!
 
 **Matt**
 
