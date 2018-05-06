@@ -66,5 +66,23 @@ describe('DialogueBox', function() {
     })
   })
 
+  describe('#hide', function() {
 
+    var expect = chai.expect
+    var dialogueBox = new DialogueBox()
+
+    it('sets inUse to false and count to 0', function() {
+      dialogueBox._count = 10
+      dialogueBox._inUse = true
+      dialogueBox.hide()
+      expect(dialogueBox._count).to.eq(0)
+      expect(dialogueBox._inUser).to.eq(false)
+
+    })
+
+
+
+
+
+  })
 })
