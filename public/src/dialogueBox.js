@@ -55,4 +55,9 @@ function DialogueBox() {
     this._inUse = false;
     this._count = 0;
   }
+
+  DialogueBox.prototype.gameAction = function() {
+  console.log("CAST MAGIC SPELL")
+  //this.npc.action     (i.e meditate/work on project/get help)
+}
 }
