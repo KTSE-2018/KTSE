@@ -56,7 +56,13 @@ describe('DialogueBox', function() {
 
     it('calls getScript from npc, sets inUse to true', function() {
       var npc = {
-        getScript: function() { [{'m': 'Engaging dialogue'}, {'m': 'MORE engaging dialogue'}] }
+        getScript: function() {
+          [{
+            'm': 'Engaging dialogue'
+          }, {
+            'm': 'MORE engaging dialogue'
+          }]
+        }
       }
       var mock = sinon.mock(npc);
       mock.expects("getScript").once();
@@ -77,12 +83,18 @@ describe('DialogueBox', function() {
       dialogueBox.hide()
       expect(dialogueBox._count).to.eq(0)
       expect(dialogueBox._inUse).to.eq(false)
-
     })
+  })
 
+  describe('#gameAction', function() {
 
+    var expect = chai.expect
+    var dialogueBox = new DialogueBox()
 
-
-
+    it('Writes string to console log to mimic NPC action', function() {
+      consoleSpy = sinon.spy(console, 'log');
+      dialogueBox.gameAction()
+      consoleSpy.returned("CAST MAGIC SPELL")
+    })
   })
 })
