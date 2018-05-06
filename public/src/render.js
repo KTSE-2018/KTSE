@@ -21,18 +21,23 @@ $(document).ready(function() {
     collisionBox15 = new CollisionBox(353, 705, 60, 30, 'box15');
     collisionBox16 = new CollisionBox(577, 383, 60, 160, 'box16');
 
+    dialogueBoxProject = new DialogueBox();
+
 
     player._collisionable.push(collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
       collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
       collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
-    setInterval(function() {
-      game.draw([player, collisionBox1, collisionBox2, collisionBox3,
-        collisionBox4, collisionBox5, collisionBox6, collisionBox7,
-        collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-        collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16])
-    }, 100);
-  });
+
+      setInterval(function() {
+            game.draw([player, collisionBox1, collisionBox2, collisionBox3,
+              collisionBox4, collisionBox5, collisionBox6, collisionBox7,
+              collisionBox8, collisionBox9, collisionBox10, collisionBox11,
+              collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
+              dialogueBoxProject
+            ])
+          }, 100);
+        });
 
   $(function() {
     $(this).keydown(function(e) {
@@ -58,6 +63,24 @@ $(document).ready(function() {
         player._downPressed = false;
       }
     })
+
+    $(this).keyup(function(e) {
+    if (e.keyCode == 88) {
+      dialogueBoxProject.hide();
+    }
+  })
+
+  $(this).keyup(function(e) {
+    if (e.keyCode == 32) {
+      if (dialogueBoxProject.finalDialogue() === true) {
+        dialogueBoxProject.gameAction();
+        dialogueBoxProject.hide();
+      }
+      else {
+        dialogueBoxProject._count += 1
+      }
+    }
+  })
 
   });
 });
