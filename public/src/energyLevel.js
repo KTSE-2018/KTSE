@@ -11,6 +11,11 @@ EnergyLevel.prototype.decreaseEnergy = function(x = 10) {
     console.error('insufficient Energy');
   } else {
     this.points -= x
-
   }
+
+  EnergyLevel.prototype.apLimiter = function() {
+    if (this.points < 50) {
+      actionPoints.limiter = true
+    }
+  };
 };

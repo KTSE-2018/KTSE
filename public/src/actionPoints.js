@@ -1,14 +1,22 @@
 function ActionPoints() {
   this.points = 10
+  this.limiter = false
 }
 
 ActionPoints.prototype.consumeAP = function(x = 1) {
-  const err = Error('Insufficient AP');
 
   if (x > this.points) {
     console.error('Insufficient AP');
-  } else {
-    this.points -= x
+  } else if  {
+    if (this.limiter) {
+      if (Math.floor(Math.random() * Math.floor(2) > 0) {
+        x = 2
+        this.points -= x
+      }
+    } else {
+      this.points -= x
+
+    }
   }
 };
 
