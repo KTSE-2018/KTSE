@@ -45,4 +45,9 @@ DialogueBox.prototype.finalDialogue = function() {
     return (this._count === (this._dialogue.length - 1)) ? true : false
    }
 
+   DialogueBox.prototype.show = function(npc) {
+     this._npc = npc
+     this._dialogue = this._npc.getScript();
+     this._inUse = true;
+   }
 }
