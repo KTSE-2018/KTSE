@@ -2,13 +2,8 @@ describe('CollisionLogic', function() {
   var expect = chai.expect;
   var collisionLogic = new CollisionLogic();
 
-  var object1
-  var object2
-  var object3
-  var object4
-
-  var player
-  var stepSize
+  var object1, object2, object3, object4,
+      player, stepSize, npc;
 
   describe('#collisions', function() {
 
@@ -66,4 +61,28 @@ describe('CollisionLogic', function() {
       expect(collisionLogic.collision(player, [object1, object2, object3], stepSize, 'R')['object']).to.eq(undefined);
     });
   });
+
+  describe('#interact', function(){
+    it('fetches the right script from an NPC', function(){
+      // Arrange
+      npc = new Npc('dana',1,1,1,1);
+      npcStub = sinon.stub(npc, 'getScript');
+      npcStub.returns([{m: "Do you want to meditate?"}]);
+      // Action
+      result = collisionLogic.interact(npc);
+      // Assert
+      expect(result).to.eql([{m: "Do you want to meditate?"}]);
+    })
+
+    it('fetches the console log message from a collisionBox', function(){
+      // Arrange
+      box = new CollisionBox(1,1,1,1,'box');
+      boxStub = sinon.stub(box, 'getScript');
+      boxStub.returns("ME NO SPEAKY");
+      // Action
+      result = collisionLogic.interact(box);
+      // Assert
+      expect(result).to.eql("ME NO SPEAKY");
+    })
+  })
 });
