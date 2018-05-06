@@ -1,5 +1,6 @@
 (function(exports) {
   function CollisionLogic() {
+    this._script = []
   }
 
   CollisionLogic.prototype.collision = function(player, collisionObjects, stepSize, direction) {
@@ -13,8 +14,6 @@
           (player._x - (direction === 'L' ? stepSize : 0) >= (e._x + e._spriteWidth))) === false) {
         bool = true;
         obj = e;
-        this._obj = e;
-        this._objid = e._id;
         return bool, obj
       }
     })
@@ -25,8 +24,8 @@
     }
   }
 
-  CollisionLogic.prototype.interact = function(message) {
-    console.log(message)
+  CollisionLogic.prototype.interact = function(object) {
+   return object.getScript();
   };
 
   exports.CollisionLogic = CollisionLogic;
