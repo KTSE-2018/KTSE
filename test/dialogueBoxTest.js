@@ -26,10 +26,23 @@ describe('DialogueBox', function() {
 
     var expect = chai.expect
     var dialogueBox = new DialogueBox()
-    
+
     it('returns the dialogue that matches the count', function() {
       dialogueBox._count += 1
       expect(dialogueBox.dialogueStep()).to.eq("MORE engaging dialogue")
       })
     })
+
+    describe('#finalDialogue', function() {
+
+      var expect = chai.expect
+      var dialogueBox = new DialogueBox()
+
+      it('returns true if it is the last step in the dialogue', function() {
+        dialogueBox._count = 1
+        expect(dialogueBox.finalDialogue()).to.eq(true)
+        })
+      })
+
+
 })
