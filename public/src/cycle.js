@@ -5,6 +5,7 @@
     this.ctx = this.canvas.getContext("2d");
     this.shade = 0;
     this.count = 1;
+    this.gameEnd = false;
   }
 
   Cycle.prototype.drawCollisionBox = function() {
@@ -19,12 +20,18 @@
     this.drawCollisionBox();
   }
 
-  Cycle.prototype.shadingNight = function() {
+  Cycle.prototype.turnOver = function() {
+    this.count += 1
     this.shade = 1
   }
 
-  Cycle.prototype.shadingDay = function() {
+  Cycle.prototype.turnStart = function() {
     this.shade = 0
+  }
+
+  Cycle.prototype.gameOver = function() {
+    this.shade = 1
+    this.gameEnd = true;
   }
 
   exports.Cycle = Cycle;

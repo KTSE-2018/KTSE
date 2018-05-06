@@ -5,11 +5,12 @@ describe('Player Interaction', function() {
   beforeEach(function() {
     player = new Player();
     player._y = 500;
-
+    game = new Game()
     collisionLogic = new CollisionLogic();
     sinon.spy(console, 'log');
     collisionStub = sinon.stub(collisionLogic, "collision");
     interactStub = sinon.stub(collisionLogic, "interact");
+    gameStub = sinon.stub(game, "consumeAP");
 
     collision_box = {
       '_id': 'box'
@@ -26,6 +27,7 @@ describe('Player Interaction', function() {
       'collide': true,
       'object': collision_npc
     };
+
   });
 
   afterEach(function() {

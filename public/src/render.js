@@ -1,7 +1,8 @@
 $(document).ready(function() {
   $(function() {
     cycle = new Cycle()
-    game = new Game(new ActionPoints(cycle), new EnergyLevel());
+    game = new Game(cycle);
+
     script = new Script();
     npc = new Npc('dana',1,1,1,1, game);
     player = new Player(game);
@@ -75,7 +76,9 @@ $(document).ready(function() {
     $(this).keyup(function(e) {
     if (e.keyCode == 88) {
       dialogueBoxProject.hide();
-      cycle.shadingDay();
+      if (cycle.gameEnd !== true) {
+        cycle.turnStart();
+      }
     }
   })
 
