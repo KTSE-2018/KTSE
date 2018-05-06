@@ -15,7 +15,7 @@ function DialogueBox() {
 
   DialogueBox.prototype.drawDialogueBox = function() {
     this._ctx.beginPath();
-    this.drawTextBG(this._ctx, this.dialogueStep(), '20px arial', this._x, this._y);
+    this.drawTextBG(this._ctx, "Hi", '20px arial', this._x, this._y);
     this._ctx.closePath();
   }
 
@@ -31,5 +31,10 @@ function DialogueBox() {
     ctx.restore();
   }
 
+  DialogueBox.prototype.reposition = function(){
+    if (this._inUse === true) {
+      this.drawDialogueBox();
+    }
+  }
 
 }
