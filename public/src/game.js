@@ -2,6 +2,7 @@ function Game(actionPoints, energyLevel) {
   this.collisions = []
   this.actionPoints = actionPoints;
   this.energyLevel = energyLevel;
+  this.cycle = 0;
 
   Game.prototype.draw = function(objArray) {
     objArray.forEach(function(e) {

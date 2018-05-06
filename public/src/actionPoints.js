@@ -1,4 +1,4 @@
-function ActionPoints() {
+function ActionPoints(cycle) {
   this.points = 10
 }
 
@@ -9,6 +9,11 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
     console.error('Insufficient AP');
   } else {
     this.points -= x
+    if (this.points === 0 ) {
+      cycle.shadingNight()
+      this.points = 10
+      cycle.count += 1
+    }
   }
 };
 

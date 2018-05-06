@@ -1,6 +1,7 @@
-function Player() {
+function Player(game) {
   this._canvas = document.getElementById("myCanvas");
   this._ctx = this._canvas.getContext("2d");
+  this.game = game
 
 
   this._sprite = new Image();
@@ -66,6 +67,7 @@ Player.prototype.reposition = function(myPlayer) {
 };
 
 Player.prototype.moveRight = function(myPlayer, collisionObject) {
+  game.actionPoints.consumeAP()
   if (myPlayer._x + myPlayer._moveDelta > myPlayer._canvas.width - myPlayer._spriteWidth) {
     myPlayer._x = (myPlayer._canvas.width - myPlayer._spriteWidth);
   } else if (collisionObject['collide'] === true) {
@@ -78,6 +80,7 @@ Player.prototype.moveRight = function(myPlayer, collisionObject) {
 };
 
 Player.prototype.moveLeft = function(myPlayer, collisionObject) {
+  game.actionPoints.consumeAP()
   if (myPlayer._x - myPlayer._moveDelta < 0) {
     myPlayer._x = 0;
   } else if (collisionObject['collide'] === true) {
@@ -90,6 +93,7 @@ Player.prototype.moveLeft = function(myPlayer, collisionObject) {
 };
 
 Player.prototype.moveDown = function(myPlayer, collisionObject) {
+  game.actionPoints.consumeAP()
   if (myPlayer._y + myPlayer._moveDelta > myPlayer._canvas.height - myPlayer._spriteHeight) {
     myPlayer._y = (myPlayer._canvas.height - myPlayer._spriteHeight)
   } else if (collisionObject['collide'] === true) {
@@ -102,6 +106,7 @@ Player.prototype.moveDown = function(myPlayer, collisionObject) {
 };
 
 Player.prototype.moveUp = function(myPlayer, collisionObject) {
+  game.actionPoints.consumeAP()
   if (myPlayer._y - myPlayer._moveDelta < 0) {
     myPlayer._y = 0;
   } else if (collisionObject['collide'] === true) {
