@@ -55,7 +55,6 @@
     }
 
     DialogueBox.prototype.gameAction = function() {
-      // console.log("CAST MAGIC SPELL")
       this._npc.action();
     }
   }
