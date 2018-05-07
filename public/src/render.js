@@ -30,6 +30,7 @@ $(document).ready(function() {
 
     actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'A');
     energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'E');
+    projectPointsBar = new StatsBar(10, 75, 200, 20, 'chartreuse', game, 'P');
 
 
 
@@ -43,7 +44,7 @@ $(document).ready(function() {
               collisionBox4, collisionBox5, collisionBox6, collisionBox7,
               collisionBox8, collisionBox9, collisionBox10, collisionBox11,
               collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
-              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle
+              dialogueBoxProject, actionPointsBar, energyPointsBar, projectPointsBar, cycle
             ])
           }, 100);
         });
