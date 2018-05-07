@@ -99,7 +99,7 @@ $(document).ready(function() {
 
   $('#playButton').click(function() {
         $('#myCanvas').animate({
-        'marginLeft' : "+=500px" //moves right
+        'marginLeft' : "+=300px" //moves right
         });
         $('#playButton').hide();
         $('#gotItButton').show();
@@ -108,7 +108,7 @@ $(document).ready(function() {
 
     $('#gotItButton').click(function() {
           $('#myCanvas').animate({
-          'marginLeft' : "-=500px" //moves left
+          'marginLeft' : "-=300px" //moves left
           });
           $('#gotItButton').hide();
           $('#playButton').show();

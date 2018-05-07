@@ -4,16 +4,27 @@ body {
 }
 
 #myCanvas {
- margin: 0 auto;
+ margin-top: 60px;
+margin-left: 400px;
+margin-right: auto;
 }
 
 #playButton {
-margin-left: 60px;
-margin-top: 300px;
+  position: absolute;
+  margin-left: 90px;
+  margin-top: 600px;
 float: left;
 }
 
+#restartButton {
+  position: absolute;
+  float: left;
+  margin-top: 700px;
+  margin-left: 90px;
+}
+
 #gotItButton {
+  position: absolute;
   float: left;
   margin-left: 90px;
   margin-top: 600px;
@@ -49,4 +60,6 @@ float: left;
   color: #dbbc8f;
   font-style: 'Pacifico';
   font-size: 25px;
+  margin-top: 50px;
+  margin-left: 50px;
 }
