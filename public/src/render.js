@@ -50,12 +50,12 @@ $(document).ready(function() {
 
 
     collisionBox6 = new CollisionBox(550, 670, 50, 50, 'box6');
-    collisionBox10 = new CollisionBox(545, 50, 60, 46, 'npc1');
-    collisionBox11 = new CollisionBox(353, 1, 62, 62, 'box11', 'white');
-    collisionBox12 = new CollisionBox(353, 160, 62, 62, 'box12', 'blue');
-    collisionBox13 = new CollisionBox(353, 353, 62, 62, 'box13', 'orange');
-    collisionBox14 = new CollisionBox(353, 510, 62, 62, 'box14', 'green');
-    collisionBox15 = new CollisionBox(353, 670, 62, 62, 'box15', 'red');
+    collisionBox10 = new CollisionBox(545, 50, 60, 46, 'box5');
+    collisionBox11 = new CollisionBox(353, 1, 62, 62, 'box11');
+    collisionBox12 = new CollisionBox(353, 160, 62, 62, 'box12');
+    collisionBox13 = new CollisionBox(353, 353, 62, 62, 'box13');
+    collisionBox14 = new CollisionBox(353, 510, 62, 62, 'box14');
+    collisionBox15 = new CollisionBox(353, 670, 62, 62, 'box15');
     collisionBox16 = new CollisionBox(577, 383, 60, 160, 'box16');
 
     dialogueBoxProject = new DialogueBox();
