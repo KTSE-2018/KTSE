@@ -8,7 +8,15 @@ body {
 }
 
 #playButton {
-padding-left: 30px;
+margin-left: 60px;
+margin-top: 300px;
+float: left;
+}
+
+#gotItButton {
+  float: left;
+  margin-left: 60px;
+  margin-bottome: 100px;
 }
 
 .myButton {
