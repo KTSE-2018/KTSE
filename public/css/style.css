@@ -12,9 +12,9 @@ body  {
 }
 
 #buttons {
-  float: right;
-  padding-right: 320px;
-  padding-top: 520px;
+  position: absolute;
+  margin-top: 500px;
+  margin-left: 800px;
 }
 
 .myButton {
@@ -50,8 +50,8 @@ body  {
 .stage {
   height: 75px;
   width: 150px;
-  margin-left: 700px;
-  margin-top: 70px;
+  margin-left: 90px;
+  margin-top: 50px;
   position: absolute;
   top: 0;
   right: 0;
@@ -72,7 +72,7 @@ body  {
 }
 
 .layer:after {
-  font: 100px/0.65 'Pacifico', 'Kaushan Script', Futura, 'Roboto', 'Trebuchet MS', Helvetica, sans-serif;
+  font: 120px/0.65 'Pacifico', 'Kaushan Script', Futura, 'Roboto', 'Trebuchet MS', Helvetica, sans-serif;
   content: 'Codecraft!';
   white-space: pre;
   text-align: center;
@@ -193,11 +193,12 @@ body  {
   }
 }
 
-/* #intro_text {
-  float: right;
-  margin-top: 500px;
+#intro_text {
+  position: absolute;
+  margin-left: 680px;
+  margin-top: 100px;
   width: 40%;
   color: #dbbc8f;
   font-style: 'Pacifico';
   font-size: 25px;
-} */
+}
