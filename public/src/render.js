@@ -10,14 +10,18 @@ $(document).ready(function() {
     sprite_dana = {
       src: '../img/npc_f.png',
       x: 320,
-      y: 0
+      y: 0,
+      w: 32,
+      h: 45
     }
     npc_dana = new Npc('dana', 500, 50, 50, 50, script, game, sprite_dana);
 
     sprite_coach = {
       src: '../img/npc_m.png',
       x: 32,
-      y: 225
+      y: 225,
+      w: 32,
+      h: 45
     }
     npc_coach = new Npc('coach', 383, 440, 50, 50, script, game, sprite_coach);
 

@@ -7,16 +7,16 @@
     this._id = id;
     this._x = npc_x;
     this._y = npc_y;
-    this._npc_w = npc_w;
-    this._npc_h = npc_h;
+    this._spriteWidth = sprite['w'];
+    this._spriteHeight = sprite['h'];
     this._script = script;
 
     this._sprite = new Image();
     this._sprite.src = sprite['src'];
     this._sprite_x = sprite['x'];
     this._sprite_y = sprite['y'];
-    this._sprite_w = 32;
-    this._sprite_h = 45;
+    this._sprite_w = sprite['w'];
+    this._sprite_h = sprite['h'];
   }
 
   Npc.prototype.drawNpc = function() {
