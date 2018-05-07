@@ -6,6 +6,11 @@ $(document).ready(function() {
     player = new Player(game);
     collisionLogic = new CollisionLogic();
 
+
+    $('#gotItButton').hide();
+    $('#rules').hide();
+
+
     script = new Script();
     sprite_dana = {
       src: '../img/npc_f.png',
@@ -109,6 +114,25 @@ $(document).ready(function() {
         }
       }
     })
+
+  $('#playButton').click(function() {
+        $('#myCanvas').animate({
+        'marginLeft' : "+=300px" //moves right
+        });
+        $('#playButton').hide();
+        $('#gotItButton').show();
+        $('#rules').show();
+    });
+
+    $('#gotItButton').click(function() {
+          $('#myCanvas').animate({
+          'marginLeft' : "-=300px" //moves left
+          });
+          $('#gotItButton').hide();
+          $('#playButton').show();
+          $('#rules').hide();
+      });
+
 
   });
 });
