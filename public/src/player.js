@@ -76,8 +76,7 @@ Player.prototype.moveRight = function(myPlayer, collisionObject) {
   } else if (collisionObject['collide'] === true) {
     myPlayer._x = (collisionObject['object']._x - myPlayer._spriteWidth);
     say = collisionLogic.interact(collisionObject['object']);
-    // console.log(say)
-    dialogueBoxProject.show(collisionObject);
+    dialogueBoxProject.show(collisionObject['object'])
   } else {
     myPlayer._x += myPlayer._moveDelta;
   };
@@ -89,7 +88,7 @@ Player.prototype.moveLeft = function(myPlayer, collisionObject) {
   } else if (collisionObject['collide'] === true) {
     myPlayer._x = (collisionObject['object']._x + collisionObject['object']._spriteWidth)
     say = collisionLogic.interact(collisionObject['object']);
-    console.log(say)
+    dialogueBoxProject.show(collisionObject['object'])
   } else {
     myPlayer._x -= myPlayer._moveDelta;
   };
@@ -101,7 +100,7 @@ Player.prototype.moveDown = function(myPlayer, collisionObject) {
   } else if (collisionObject['collide'] === true) {
     myPlayer._y = (collisionObject['object']._y - myPlayer._spriteHeight)
     say = collisionLogic.interact(collisionObject['object']);
-    console.log(say)
+    dialogueBoxProject.show(collisionObject['object'])
   } else {
     myPlayer._y += myPlayer._moveDelta;
   };
@@ -113,7 +112,7 @@ Player.prototype.moveUp = function(myPlayer, collisionObject) {
   } else if (collisionObject['collide'] === true) {
     myPlayer._y = (collisionObject['object']._y + collisionObject['object']._spriteHeight)
     say = collisionLogic.interact(collisionObject['object']);
-    console.log(say)
+    dialogueBoxProject.show(collisionObject['object'])
   } else {
     myPlayer._y -= myPlayer._moveDelta;
   };

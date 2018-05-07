@@ -3,11 +3,11 @@ $(document).ready(function() {
     cycle = new Cycle()
     game = new Game(cycle);
 
-    script = new Script();
-    npc = new Npc('dana',1,1,1,1, game);
     player = new Player(game);
     collisionLogic = new CollisionLogic();
 
+    script = new Script();
+    npc_dana = new Npc('dana',450,50,50,50, script, game);
 
     collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
     collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');
@@ -36,14 +36,14 @@ $(document).ready(function() {
     player._collisionable.push(collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
       collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-      collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
+      collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16, npc_dana)
 
       setInterval(function() {
             game.draw([player, collisionBox1, collisionBox2, collisionBox3,
               collisionBox4, collisionBox5, collisionBox6, collisionBox7,
               collisionBox8, collisionBox9, collisionBox10, collisionBox11,
               collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
-              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle
+              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle, npc_dana
             ])
           }, 100);
         });
