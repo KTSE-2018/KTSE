@@ -15,10 +15,10 @@ You have been accepted into one of the world's most prestigious bootcamps.
 You are ambitious, driven and determined to get the best possible job out of it.
 However, what job you get is determined by how well you perform on the course!
 Will you succeed become the next budding programmer at SpaceEx working alongside the inspirational Elon Musk?
-Or will you botch it all and end up working at the Chicken Katsu Wrap market stall with the angry shouty Chinese lady?
+Will you botch it all and end up working as the database monkey at Boring Tech ltd.
+Or will you not make it to graduation and be banished to the fourth floor for an eternity!
 Only time will tell...
-Welcome to
-KTSE Academy!
+WELCOME TO CODECRAFT!
 
 **Day 1**
 Day 1 in the Big Bro-... KTSE Academy
