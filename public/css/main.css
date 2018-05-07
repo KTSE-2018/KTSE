@@ -1,0 +1,44 @@
+body {
+  background-image: url("https://image.ibb.co/mNWBb7/free_brown_background_1.jpg");
+  background-color: #8B4513;
+}
+
+#myCanvas {
+ margin: 0 auto;
+}
+
+#playButton {
+padding-left: 30px;
+}
+
+.myButton {
+	background-color:#dbbc8f;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:7px solid #8a4c16;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:26px;
+	font-weight:bold;
+	padding:13px 31px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #8f501a;
+}
+.myButton:hover {
+	background-color:#b39156;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#rules {
+  position: absolute;
+  width: 40%;
+  color: #dbbc8f;
+  font-style: 'Pacifico';
+  font-size: 25px;
+}

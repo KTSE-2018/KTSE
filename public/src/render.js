@@ -8,6 +8,9 @@ $(document).ready(function() {
     player = new Player(game);
     collisionLogic = new CollisionLogic();
 
+    $('#gotItButton').hide();
+    $('#rules').hide();
+
 
     collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
     collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');
@@ -93,6 +96,25 @@ $(document).ready(function() {
       }
     }
   })
+
+  $('#playButton').click(function() {
+        $('#myCanvas').animate({
+        'marginLeft' : "+=300px" //moves right
+        });
+        $('#playButton').hide();
+        $('#gotItButton').show();
+        $('#rules').show();
+    });
+
+    $('#gotItButton').click(function() {
+          $('#myCanvas').animate({
+          'marginLeft' : "-=300px" //moves left
+          });
+          $('#gotItButton').hide();
+          $('#playButton').show();
+          $('#rules').hide();
+      });
+
 
   });
 });
