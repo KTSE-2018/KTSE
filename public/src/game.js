@@ -1,9 +1,10 @@
 function Game(cycle) {
   this.collisions = []
-  
+
   this.cycle = cycle
   this.actionPoints = new ActionPoints(this.game);
   this.energyLevel = new EnergyLevel(this.game);
+  this.projectScore = new ProjectScore(this.game);
 
 
   Game.prototype.draw = function(objArray) {
@@ -27,6 +28,5 @@ function Game(cycle) {
   Game.prototype.decreaseEnergy = function() {
     this.energyLevel.decreaseEnergy()
   }
-
 
 };
