@@ -30,7 +30,7 @@
     }
 
     DialogueBox.prototype.reposition = function() {
-      if (this._inUse === true) {
+      if (this._inUse === true && this._npc.constructor.name === 'Npc') {
         this.drawDialogueBox();
       }
     }
