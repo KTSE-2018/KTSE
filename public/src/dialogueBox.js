@@ -8,11 +8,7 @@
     this._rectWidth = this._canvas.width * 0.8;
     this._npc = null;
     this._inUse = false;
-    this._dialogue = [{
-      'm': 'Engaging dialogue'
-    }, {
-      'm': 'MORE engaging dialogue'
-    }];
+    this._dialogue = [];
     this._count = 0;
 
     DialogueBox.prototype.drawDialogueBox = function() {
@@ -40,7 +36,9 @@
     }
 
     DialogueBox.prototype.dialogueStep = function() {
-      return this._dialogue[this._count]["m"]
+      getId = this._npc._id;
+      setName = getId[0].toUpperCase() + getId.substring(1) + ": ";
+      return (setName + this._dialogue[this._count]["m"]);
     }
 
     DialogueBox.prototype.finalDialogue = function() {

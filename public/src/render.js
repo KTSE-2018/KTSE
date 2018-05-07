@@ -33,17 +33,17 @@ $(document).ready(function() {
 
 
 
-    player._collisionable.push(collisionBox1,
+    player._collisionable.push(npc_dana, collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
       collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-      collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16, npc_dana)
+      collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
 
       setInterval(function() {
-            game.draw([player, collisionBox1, collisionBox2, collisionBox3,
+            game.draw([player, npc_dana, collisionBox1, collisionBox2, collisionBox3,
               collisionBox4, collisionBox5, collisionBox6, collisionBox7,
               collisionBox8, collisionBox9, collisionBox10, collisionBox11,
               collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
-              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle, npc_dana
+              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle
             ])
           }, 100);
         });
