@@ -7,8 +7,8 @@
     this._id = id;
     this._x = npc_x;
     this._y = npc_y;
-    this._spriteWidth = sprite['w'];
-    this._spriteHeight = sprite['h'];
+    this._spriteWidth = npc_w;
+    this._spriteHeight = npc_h;
     this._script = script;
 
     this._sprite = new Image();
@@ -23,6 +23,9 @@
     this._ctx.beginPath();
     this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._sprite_w,
                         this._sprite_h, this._x, this._y, this._sprite_w, this._sprite_h);
+
+    this._ctx.fill();
+
     this._ctx.closePath();
   }
 
@@ -35,7 +38,10 @@
   }
 
   Npc.prototype.action = function() {
-    game.actionPoints.consumeAP();
+    if (this._id === 'computer') {
+      game.actionPoints.consumeAP(2);
+      game.projectScore.increaseProjectScore()
+    }
   }
 
   
