@@ -38,5 +38,6 @@
     game.actionPoints.consumeAP();
   }
 
+  
   exports.Npc = Npc;
 })(this);

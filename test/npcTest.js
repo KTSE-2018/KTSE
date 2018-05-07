@@ -1,19 +1,39 @@
-describe('Npc', function(){
-    var npc, script
-    var expect = chai.expect;
+describe('Npc', function() {
+  var npc, script
+  var expect = chai.expect;
 
-    beforeEach(function() {
-      script = new Script();
-      npc = new Npc('dana', 10, 10, 50, 50, script);
-      scriptStub = sinon.stub(script, "container");
-      scriptStub.returns([{m: "Do you want to meditate?"}]);
-    });
+  beforeEach(function() {
+    script = new Script();
+    game = new Game();
+    sprite_dana = {
+      src: '../img/npc_f.png',
+      x: 320,
+      y: 0,
+      w: 32,
+      h: 45
+    }
+    npc_dana = new Npc('dana', 500, 50, 50, 50, script, game, sprite_dana);
+    scriptStub = sinon.stub(script, "container");
+    scriptStub.returns([{
+      m: "Do you want to meditate?"
+    }]);
+  });
 
-    it("gets the NPC's script based on their ID", function() {
-      // Arrange
-      // Action
-      npc_script = npc.getScript('dana');
-      // Assert
-      expect(npc_script).to.eql([{m: "Do you want to meditate?"}]);
+  it("returns the NPC's script", function() {
+    // Arrange
+    // Action
+    npc_script = npc_dana.getScript();
+    // Assert
+    expect(npc_script).to.eql([{
+      m: "Do you want to meditate?"
+    }]);
+
+    it("provides an AP bonus on next cycle after meditating", function() {
+      
+    })
+
+    it("provides a PS-multiplier bonus on next cycle after getting help", function() {
+
+    })
   })
 })
