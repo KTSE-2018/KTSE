@@ -76,7 +76,8 @@ Player.prototype.moveRight = function(myPlayer, collisionObject) {
   } else if (collisionObject['collide'] === true) {
     myPlayer._x = (collisionObject['object']._x - myPlayer._spriteWidth);
     say = collisionLogic.interact(collisionObject['object']);
-    console.log(say)
+    // console.log(say)
+    dialogueBoxProject.show(collisionObject);
   } else {
     myPlayer._x += myPlayer._moveDelta;
   };
