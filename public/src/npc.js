@@ -28,7 +28,7 @@
   }
 
   Npc.prototype.action = function() {
-
+    game.actionPoints.consumeAP();
   }
 
   exports.Npc = Npc;

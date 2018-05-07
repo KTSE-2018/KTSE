@@ -6,6 +6,7 @@
     this._y = this._canvas.height - 150;
     this._rectHeight = 100;
     this._rectWidth = this._canvas.width * 0.8;
+    this._npc = null;
     this._inUse = false;
     this._dialogue = [{
       'm': 'Engaging dialogue'
@@ -48,7 +49,6 @@
 
     DialogueBox.prototype.show = function(npc) {
       this._npc = npc
-      console.log(this._npc)
       this._dialogue = this._npc.getScript();
       this._inUse = true;
     }
@@ -59,8 +59,8 @@
     }
 
     DialogueBox.prototype.gameAction = function() {
-      console.log("CAST MAGIC SPELL")
-      //this.npc.action     (i.e meditate/work on project/get help)
+      // console.log("CAST MAGIC SPELL")
+      this._npc.action();
     }
   }
   exports.DialogueBox = DialogueBox
