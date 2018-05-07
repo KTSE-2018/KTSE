@@ -44,5 +44,6 @@
     }
   }
 
+  
   exports.Npc = Npc;
 })(this);

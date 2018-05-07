@@ -108,22 +108,37 @@ $(document).ready(function() {
       }
     })
 
+    // X
     $(this).keyup(function(e) {
-      if (e.keyCode == 88) {
-        dialogueBoxProject.hide();
-        if (cycle.gameEnd !== true) {
-          cycle.turnStart();
+      if (e.keyCode == 88 && cycle.gameEnd !== true) {
+        cycle.turnStart();
+      }
+    })
+
+    // SPACEBAR
+    $(this).keyup(function(e) {
+      if (e.keyCode == 32) {
+        if (dialogueBoxProject.finalDialogue() !== true) {
+          dialogueBoxProject._count += 1
         }
       }
     })
 
+    // Y
     $(this).keyup(function(e) {
-      if (e.keyCode == 32) {
+      if (e.keyCode == 89) {
         if (dialogueBoxProject.finalDialogue() === true) {
           dialogueBoxProject.gameAction();
           dialogueBoxProject.hide();
-        } else {
-          dialogueBoxProject._count += 1
+        }
+      }
+    })
+
+    // N
+    $(this).keyup(function(e) {
+      if (e.keyCode == 78) {
+        if (dialogueBoxProject.finalDialogue() === true) {
+          dialogueBoxProject.hide();
         }
       }
     })
