@@ -10,23 +10,21 @@
     this._inUse = false;
     this._dialogue = [];
     this._count = 0;
+    this.imageObj = new Image()
+    this.imageObj.src = '../img/dbox.png'
+    this.setName = "Been through the desert..."
 
     DialogueBox.prototype.drawDialogueBox = function() {
       this._ctx.beginPath();
-      this.drawTextBG(this._ctx, this.dialogueStep(), '20px arial', this._x, this._y);
-      this._ctx.closePath();
-    }
 
-    DialogueBox.prototype.drawTextBG = function(ctx, txt, font, x, y) {
-      ctx.save();
-      ctx.font = font;
-      ctx.textBaseline = 'top';
-      ctx.fillStyle = 'white';
-      var width = ctx.measureText(txt).width + 10;
-      ctx.fillRect(x, y, width, parseInt(font, 10));
-      ctx.fillStyle = '#000';
-      ctx.fillText(txt, x, y);
-      ctx.restore();
+      this._ctx.drawImage(this.imageObj, 40, 300);
+      this._ctx.fillStyle = 'white';
+      this._ctx.font = '20px Arial';
+      this._ctx.fillText(this.setName, 50, 625);
+      this._ctx.fillStyle = '#000';
+      this._ctx.fillText(this.dialogueStep(), 55, 670);
+
+      this._ctx.closePath();
     }
 
     DialogueBox.prototype.reposition = function() {
@@ -37,8 +35,8 @@
 
     DialogueBox.prototype.dialogueStep = function() {
       getId = this._npc._id;
-      setName = getId[0].toUpperCase() + getId.substring(1) + ": ";
-      return (setName + this._dialogue[this._count]["m"]);
+      this.setName = getId[0].toUpperCase() + getId.substring(1) + ": ";
+      return (this._dialogue[this._count]["m"]);
     }
 
     DialogueBox.prototype.finalDialogue = function() {
