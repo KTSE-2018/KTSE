@@ -12,18 +12,17 @@
     this._count = 0;
     this.imageObj = new Image()
     this.imageObj.src = '../img/dbox.png'
-    this.setName = "Been through the desert..."
+    this.setName = ''
 
     DialogueBox.prototype.drawDialogueBox = function() {
       this._ctx.beginPath();
 
       this._ctx.drawImage(this.imageObj, 40, 300);
-      this._ctx.fillStyle = 'white';
+      this._ctx.fillStyle = 'black';
       this._ctx.font = '20px Arial';
-      this._ctx.fillText(this.setName, 50, 625);
-      this._ctx.fillStyle = '#000';
       this._ctx.fillText(this.dialogueStep(), 55, 670);
-
+      this._ctx.fillStyle = 'white';
+      this._ctx.fillText(this.setName, 50, 625);
       this._ctx.closePath();
     }
 
@@ -35,7 +34,7 @@
 
     DialogueBox.prototype.dialogueStep = function() {
       getId = this._npc._id;
-      this.setName = getId[0].toUpperCase() + getId.substring(1) + ": ";
+      this.setName = getId[0].toUpperCase() + getId.substring(1);
       return (this._dialogue[this._count]["m"]);
     }
 
