@@ -4,7 +4,8 @@ describe('Player movement', function() {
 
   beforeEach(function() {
     player = new Player();
-    collisionLogic = new CollisionLogic
+    collisionLogic = new CollisionLogic()
+    game = new Game()
     player._y = 500; //Move off bottom of canvas
     test_x = player._x;
     test_y = player._y;
@@ -12,6 +13,8 @@ describe('Player movement', function() {
     //Stub the CollisionLogic constructor method --> always return false
     collisionStub = sinon.stub(collisionLogic, "collision")
     collisionStub.returns({'collide':false})
+    gameStub = sinon.stub(game, "consumeAP");
+
   })
 
   it('should be able to move right', function() {

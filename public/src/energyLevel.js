@@ -1,4 +1,4 @@
-function EnergyLevel() {
+function EnergyLevel(game) {
   this.points = 100
 }
 
@@ -11,6 +11,8 @@ EnergyLevel.prototype.decreaseEnergy = function(x = 10) {
     console.error('insufficient Energy');
   } else {
     this.points -= x
-
+    if (this.points === 0 ) {
+      game.gameOver()
+    }
   }
 };

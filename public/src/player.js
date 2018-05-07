@@ -1,6 +1,7 @@
-function Player() {
+function Player(game) {
   this._canvas = document.getElementById("myCanvas");
   this._ctx = this._canvas.getContext("2d");
+  this.game = game
 
 
   this._sprite = new Image();
@@ -51,15 +52,19 @@ Player.prototype.reposition = function(myPlayer) {
   myPlayer.drawSprite();
 
   if (myPlayer._rightPressed) {
+    game.consumeAP()
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'R');
     myPlayer.moveRight(myPlayer, object);
   } else if (myPlayer._leftPressed) {
+    game.consumeAP()
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'L');
     myPlayer.moveLeft(myPlayer, object);
   } else if (myPlayer._downPressed) {
+    game.consumeAP()
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'D');
     myPlayer.moveDown(myPlayer, object);
   } else if (myPlayer._upPressed) {
+    game.consumeAP()
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'U');
     myPlayer.moveUp(myPlayer, object);
   };

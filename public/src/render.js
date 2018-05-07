@@ -1,9 +1,11 @@
 $(document).ready(function() {
   $(function() {
-    game = new Game(new ActionPoints(), new EnergyLevel());
+    cycle = new Cycle()
+    game = new Game(cycle);
+
     script = new Script();
     npc = new Npc('dana',1,1,1,1, game);
-    player = new Player();
+    player = new Player(game);
     collisionLogic = new CollisionLogic();
 
 
@@ -29,6 +31,8 @@ $(document).ready(function() {
     actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'A');
     energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'E');
 
+
+
     player._collisionable.push(collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
       collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
@@ -39,7 +43,7 @@ $(document).ready(function() {
               collisionBox4, collisionBox5, collisionBox6, collisionBox7,
               collisionBox8, collisionBox9, collisionBox10, collisionBox11,
               collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
-              dialogueBoxProject, actionPointsBar, energyPointsBar
+              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle
             ])
           }, 100);
         });
@@ -72,6 +76,9 @@ $(document).ready(function() {
     $(this).keyup(function(e) {
     if (e.keyCode == 88) {
       dialogueBoxProject.hide();
+      if (cycle.gameEnd !== true) {
+        cycle.turnStart();
+      }
     }
   })
 
