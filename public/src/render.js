@@ -1,8 +1,13 @@
 $(document).ready(function() {
   $(function() {
-    game = new Game();
-    player = new Player();
+    cycle = new Cycle()
+    game = new Game(cycle);
+
+    script = new Script();
+    npc = new Npc('dana',1,1,1,1, game);
+    player = new Player(game);
     collisionLogic = new CollisionLogic();
+
 
     collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
     collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');
@@ -21,18 +26,27 @@ $(document).ready(function() {
     collisionBox15 = new CollisionBox(353, 705, 60, 30, 'box15');
     collisionBox16 = new CollisionBox(577, 383, 60, 160, 'box16');
 
+    dialogueBoxProject = new DialogueBox();
+
+    actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'A');
+    energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'E');
+
+
 
     player._collisionable.push(collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
       collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
       collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
-    setInterval(function() {
-      game.draw([player, collisionBox1, collisionBox2, collisionBox3,
-        collisionBox4, collisionBox5, collisionBox6, collisionBox7,
-        collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-        collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16])
-    }, 100);
-  });
+
+      setInterval(function() {
+            game.draw([player, collisionBox1, collisionBox2, collisionBox3,
+              collisionBox4, collisionBox5, collisionBox6, collisionBox7,
+              collisionBox8, collisionBox9, collisionBox10, collisionBox11,
+              collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
+              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle
+            ])
+          }, 100);
+        });
 
   $(function() {
     $(this).keydown(function(e) {
@@ -58,6 +72,27 @@ $(document).ready(function() {
         player._downPressed = false;
       }
     })
+
+    $(this).keyup(function(e) {
+    if (e.keyCode == 88) {
+      dialogueBoxProject.hide();
+      if (cycle.gameEnd !== true) {
+        cycle.turnStart();
+      }
+    }
+  })
+
+  $(this).keyup(function(e) {
+    if (e.keyCode == 32) {
+      if (dialogueBoxProject.finalDialogue() === true) {
+        dialogueBoxProject.gameAction();
+        dialogueBoxProject.hide();
+      }
+      else {
+        dialogueBoxProject._count += 1
+      }
+    }
+  })
 
   });
 });
