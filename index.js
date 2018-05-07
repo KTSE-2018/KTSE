@@ -7,12 +7,12 @@ var options = {
   root: __dirname + '/public'
 }
 
-app.get('/', function (req, res) {
-  res.sendFile('/views/index.html', options)
+app.get('/game', function (req, res) {
+  res.sendFile('/views/game.html', options)
 })
 
-app.get('/intro', function (req, res) {
-  res.sendFile('/views/intro.html', options)
+app.get('/rules', function (req, res) {
+  res.sendFile('/views/index.html', options)
 })
 
 app.listen(8000, function () {
