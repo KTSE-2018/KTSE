@@ -3,14 +3,32 @@ $(document).ready(function() {
     cycle = new Cycle()
     game = new Game(cycle);
 
-    script = new Script();
-    npc = new Npc('dana',1,1,1,1, game);
     player = new Player(game);
     collisionLogic = new CollisionLogic();
+
 
     $('#gotItButton').hide();
     $('#rules').hide();
 
+
+    script = new Script();
+    sprite_dana = {
+      src: '../img/npc_f.png',
+      x: 320,
+      y: 0,
+      w: 32,
+      h: 45
+    }
+    npc_dana = new Npc('dana', 500, 50, 50, 50, script, game, sprite_dana);
+
+    sprite_coach = {
+      src: '../img/npc_m.png',
+      x: 32,
+      y: 225,
+      w: 32,
+      h: 45
+    }
+    npc_coach = new Npc('coach', 383, 440, 50, 50, script, game, sprite_coach);
 
     collisionBox1 = new CollisionBox(36, 90, 250, 80, 'box1');
     collisionBox2 = new CollisionBox(36, 280, 250, 80, 'box2');
@@ -33,23 +51,24 @@ $(document).ready(function() {
 
     actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'A');
     energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'E');
+    projectPointsBar = new StatsBar(10, 75, 200, 20, 'chartreuse', game, 'P');
 
 
 
-    player._collisionable.push(collisionBox1,
+    player._collisionable.push(npc_dana, npc_coach, collisionBox1,
       collisionBox2, collisionBox3, collisionBox4, collisionBox5, collisionBox6,
       collisionBox7, collisionBox8, collisionBox9, collisionBox10, collisionBox11,
       collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16)
 
-      setInterval(function() {
-            game.draw([player, collisionBox1, collisionBox2, collisionBox3,
-              collisionBox4, collisionBox5, collisionBox6, collisionBox7,
-              collisionBox8, collisionBox9, collisionBox10, collisionBox11,
-              collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
-              dialogueBoxProject, actionPointsBar, energyPointsBar, cycle
-            ])
-          }, 100);
-        });
+    setInterval(function() {
+      game.draw([player, npc_dana, npc_coach, collisionBox1, collisionBox2, collisionBox3,
+        collisionBox4, collisionBox5, collisionBox6, collisionBox7,
+        collisionBox8, collisionBox9, collisionBox10, collisionBox11,
+        collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
+        dialogueBoxProject, actionPointsBar, energyPointsBar, projectPointsBar, cycle
+      ])
+    }, 100);
+  });
 
   $(function() {
     $(this).keydown(function(e) {
@@ -77,25 +96,24 @@ $(document).ready(function() {
     })
 
     $(this).keyup(function(e) {
-    if (e.keyCode == 88) {
-      dialogueBoxProject.hide();
-      if (cycle.gameEnd !== true) {
-        cycle.turnStart();
-      }
-    }
-  })
-
-  $(this).keyup(function(e) {
-    if (e.keyCode == 32) {
-      if (dialogueBoxProject.finalDialogue() === true) {
-        dialogueBoxProject.gameAction();
+      if (e.keyCode == 88) {
         dialogueBoxProject.hide();
+        if (cycle.gameEnd !== true) {
+          cycle.turnStart();
+        }
       }
-      else {
-        dialogueBoxProject._count += 1
+    })
+
+    $(this).keyup(function(e) {
+      if (e.keyCode == 32) {
+        if (dialogueBoxProject.finalDialogue() === true) {
+          dialogueBoxProject.gameAction();
+          dialogueBoxProject.hide();
+        } else {
+          dialogueBoxProject._count += 1
+        }
       }
-    }
-  })
+    })
 
   $('#playButton').click(function() {
         $('#myCanvas').animate({

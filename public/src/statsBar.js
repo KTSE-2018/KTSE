@@ -25,6 +25,8 @@
       return this.game.actionPoints.points * 10
     } else if (this.type === 'E') {
       return this.game.energyLevel.points
+    } else if (this.type === 'P') {
+      return this.game.projectScore.score
     }
   }
 
