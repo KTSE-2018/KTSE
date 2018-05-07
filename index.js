@@ -11,7 +11,7 @@ app.get('/game', function (req, res) {
   res.sendFile('/views/game.html', options)
 })
 
-app.get('/rules', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile('/views/index.html', options)
 })
 
