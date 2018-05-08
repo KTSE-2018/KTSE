@@ -5,8 +5,6 @@ function ActionPoints(game) {
 }
 
 ActionPoints.prototype.consumeAP = function(x = 1) {
-  const err = Error('Insufficient AP');
-
   if (x > this._points) {
     console.error('Insufficient AP');
     return;
@@ -15,7 +13,7 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
     if (this._points === 0 ) {
       game.turnOver()
       game.decreaseEnergy()
-      this.resetAP(2);
+      this.resetAP(15);
     }
   }
 }
