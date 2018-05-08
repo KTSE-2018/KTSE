@@ -21,7 +21,7 @@
     this._ctx.drawImage(this.imageObj, 50, 300);
     this._ctx.fillStyle = 'black';
     this._ctx.font = '20px Arial';
-    wrapCanvasText(this._ctx, this.dialogueStep(), 65, 660, 440, 25);
+    wrapCanvasText(this._ctx, this.dialogueStep(), 65, 660, 460, 25);
     this._ctx.fillStyle = 'white';
     this._ctx.fillText(this.setName, 60, 625);
     this._ctx.closePath();
