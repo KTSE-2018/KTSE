@@ -1,4 +1,4 @@
-@import url("//fonts.googleapis.com/css?family=Abel");
+@import url("//fonts.googleapis.com/css?family=Varela+Round");
 
 body  {
     background-image: url("https://image.ibb.co/mNWBb7/free_brown_background_1.jpg");
@@ -206,10 +206,10 @@ body  {
 #intro_text {
   position: absolute;
   margin-left: 690px;
-  margin-top: 180px;
+  margin-top: 175px;
   width: 40%;
   color: #f6eae6;
-  font-family: 'Pacifico', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 22px;
   line-height: 25px;
 }

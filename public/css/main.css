@@ -1,3 +1,5 @@
+@import url("//fonts.googleapis.com/css?family=Varela+Round");
+
 body {
   background-image: url("https://image.ibb.co/mNWBb7/free_brown_background_1.jpg");
   background-color: #8B4513;
@@ -65,11 +67,11 @@ float: left;
 #rules {
   position: absolute;
   width: 40%;
-  color: #dbbc8f;
-  font-style: 'Pacifico';
+  color: #f6eae6;
+  font-family: 'Varela Round';
   font-size: 30px;
-  line-height: 40px;
-  margin-top: 150px;
+  line-height: 42px;
+  margin-top: 140px;
   margin-left: 50px;
 
 }
