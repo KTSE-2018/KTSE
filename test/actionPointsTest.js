@@ -5,29 +5,27 @@ describe('ActionPoints', function() {
     actionPoint = new ActionPoints();
     energyLevel = new EnergyLevel();
     game = new Game();
+    sinon.spy(console, 'error')
   })
 
-  describe('._points', function() {
-    it('should start with 10 points ', function() {
-      expect(actionPoint._points).to.eq(10);
-    });
-  });
+  afterEach(function(){
+    (console.error).restore()
+  })
 
   describe('#consumeAP', function() {
     it('should consume 1 AP as default', function() {
       actionPoint.consumeAP()
-      expect(actionPoint._points).to.eq(9);
+      expect(actionPoint._points).to.eq(99);
     });
 
     it('can consume 2 or more AP if given params', function() {
       actionPoint.consumeAP(2)
-      expect(actionPoint._points).to.eq(8);
+      expect(actionPoint._points).to.eq(98);
     });
 
     it('cant consume more AP than you currently have', function() {
-      const err = Error('Insufficient AP');
-      actionPoint.consumeAP(11)
-      expect(actionPoint._points).to.eq(10)
+      actionPoint.consumeAP(101)
+      expect((console.error).calledWith("Insufficient AP")).to.be.true;
     });
   });
 
@@ -52,13 +50,13 @@ describe('ActionPoints', function() {
     it('resets AP to 10 when player has not meditated', function() {
       actionPoint._meditated = false;
       actionPoint.resetAP()
-      expect(actionPoint._points).to.eq(10)
+      expect(actionPoint._points).to.eq(100)
     });
 
     it('resets AP by the bonus amount when player has meditated', function() {
       actionPoint._meditated = true;
-      actionPoint.resetAP(2)
-      expect(actionPoint._points).to.eq(12)
+      actionPoint.resetAP(10)
+      expect(actionPoint._points).to.eq(110)
     });
 
     it("resets the player's meditated status to false", function() {

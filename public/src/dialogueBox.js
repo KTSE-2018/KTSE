@@ -36,7 +36,7 @@
     getId = this._npc._id;
     this.setName = getId[0].toUpperCase() + getId.substring(1);
       if (this._npc.constructor.name === 'Npc' && this._npc.validAction() === true) {
-        return "You look exhausted! Come back tomorrow!"
+        return "You look exhausted! Take a walk to unwind and prepare for tomorrow!"
       } else {
         return (this._dialogue[this._count]["m"]);
       }

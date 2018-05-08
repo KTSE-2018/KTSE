@@ -1,43 +1,41 @@
 describe('DialogueBox', function() {
+  var expect = chai.expect;
+  var dialogueBox, drawSpy, repoStub;
+
+  beforeEach(function(){
+    dialogueBox = new DialogueBox();
+    dialogueBox._dialogue = [{m: 'Hello'}, {m: 'How are you?'}]
+  })
 
   describe('#reposition', function() {
-
-    var expect = chai.expect
-    var dialogueBox = new DialogueBox()
-
     it('persist while _inuse is true', function() {
-      var drawSpy = sinon.spy(dialogueBox, "drawDialogueBox");
+      dialogueBox._npc = {'constructor': {'name': 'Npc'}, '_id': 'fake_npc', validAction: function(){return true}};
+      drawStub = sinon.stub(dialogueBox, "drawDialogueBox");
+      drawStub.returns(0);
       dialogueBox._inUse = true;
-      dialogueBox.reposition()
-      expect(drawSpy.callCount).to.eq(1)
-      drawSpy.restore();
+      dialogueBox.reposition();
+      expect(drawStub.callCount).to.eq(1);
     });
 
     it('does not persist whilst _inuse is false', function() {
-      var drawSpy = sinon.spy(dialogueBox, "drawDialogueBox");
+      dialogueBox._npc = {'constructor': {'name': 'Npc'}, '_id': 'fake_npc', validAction: function(){return true}};
+      drawStub = sinon.stub(dialogueBox, "drawDialogueBox");
+      drawStub.returns(0);
       dialogueBox._inUse = false;
-      dialogueBox.reposition()
-      expect(drawSpy.callCount).to.eq(0)
-      drawSpy.restore();
+      dialogueBox.reposition();
+      expect(drawStub.callCount).to.eq(0);
     });
   })
 
   describe('#dialogueStep', function() {
-
-    var expect = chai.expect
-    var dialogueBox = new DialogueBox()
-
     it('returns the dialogue that matches the count', function() {
+      dialogueBox._npc = {'constructor': {'name': 'Npc'}, '_id': 'fake_npc', validAction: function(){return false}};
       dialogueBox._count += 1
-      expect(dialogueBox.dialogueStep()).to.eq("MORE engaging dialogue")
+      expect(dialogueBox.dialogueStep()).to.eq("How are you?")
     })
   })
 
   describe('#finalDialogue', function() {
-
-    var expect = chai.expect
-    var dialogueBox = new DialogueBox()
-
     it('returns true if it is the last step in the dialogue', function() {
       dialogueBox._count = 1
       expect(dialogueBox.finalDialogue()).to.eq(true)
@@ -50,33 +48,15 @@ describe('DialogueBox', function() {
   })
 
   describe('#show', function() {
-
-    var expect = chai.expect
-    var dialogueBox = new DialogueBox()
-
     it('calls getScript from npc, sets inUse to true', function() {
-      var npc = {
-        getScript: function() {
-          [{
-            'm': 'Engaging dialogue'
-          }, {
-            'm': 'MORE engaging dialogue'
-          }]
-        }
-      }
-      var mock = sinon.mock(npc);
-      mock.expects("getScript").once();
+      dialogueBox._npc = {'constructor': {'name': 'Npc'}, getScript: function(){return 'hi'}}
       dialogueBox._inUse = false;
-      dialogueBox.show(npc)
+      dialogueBox.show(dialogueBox._npc)
       expect(dialogueBox._inUse).to.eq(true)
     })
   })
 
   describe('#hide', function() {
-
-    var expect = chai.expect
-    var dialogueBox = new DialogueBox()
-
     it('sets inUse to false and count to 0', function() {
       dialogueBox._count = 10
       dialogueBox._inUse = true
@@ -87,14 +67,10 @@ describe('DialogueBox', function() {
   })
 
   describe('#gameAction', function() {
-
-    var expect = chai.expect
-    var dialogueBox = new DialogueBox()
-
-    it('Writes string to console log to mimic NPC action', function() {
-      consoleSpy = sinon.spy(console, 'log');
-      dialogueBox.gameAction()
-      consoleSpy.returned("CAST MAGIC SPELL")
+    it('Calls the NPC object #action function', function() {
+      dialogueBox._npc = {'constructor': {'name': 'Npc'}, action: function(){return 'Do something'}};
+      result = dialogueBox._npc.action();
+      expect(result).to.equal("Do something");
     })
   })
 })

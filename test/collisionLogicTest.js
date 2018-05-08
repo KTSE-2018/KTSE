@@ -1,43 +1,38 @@
 describe('CollisionLogic', function() {
   var expect = chai.expect;
-  var collisionLogic = new CollisionLogic();
-
   var object1, object2, object3, object4,
       player, stepSize, npc;
 
-  describe('#collisions', function() {
+  beforeEach(function() {
+    collisionLogic = new CollisionLogic();
+    script = new Script();
+    game = new Game();
+
 
     player = {
-      _y: 200,
-      _x: 200,
-      _spriteWidth: 32,
-      _spriteHeight: 45
+      _y: 200, _x: 200, _spriteWidth: 32, _spriteHeight: 45
     }
+
     object1 = {
-      _y: 0,
-      _x: 200,
-      _spriteWidth: 100,
-      _spriteHeight: 100
+      _y: 0, _x: 200, _spriteWidth: 100, _spriteHeight: 100
     }
+
     object2 = {
-      _y: 400,
-      _x: 200,
-      _spriteWidth: 100,
-      _spriteHeight: 100
+      _y: 400, _x: 200, _spriteWidth: 100, _spriteHeight: 100
     }
+
     object3 = {
-      _y: 200,
-      _x: 0,
-      _spriteWidth: 100,
-      _spriteHeight: 100
+      _y: 200, _x: 0, _spriteWidth: 100, _spriteHeight: 100
     }
+
     object4 = {
-      _y: 200,
-      _x: 400,
-      _spriteWidth: 100,
-      _spriteHeight: 100
+      _y: 200, _x: 400, _spriteWidth: 100, _spriteHeight: 100
     }
+
     stepSize = 500
+  })
+
+  describe('#collisions', function() {
 
     it('should return true if player attempts to move upwards into an object above it', function() {
       expect(collisionLogic.collision(player, [object1], stepSize, 'U')['collide']).to.eq(true);
@@ -61,28 +56,4 @@ describe('CollisionLogic', function() {
       expect(collisionLogic.collision(player, [object1, object2, object3], stepSize, 'R')['object']).to.eq(undefined);
     });
   });
-
-  describe('#interact', function(){
-    it('fetches the right script from an NPC', function(){
-      // Arrange
-      npc = new Npc('lana',1,1,1,1);
-      npcStub = sinon.stub(npc, 'getScript');
-      npcStub.returns([{m: "Do you want to meditate?"}]);
-      // Action
-      result = collisionLogic.interact(npc);
-      // Assert
-      expect(result).to.eql([{m: "Do you want to meditate?"}]);
-    })
-
-    it('fetches the console log message from a collisionBox', function(){
-      // Arrange
-      box = new CollisionBox(1,1,1,1,'box');
-      boxStub = sinon.stub(box, 'getScript');
-      boxStub.returns("ME NO SPEAKY");
-      // Action
-      result = collisionLogic.interact(box);
-      // Assert
-      expect(result).to.eql("ME NO SPEAKY");
-    })
-  })
 });

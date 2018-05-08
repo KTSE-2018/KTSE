@@ -17,7 +17,6 @@ function Player(game) {
   this._y = this._canvas.height - this._spriteHeight;
   this._moveDelta = 10;
   this._collisionable = [];
-  this._interact = false;
 
   this._rightPressed = false;
   this._leftPressed = false;
