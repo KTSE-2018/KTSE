@@ -118,7 +118,7 @@ $(document).ready(function() {
     // SPACEBAR
     $(this).keyup(function(e) {
       if (e.keyCode == 32) {
-        if (dialogueBoxProject.finalDialogue() !== true) {
+        if (dialogueBoxProject._inUse === true && dialogueBoxProject.finalDialogue() !== true) {
           dialogueBoxProject._count += 1
         }
       }
