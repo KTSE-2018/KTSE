@@ -21,6 +21,7 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
 
 ActionPoints.prototype.meditate = function() {
   this._meditated = true;
+  game.increaseEnergy();
 };
 
 ActionPoints.prototype.resetAP = function(bonus = 1) {

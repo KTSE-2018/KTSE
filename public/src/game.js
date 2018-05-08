@@ -33,4 +33,8 @@ function Game(cycle) {
     this.energyLevel.decreaseEnergy()
   }
 
+  Game.prototype.increaseEnergy = function() {
+    this.energyLevel.increaseEnergy()
+  }
+
 };
