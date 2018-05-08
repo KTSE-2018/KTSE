@@ -49,7 +49,7 @@
         break;
       case 'ned':
         game.actionPoints.consumeAP(2);
-        //BONUS
+        game.projectScore.scoreMultiplier(2);
         break;
     }
   }

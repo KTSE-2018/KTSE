@@ -14,27 +14,28 @@ function Game(cycle) {
   };
 
   Game.prototype.consumeAP = function() {
-    this.actionPoints.consumeAP()
+    this.actionPoints.consumeAP();
   }
 
   Game.prototype.meditate = function() {
-    this.actionPoints.meditate()
+    this.actionPoints.meditate();
   }
 
   Game.prototype.turnOver = function() {
-    this.cycle.turnOver()
+    this.projectScore.scoreMultiplier(1);
+    this.cycle.turnOver();
   }
 
   Game.prototype.gameOver = function() {
-    this.cycle.gameOver()
+    this.cycle.gameOver();
   }
 
   Game.prototype.decreaseEnergy = function() {
-    this.energyLevel.decreaseEnergy()
+    this.energyLevel.decreaseEnergy();
   }
 
   Game.prototype.increaseEnergy = function() {
-    this.energyLevel.increaseEnergy()
+    this.energyLevel.increaseEnergy();
   }
 
 };

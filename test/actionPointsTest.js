@@ -1,5 +1,5 @@
 describe('ActionPoints', function() {
-  var expect = chai.expect
+  var expect = chai.expect;
 
   beforeEach(function(){
     actionPoint = new ActionPoints();

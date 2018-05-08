@@ -9,6 +9,7 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
 
   if (x > this._points) {
     console.error('Insufficient AP');
+    return;
   } else {
     this._points -= x
     if (this._points === 0 ) {

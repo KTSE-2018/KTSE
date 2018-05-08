@@ -45,8 +45,10 @@
 
   DialogueBox.prototype.show = function(npc) {
     this._npc = npc
+    if (this._npc.constructor.name === 'Npc') {
+      this._inUse = true;
+    }
     this._dialogue = this._npc.getScript();
-    this._inUse = true;
   }
 
   DialogueBox.prototype.hide = function() {
