@@ -38,16 +38,27 @@
   }
 
   Npc.prototype.action = function() {
-    if (this._id === 'computer' && this.actionableComputer() !== true) {
-      game.actionPoints.consumeAP(35);
-      game.projectScore.increaseProjectScore()
+    switch(this._id) {
+      case 'computer':
+        if (this.actionableComputer() !== true) {
+          game.actionPoints.consumeAP(35);
+          game.projectScore.increaseProjectScore();
+        }
+          break;
+      case 'lana':
+        game.actionPoints.consumeAP(35);
+        game.actionPoints.meditate();
+        break;
+      case 'ned':
+        game.actionPoints.consumeAP(35);
+        game.projectScore.scoreMultiplier(2);
+        break;
     }
   }
 
   Npc.prototype.actionableComputer = function() {
     return (game.actionPoints.points < 35)
   }
-
 
   exports.Npc = Npc;
 })(this);

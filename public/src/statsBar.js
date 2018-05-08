@@ -24,7 +24,7 @@
     if (this.type === 'A') {
       return this.game.actionPoints.points
     } else if (this.type === 'E') {
-      return this.game.energyLevel.points
+      return this.game.energyLevel._points
     } else if (this.type === 'P') {
       return this.game.projectScore.score * 10
     }

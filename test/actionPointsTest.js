@@ -1,39 +1,70 @@
 describe('ActionPoints', function() {
+  var expect = chai.expect;
 
-  describe('#points', function() {
+  beforeEach(function(){
+    actionPoint = new ActionPoints();
+    energyLevel = new EnergyLevel();
+    game = new Game();
+  })
+
+  describe('._points', function() {
     it('should start with 10 points ', function() {
-      ap = new ActionPoints();
-
-      chai.expect(ap.points).to.eq(10);
+      expect(actionPoint._points).to.eq(10);
     });
   });
 
-  describe('.consumeAP', function() {
+  describe('#consumeAP', function() {
     it('should consume 1 AP as default', function() {
-      ap = new ActionPoints();
-      ap.consumeAP()
-      chai.expect(ap.points).to.eq(9);
+      actionPoint.consumeAP()
+      expect(actionPoint._points).to.eq(9);
     });
 
     it('can consume 2 or more AP if given params', function() {
-      ap = new ActionPoints();
-      ap.consumeAP(2)
-      chai.expect(ap.points).to.eq(8);
+      actionPoint.consumeAP(2)
+      expect(actionPoint._points).to.eq(8);
     });
 
     it('cant consume more AP than you currently have', function() {
       const err = Error('Insufficient AP');
-
-      ap = new ActionPoints();
-      ap.consumeAP(11)
-      chai.expect(ap.points).to.eq(10)
+      actionPoint.consumeAP(11)
+      expect(actionPoint._points).to.eq(10)
     });
   });
 
-  describe('.increaseAP', function() {
-    it('increases AP by 1 as default', function() {
-      ap.increaseAP()
-      chai.expect(ap.points).to.eq(11)
+  describe('#meditate', function() {
+    it("should change the player's meditated status to true", function(){
+      actionPoint.meditate();
+      expect(actionPoint._meditated === true);
+    })
+
+    it("should recover the player's energy level by x", function(){
+      game_stub = sinon.stub(game, 'increaseEnergy')
+      el_stub = sinon.stub(energyLevel)
+      game_stub.callsFake(function increaseEnergyPoints() {
+        el_stub._points = 110
+      })
+      actionPoint.meditate();
+      expect(el_stub._points).to.eq(110);
+    })
+  })
+
+  describe('#resetAP', function() {
+    it('resets AP to 10 when player has not meditated', function() {
+      actionPoint._meditated = false;
+      actionPoint.resetAP()
+      expect(actionPoint._points).to.eq(10)
     });
+
+    it('resets AP by the bonus amount when player has meditated', function() {
+      actionPoint._meditated = true;
+      actionPoint.resetAP(2)
+      expect(actionPoint._points).to.eq(12)
+    });
+
+    it("resets the player's meditated status to false", function() {
+      actionPoint._meditated = true;
+      actionPoint.resetAP()
+      expect(actionPoint._meditated).to.eq(false)
+    })
   });
 });

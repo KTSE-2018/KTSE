@@ -65,7 +65,7 @@ describe('CollisionLogic', function() {
   describe('#interact', function(){
     it('fetches the right script from an NPC', function(){
       // Arrange
-      npc = new Npc('dana',1,1,1,1);
+      npc = new Npc('lana',1,1,1,1);
       npcStub = sinon.stub(npc, 'getScript');
       npcStub.returns([{m: "Do you want to meditate?"}]);
       // Action
