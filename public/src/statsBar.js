@@ -26,7 +26,7 @@
     } else if (this.type === 'E') {
       return this.game.energyLevel._points
     } else if (this.type === 'P') {
-      return this.game.projectScore.score
+      return this.game.projectScore._score
     }
   }
 

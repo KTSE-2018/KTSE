@@ -1,7 +1,7 @@
 function ProjectScore() {
-  this.score = 5
+  this._score = 5
 }
 
 ProjectScore.prototype.increaseProjectScore = function(x = 1) {
-  this.score += x
+  this._score += x
 };
