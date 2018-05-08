@@ -23,7 +23,7 @@ function Game(cycle) {
 
   Game.prototype.turnOver = function() {
     this.projectScore.scoreMultiplier(1, false);
-    this.cycle.turnOver(this.projectScore.score);
+    this.cycle.turnOver(this.projectScore._score);
   }
 
   Game.prototype.gameOver = function(type) {
