@@ -163,6 +163,13 @@ $(document).ready(function() {
           $('#rules').hide();
       });
 
+    $('#rulesButton').click(function() {
+        var ask = confirm("This will take you away from the current page");
+        if (ask === true) {
+          location.replace("/rules");
+        }
+      });
+
 
   });
 });

@@ -5,12 +5,16 @@ body  {
     background-color: #8B4513;
 }
 
+li {
+  padding-bottom: 10px;
+}
+
 #fullRules {
   padding-top: 100px;
   margin: 0 auto;
   width: 90%;
   color: #f6eae6;
-  font-size: 35px;
+  font-size: 25px;
   font-family: 'Varela Round', sans-serif;'
 }
 
