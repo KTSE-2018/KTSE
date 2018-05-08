@@ -7,10 +7,12 @@ describe('Player Interaction', function() {
     player._y = 500;
     game = new Game()
     collisionLogic = new CollisionLogic();
+    dialogueBoxProject = new DialogueBox();
     sinon.spy(console, 'log');
     collisionStub = sinon.stub(collisionLogic, "collision");
     interactStub = sinon.stub(collisionLogic, "interact");
     gameStub = sinon.stub(game, "consumeAP");
+    var dialogueStub = sinon.spy(dialogueBoxProject, "show");
 
     collision_box = {
       '_id': 'box'
@@ -43,7 +45,8 @@ describe('Player Interaction', function() {
       // Action
       player.reposition(player);
       // Assert
-      expect((console.log).calledWith("ME NO SPEAKY")).to.be.true;
+      expect(dialogueSpy.callCount).to.eq(1)
+      dialogueSpy.restore();
     });
 
     it('should not allow a player to interact with an object on left-collision', function() {

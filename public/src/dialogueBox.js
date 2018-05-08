@@ -16,7 +16,6 @@
 
     DialogueBox.prototype.drawDialogueBox = function() {
       this._ctx.beginPath();
-
       this._ctx.drawImage(this.imageObj, 40, 300);
       this._ctx.fillStyle = 'black';
       this._ctx.font = '20px Arial';
@@ -35,7 +34,12 @@
     DialogueBox.prototype.dialogueStep = function() {
       getId = this._npc._id;
       this.setName = getId[0].toUpperCase() + getId.substring(1);
-      return (this._dialogue[this._count]["m"]);
+        if (getId === 'computer' && this._npc.actionableComputer() === true) {
+          return "You look exhausted! Come back tomorrow!"
+        } else {
+          return (this._dialogue[this._count]["m"]);
+
+        }
     }
 
     DialogueBox.prototype.finalDialogue = function() {

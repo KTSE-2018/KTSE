@@ -38,12 +38,16 @@
   }
 
   Npc.prototype.action = function() {
-    if (this._id === 'computer') {
-      game.actionPoints.consumeAP(2);
+    if (this._id === 'computer' && this.actionableComputer() !== true) {
+      game.actionPoints.consumeAP(35);
       game.projectScore.increaseProjectScore()
     }
   }
 
-  
+  Npc.prototype.actionableComputer = function() {
+    return (game.actionPoints.points < 35)
+  }
+
+
   exports.Npc = Npc;
 })(this);
