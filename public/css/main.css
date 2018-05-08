@@ -1,3 +1,5 @@
+@import url("//fonts.googleapis.com/css?family=Varela+Round");
+
 body {
   background-image: url("https://image.ibb.co/mNWBb7/free_brown_background_1.jpg");
   background-color: #8B4513;
@@ -10,10 +12,10 @@ margin-right: auto;
 }
 
 #playButton {
+  float:left;
   position: absolute;
   margin-left: 90px;
-  margin-top: 600px;
-float: left;
+  margin-top: 500px;
 }
 
 #restartButton {
@@ -24,10 +26,18 @@ float: left;
 }
 
 #gotItButton {
+  float:left;
   position: absolute;
-  float: left;
   margin-left: 90px;
-  margin-top: 600px;
+  margin-top: 500px;
+}
+
+#RulesButton {
+  position: absolute;
+  margin-left: 90px;
+  margin-top: 610px;
+float: left;
+
 }
 
 .myButton {
@@ -57,9 +67,11 @@ float: left;
 #rules {
   position: absolute;
   width: 40%;
-  color: #dbbc8f;
-  font-style: 'Pacifico';
-  font-size: 25px;
-  margin-top: 50px;
+  color: #f6eae6;
+  font-family: 'Varela Round';
+  font-size: 30px;
+  line-height: 42px;
+  margin-top: 140px;
   margin-left: 50px;
+
 }
