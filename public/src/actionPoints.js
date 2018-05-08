@@ -21,17 +21,14 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
 
 ActionPoints.prototype.meditate = function() {
   this._meditated = true;
-  console.log("Called AP.meditate: ", this._meditatedg)
 };
 
 ActionPoints.prototype.resetAP = function(bonus = 1) {
-  console.log("Called AP.reset")
   if (this._meditated === true) {
     this._points = this._MAX_POINTS + bonus;
+    console.log("BONUS: for meditating, you have gained an AP bonus for this cycle")
   } else {
     this._points = this._MAX_POINTS;
   }
-  console.log("AP.meditate --> AP = ", this._points)
   this._meditated = false;
-  console.log("AP.meditate --> meditate = ", this._meditated)
 };

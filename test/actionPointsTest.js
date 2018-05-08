@@ -1,39 +1,58 @@
 describe('ActionPoints', function() {
+  var expect = chai.expect
 
-  describe('#points', function() {
+  beforeEach(function(){
+    ap = new ActionPoints();
+  })
+
+  describe('._points', function() {
     it('should start with 10 points ', function() {
-      ap = new ActionPoints();
-
-      chai.expect(ap.points).to.eq(10);
+      expect(ap._points).to.eq(10);
     });
   });
 
-  describe('.consumeAP', function() {
+  describe('#consumeAP', function() {
     it('should consume 1 AP as default', function() {
-      ap = new ActionPoints();
       ap.consumeAP()
-      chai.expect(ap.points).to.eq(9);
+      expect(ap._points).to.eq(9);
     });
 
     it('can consume 2 or more AP if given params', function() {
-      ap = new ActionPoints();
       ap.consumeAP(2)
-      chai.expect(ap.points).to.eq(8);
+      expect(ap._points).to.eq(8);
     });
 
     it('cant consume more AP than you currently have', function() {
       const err = Error('Insufficient AP');
-
-      ap = new ActionPoints();
       ap.consumeAP(11)
-      chai.expect(ap.points).to.eq(10)
+      expect(ap._points).to.eq(10)
     });
   });
 
-  describe('.increaseAP', function() {
-    it('increases AP by 1 as default', function() {
-      ap.increaseAP()
-      chai.expect(ap.points).to.eq(11)
+  describe('#meditate', function() {
+    it("should change the player's meditated status to true", function(){
+      ap.meditate();
+      expect(ap._meditated === true);
+    })
+  })
+
+  describe('#resetAP', function() {
+    it('resets AP to 10 when player has not meditated', function() {
+      ap._meditated = false;
+      ap.resetAP()
+      expect(ap._points).to.eq(10)
     });
+
+    it('resets AP by the bonus amount when player has meditated', function() {
+      ap._meditated = true;
+      ap.resetAP(2)
+      expect(ap._points).to.eq(12)
+    });
+
+    it("resets the player's meditated status to false", function() {
+      ap._meditated = true;
+      ap.resetAP()
+      expect(ap._meditated).to.eq(false)
+    })
   });
 });
