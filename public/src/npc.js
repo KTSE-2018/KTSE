@@ -45,7 +45,7 @@
         break;
       case 'lana':
         game.actionPoints.consumeAP(2);
-        //BONUS
+        game.actionPoints.meditate();
         break;
       case 'ned':
         game.actionPoints.consumeAP(2);

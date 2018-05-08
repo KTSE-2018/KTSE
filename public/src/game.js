@@ -17,6 +17,10 @@ function Game(cycle) {
     this.actionPoints.consumeAP()
   }
 
+  Game.prototype.meditate = function() {
+    this.actionPoints.meditate()
+  }
+
   Game.prototype.turnOver = function() {
     this.cycle.turnOver()
   }

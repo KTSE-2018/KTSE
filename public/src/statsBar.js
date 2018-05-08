@@ -22,7 +22,7 @@
 
   StatsBar.prototype.calculateRemaining = function() {
     if (this.type === 'A') {
-      return this.game.actionPoints.points * 10
+      return this.game.actionPoints._points * 10
     } else if (this.type === 'E') {
       return this.game.energyLevel.points
     } else if (this.type === 'P') {
