@@ -35,7 +35,7 @@
   DialogueBox.prototype.dialogueStep = function() {
     getId = this._npc._id;
     this.setName = getId[0].toUpperCase() + getId.substring(1);
-      if (getId === 'computer' && this._npc.actionableComputer() === true) {
+      if (this._npc.constructor.name === 'Npc' && this._npc.validAction() === true) {
         return "You look exhausted! Come back tomorrow!"
       } else {
         return (this._dialogue[this._count]["m"]);
