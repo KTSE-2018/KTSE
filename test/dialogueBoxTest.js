@@ -43,7 +43,6 @@ describe('DialogueBox', function() {
 
     it('returns false if it is the last step in the dialogue', function() {
       dialogueBox._count = 0
-      console.log(dialogueBox._dialogue.length)
       expect(dialogueBox.finalDialogue()).to.eq(false)
     })
   })
