@@ -43,11 +43,11 @@
         game.actionPoints.consumeAP(2);
         game.projectScore.increaseProjectScore();
         break;
-      case 'dana':
+      case 'lana':
         game.actionPoints.consumeAP(2);
         //BONUS
         break;
-      case 'coach':
+      case 'ned':
         game.actionPoints.consumeAP(2);
         //BONUS
         break;

@@ -4,7 +4,7 @@ describe('Script', function(){
 
   describe('#container', function(){
     it('returns a desired script', function(){
-      test_script = script.container('coach')
+      test_script = script.container('ned')
       expect(test_script).to.eql([{m: "Hello there."}, {m: "Do you need help?"}]);
     });
   });
