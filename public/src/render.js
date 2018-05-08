@@ -87,25 +87,25 @@ $(document).ready(function() {
     $(this).keydown(function(e) {
       if (dialogueBoxProject._inUse === true) { console.log("You can't move while in dialogue..."); return; }
       if (cycle.shade === 1) { console.log("You can't move while in dialogue..."); return; }
-      if (e.keyCode == 39) {
+      if (e.keyCode == 68) {
         player._rightPressed = true;
-      } else if (e.keyCode == 37) {
+      } else if (e.keyCode == 65) {
         player._leftPressed = true;
-      } else if (e.keyCode == 38) {
+      } else if (e.keyCode == 87) {
         player._upPressed = true;
-      } else if (e.keyCode == 40) {
+      } else if (e.keyCode == 83) {
         player._downPressed = true;
       }
     });
 
     $(this).keyup(function(e) {
-      if (e.keyCode == 39) {
+      if (e.keyCode == 68) {
         player._rightPressed = false;
-      } else if (e.keyCode == 37) {
+      } else if (e.keyCode == 65) {
         player._leftPressed = false;
-      } else if (e.keyCode == 38) {
+      } else if (e.keyCode == 87) {
         player._upPressed = false;
-      } else if (e.keyCode == 40) {
+      } else if (e.keyCode == 83) {
         player._downPressed = false;
       }
     })
