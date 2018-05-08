@@ -23,11 +23,11 @@ function Game(cycle) {
 
   Game.prototype.turnOver = function() {
     this.projectScore.scoreMultiplier(1);
-    this.cycle.turnOver();
+    this.cycle.turnOver(this.projectScore.score);
   }
 
-  Game.prototype.gameOver = function() {
-    this.cycle.gameOver();
+  Game.prototype.gameOver = function(type) {
+    this.cycle.gameOver(type);
   }
 
   Game.prototype.decreaseEnergy = function() {
