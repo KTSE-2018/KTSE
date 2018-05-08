@@ -38,12 +38,22 @@
   }
 
   Npc.prototype.action = function() {
-    if (this._id === 'computer') {
-      game.actionPoints.consumeAP(2);
-      game.projectScore.increaseProjectScore()
+    switch(this._id) {
+      case 'compupter':
+        game.actionPoints.consumeAP(2);
+        game.projectScore.increaseProjectScore();
+        break;
+      case 'dana':
+        game.actionPoints.consumeAP(2);
+        //BONUS
+        break;
+      case 'coach':
+        game.actionPoints.consumeAP(2);
+        //BONUS
+        break;
     }
   }
 
-  
+
   exports.Npc = Npc;
 })(this);
