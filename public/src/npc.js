@@ -41,23 +41,23 @@
     switch(this._id) {
       case 'computer':
         if (this.actionableComputer() !== true) {
-          game.actionPoints.consumeAP(35);
+          game.actionPoints.consumeAP(10);
           game.projectScore.increaseProjectScore();
         }
           break;
       case 'lana':
-        game.actionPoints.consumeAP(35);
+        game.actionPoints.consumeAP(10);
         game.actionPoints.meditate();
         break;
       case 'ned':
-        game.actionPoints.consumeAP(35);
-        game.projectScore.scoreMultiplier(2);
+        game.actionPoints.consumeAP(10);
+        game.projectScore.scoreMultiplier(2, true);
         break;
     }
   }
 
   Npc.prototype.actionableComputer = function() {
-    return (game.actionPoints.points < 35)
+    return (game.actionPoints._points < 10)
   }
 
   exports.Npc = Npc;
