@@ -5,14 +5,14 @@ describe('Npc', function() {
   beforeEach(function() {
     script = new Script();
     game = new Game();
-    sprite_dana = {
+    sprite_lana = {
       src: '../img/npc_f.png',
       x: 320,
       y: 0,
       w: 32,
       h: 45
     }
-    npc_dana = new Npc('dana', 500, 50, 50, 50, script, game, sprite_dana);
+    npc_lana = new Npc('lana', 500, 50, 50, 50, script, game, sprite_lana);
     scriptStub = sinon.stub(script, "container");
     scriptStub.returns([{
       m: "Do you want to meditate?"
@@ -22,7 +22,7 @@ describe('Npc', function() {
   it("returns the NPC's script", function() {
     // Arrange
     // Action
-    npc_script = npc_dana.getScript();
+    npc_script = npc_lana.getScript();
     // Assert
     expect(npc_script).to.eql([{
       m: "Do you want to meditate?"

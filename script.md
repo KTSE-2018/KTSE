@@ -1,5 +1,5 @@
 **Characters**
-Dana = Lana
+lana = Lana
 Ed W = Ned
 Eddie = Freddie
 Mark = Matt

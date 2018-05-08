@@ -30,23 +30,23 @@ $(document).ready(function() {
     npc_computer7 = new Npc('computer',455, 160, 50, 175, script, game, sprite_computer)
     npc_computer8 = new Npc('computer', 455, 670, 50, 50, script, game, sprite_computer)
 
-    sprite_dana = {
+    sprite_lana = {
       src: '../img/npc_f.png',
       x: 320,
       y: 0,
       w: 32,
       h: 45
     }
-    npc_dana = new Npc('dana', 500, 50, 32, 45, script, game, sprite_dana);
+    npc_lana = new Npc('lana', 500, 50, 32, 45, script, game, sprite_lana);
 
-    sprite_coach = {
+    sprite_ned = {
       src: '../img/npc_m.png',
       x: 32,
       y: 225,
       w: 32,
       h: 45
     }
-    npc_coach = new Npc('coach', 383, 440, 32, 45, script, game, sprite_coach);
+    npc_ned = new Npc('ned', 383, 440, 32, 45, script, game, sprite_ned);
 
 
     collisionBox6 = new CollisionBox(550, 670, 50, 50, 'box6');
@@ -66,14 +66,14 @@ $(document).ready(function() {
 
 
 
-    player._collisionable.push(npc_dana, npc_coach, collisionBox10, collisionBox11,
+    player._collisionable.push(npc_lana, npc_ned, collisionBox10, collisionBox11,
       collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16, npc_computer1, npc_computer2,
       npc_computer3, npc_computer4, npc_computer5, npc_computer6, npc_computer7, npc_computer8
 
     )
 
     setInterval(function() {
-      game.draw([player, npc_dana, npc_coach,
+      game.draw([player, npc_lana, npc_ned,
          collisionBox10, collisionBox11,
         collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
         dialogueBoxProject, actionPointsBar, energyPointsBar, projectPointsBar, cycle,
@@ -85,6 +85,8 @@ $(document).ready(function() {
 
   $(function() {
     $(this).keydown(function(e) {
+      if (dialogueBoxProject._inUse === true) { console.log("You can't move while in dialogue..."); return; }
+      if (cycle.shade === 1) { console.log("You can't move while in dialogue..."); return; }
       if (e.keyCode == 39) {
         player._rightPressed = true;
       } else if (e.keyCode == 37) {
@@ -118,7 +120,7 @@ $(document).ready(function() {
     // SPACEBAR
     $(this).keyup(function(e) {
       if (e.keyCode == 32) {
-        if (dialogueBoxProject.finalDialogue() !== true) {
+        if (dialogueBoxProject._inUse === true && dialogueBoxProject.finalDialogue() !== true) {
           dialogueBoxProject._count += 1
         }
       }

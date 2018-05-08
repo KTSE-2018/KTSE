@@ -15,7 +15,7 @@ function Player(game) {
 
   this._x = (this._canvas.width - this._spriteWidth) / 2;
   this._y = this._canvas.height - this._spriteHeight;
-  this._moveDelta = 50;
+  this._moveDelta = 10;
   this._collisionable = [];
   this._interact = false;
 
