@@ -12,7 +12,7 @@ EnergyLevel.prototype.decreaseEnergy = function(x = 10) {
   } else {
     this.points -= x
     if (this.points === 0 ) {
-      game.gameOver()
+      game.gameOver('e')
     }
   }
 };
