@@ -56,34 +56,4 @@ describe('CollisionLogic', function() {
       expect(collisionLogic.collision(player, [object1, object2, object3], stepSize, 'R')['object']).to.eq(undefined);
     });
   });
-
-  describe('#interact', function(){
-    it('fetches the right script from an NPC', function(){
-      // Arrange
-      script_stub = sinon.stub(script)
-      game_stub = sinon.stub(game)
-      sprite_lana = {
-        src: '../img/npc_f.png', x: 320, y: 0, w: 32, h: 45
-      }
-      npc = new Npc('lana', 500, 50, 32, 45, script_stub, game_stub, sprite_lana);
-
-      npcStub = sinon.stub(npc, 'getScript');
-      npcStub.returns([{m: "Do you want to meditate?"}]);
-      // Action
-      result = collisionLogic.interact(npc);
-      // Assert
-      expect(result).to.eql([{m: "Do you want to meditate?"}]);
-    })
-
-    it('fetches the console log message from a collisionBox', function(){
-      // Arrange
-      box = new CollisionBox(1,1,1,1,'box');
-      boxStub = sinon.stub(box, 'getScript');
-      boxStub.returns("ME NO SPEAKY");
-      // Action
-      result = collisionLogic.interact(box);
-      // Assert
-      expect(result).to.eql("ME NO SPEAKY");
-    })
-  })
 });

@@ -24,10 +24,6 @@
     }
   }
 
-  CollisionLogic.prototype.interact = function(object) {
-   return object.getScript();
-  };
-
   exports.CollisionLogic = CollisionLogic;
 
 })(this);

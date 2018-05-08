@@ -8,14 +8,14 @@ describe('ProjectScore', function() {
 
   describe('._score', function() {
     it('initiates with an integer of 5', function() {
-      expect.(projectScore._score).to.eq(5);
+      expect(projectScore._score).to.eq(5);
     });
   });
 
   describe('#increaseProjectScore', function() {
     it('increases ProjectScore #score by 1', function() {
       projectScore.increaseProjectScore()
-      expect.(projectScore._score).to.eq(6);
+      expect(projectScore._score).to.eq(6);
     });
   });
 
