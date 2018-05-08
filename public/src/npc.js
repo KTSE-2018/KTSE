@@ -40,20 +40,25 @@
   Npc.prototype.action = function() {
     switch(this._id) {
       case 'computer':
-        game.actionPoints.consumeAP(2);
-        game.projectScore.increaseProjectScore();
-        break;
+        if (this.actionableComputer() !== true) {
+          game.actionPoints.consumeAP(35);
+          game.projectScore.increaseProjectScore();
+        }
+          break;
       case 'lana':
-        game.actionPoints.consumeAP(2);
+        game.actionPoints.consumeAP(35);
         game.actionPoints.meditate();
         break;
       case 'ned':
-        game.actionPoints.consumeAP(2);
+        game.actionPoints.consumeAP(35);
         game.projectScore.scoreMultiplier(2);
         break;
     }
   }
 
+  Npc.prototype.actionableComputer = function() {
+    return (game.actionPoints.points < 35)
+  }
 
   exports.Npc = Npc;
 })(this);

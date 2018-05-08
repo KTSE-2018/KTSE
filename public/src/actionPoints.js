@@ -18,7 +18,6 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
       this.resetAP(2);
     }
   }
-};
 
 ActionPoints.prototype.meditate = function() {
   this._meditated = true;
