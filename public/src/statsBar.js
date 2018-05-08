@@ -22,11 +22,11 @@
 
   StatsBar.prototype.calculateRemaining = function() {
     if (this.type === 'A') {
-      return this.game.actionPoints.points
+      return this.game.actionPoints._points
     } else if (this.type === 'E') {
       return this.game.energyLevel._points
     } else if (this.type === 'P') {
-      return this.game.projectScore.score * 10
+      return this.game.projectScore._score
     }
   }
 

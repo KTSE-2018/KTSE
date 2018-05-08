@@ -12,7 +12,7 @@ ProjectScore.prototype.increaseProjectScore = function(x = 5) {
 };
 
 
-ProjectScore.prototype.scoreMultiplier = function(m) {
-  this._multiplierStatus = true;
+ProjectScore.prototype.scoreMultiplier = function(m, bool) {
+  this._multiplierStatus = bool;
   this._multiplier = m
 };

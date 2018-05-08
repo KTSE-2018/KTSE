@@ -86,6 +86,7 @@ $(document).ready(function() {
   $(function() {
     $(this).keydown(function(e) {
       if (dialogueBoxProject._inUse === true) { console.log("You can't move while in dialogue..."); return; }
+      if (cycle.shade === 1) { console.log("You can't move while in dialogue..."); return; }
       if (e.keyCode == 39) {
         player._rightPressed = true;
       } else if (e.keyCode == 37) {

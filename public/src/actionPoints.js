@@ -1,5 +1,5 @@
 function ActionPoints(game) {
-  this._MAX_POINTS = 10;
+  this._MAX_POINTS = 100;
   this._points = this._MAX_POINTS;
   this._meditated = false;
 }
@@ -18,6 +18,7 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
       this.resetAP(2);
     }
   }
+}
 
 ActionPoints.prototype.meditate = function() {
   this._meditated = true;
