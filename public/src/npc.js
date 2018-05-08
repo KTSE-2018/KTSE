@@ -39,7 +39,7 @@
 
   Npc.prototype.action = function() {
     switch(this._id) {
-      case 'compupter':
+      case 'computer':
         game.actionPoints.consumeAP(2);
         game.projectScore.increaseProjectScore();
         break;

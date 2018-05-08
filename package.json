@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas-text-wrapper": "^0.10.2",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "nodemon": "^1.17.3"

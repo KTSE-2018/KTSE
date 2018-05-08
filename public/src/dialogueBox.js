@@ -13,49 +13,50 @@
     this.imageObj = new Image()
     this.imageObj.src = '../img/dbox.png'
     this.setName = ''
+  }
 
-    DialogueBox.prototype.drawDialogueBox = function() {
-      this._ctx.beginPath();
+  DialogueBox.prototype.drawDialogueBox = function() {
+    this._ctx.beginPath();
 
-      this._ctx.drawImage(this.imageObj, 40, 300);
-      this._ctx.fillStyle = 'black';
-      this._ctx.font = '20px Arial';
-      this._ctx.fillText(this.dialogueStep(), 55, 670);
-      this._ctx.fillStyle = 'white';
-      this._ctx.fillText(this.setName, 50, 625);
-      this._ctx.closePath();
-    }
+    this._ctx.drawImage(this.imageObj, 50, 300);
+    this._ctx.fillStyle = 'black';
+    this._ctx.font = '20px Arial';
+    wrapCanvasText(this._ctx, this.dialogueStep(), 65, 660, 440, 25);
+    this._ctx.fillStyle = 'white';
+    this._ctx.fillText(this.setName, 60, 625);
+    this._ctx.closePath();
+  }
 
-    DialogueBox.prototype.reposition = function() {
-      if (this._inUse === true && this._npc.constructor.name === 'Npc') {
-        this.drawDialogueBox();
-      }
-    }
-
-    DialogueBox.prototype.dialogueStep = function() {
-      getId = this._npc._id;
-      this.setName = getId[0].toUpperCase() + getId.substring(1);
-      return (this._dialogue[this._count]["m"]);
-    }
-
-    DialogueBox.prototype.finalDialogue = function() {
-      return (this._count === (this._dialogue.length - 1)) ? true : false
-    }
-
-    DialogueBox.prototype.show = function(npc) {
-      this._npc = npc
-      this._dialogue = this._npc.getScript();
-      this._inUse = true;
-    }
-
-    DialogueBox.prototype.hide = function() {
-      this._inUse = false;
-      this._count = 0;
-    }
-
-    DialogueBox.prototype.gameAction = function() {
-      this._npc.action();
+  DialogueBox.prototype.reposition = function() {
+    if (this._inUse === true && this._npc.constructor.name === 'Npc') {
+      this.drawDialogueBox();
     }
   }
+
+  DialogueBox.prototype.dialogueStep = function() {
+    getId = this._npc._id;
+    this.setName = getId[0].toUpperCase() + getId.substring(1);
+    return (this._dialogue[this._count]["m"]);
+  }
+
+  DialogueBox.prototype.finalDialogue = function() {
+    return (this._count === (this._dialogue.length - 1)) ? true : false
+  }
+
+  DialogueBox.prototype.show = function(npc) {
+    this._npc = npc
+    this._dialogue = this._npc.getScript();
+    this._inUse = true;
+  }
+
+  DialogueBox.prototype.hide = function() {
+    this._inUse = false;
+    this._count = 0;
+  }
+
+  DialogueBox.prototype.gameAction = function() {
+    this._npc.action();
+  }
+
   exports.DialogueBox = DialogueBox
 })(this)
