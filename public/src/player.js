@@ -52,68 +52,15 @@ Player.prototype.reposition = function(myPlayer) {
 
   if (myPlayer._rightPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'R');
-    myPlayer._x = myPlayer.moveRD(myPlayer, object, "R", "x");
+    myPlayer._x = move.moveRD(myPlayer, object, "R", "x");
   } else if (myPlayer._downPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'D');
-    myPlayer._y = myPlayer.moveRD(myPlayer, object, "D", "y");
+    myPlayer._y = move.moveRD(myPlayer, object, "D", "y");
   } else if (myPlayer._upPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'U');
-    myPlayer._y = myPlayer.moveLU(myPlayer, object, "U", "y");
+    myPlayer._y = move.moveLU(myPlayer, object, "U", "y");
   } else if (myPlayer._leftPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'L');
-    myPlayer._x = myPlayer.moveLU(myPlayer, object, "L", "x");
+    myPlayer._x = move.moveLU(myPlayer, object, "L", "x");
   };
 };
-
-Player.prototype.moveRD = function(myPlayer, collisionObject, rightUp, xy) {
-  playerCoord = getCoord(myPlayer, xy);
-  canvasDimension = getDimension(myPlayer, xy)['canvasDimension'];
-  spriteDimension = getDimension(myPlayer, xy)['spriteDimension'];
-
-  if (playerCoord + myPlayer._moveDelta > canvasDimension - spriteDimension) {
-    return canvasDimension - spriteDimension;
-  } else if (collisionObject['collide'] === true) {
-    dialogueBoxProject.show(collisionObject['object'])
-    return (getCoord(collisionObject['object'], xy) - spriteDimension);
-  } else {
-    game.consumeAP()
-    return playerCoord + myPlayer._moveDelta;
-  };
-};
-
-Player.prototype.moveLU = function(myPlayer, collisionObject, leftDown, xy) {
-  playerCoord = getCoord(myPlayer, xy);
-
-  if (playerCoord - myPlayer._moveDelta < 0) {
-    return 0;
-  } else if (collisionObject['collide'] === true) {
-    dialogueBoxProject.show(collisionObject['object'])
-    return (getCoord(collisionObject['object'], xy) + getDimension(collisionObject['object'], xy)['spriteDimension'])
-  } else {
-    game.consumeAP()
-    return playerCoord - myPlayer._moveDelta;
-  };
-};
-
-getCoord = function(object, xy) {
-  if (xy === "x") {
-    return object._x;
-  } else if (xy === "y") {
-    return object._y;
-  }
-}
-
-getDimension = function(object, xy) {
-  if (xy === "x") {
-    dimHash = {
-      'canvasDimension': object._canvas.width,
-      'spriteDimension': object._spriteWidth
-    }
-  } else if (xy === "y") {
-    dimHash = {
-      'canvasDimension': object._canvas.height,
-      'spriteDimension': object._spriteHeight
-    }
-  }
-  return dimHash;
-}

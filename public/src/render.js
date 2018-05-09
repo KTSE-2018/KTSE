@@ -5,6 +5,7 @@ $(document).ready(function() {
     player = new Player(game);
     collisionLogic = new CollisionLogic();
     script = new Script();
+    move = new Move();
 
     sprite_computer = {
       src: '',
