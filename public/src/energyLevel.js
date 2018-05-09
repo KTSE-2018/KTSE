@@ -14,7 +14,7 @@ EnergyLevel.prototype.decreaseEnergy = function(x = 35) {
     this._points = 0;
   }
 
-  if (this._points <= 0 && this.game.cycle.count !== 5) {
+  if (this._points <= 0 && game.cycle.count !== 5) {
     game.gameOver("e");
   }
 };

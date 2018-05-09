@@ -10,7 +10,7 @@ ActionPoints.prototype.consumeAP = function(x = 1) {
     return;
   } else {
     this._points -= x
-    if (this._points === 0 ) {
+    if (this._points <= 0 ) {
       game.turnOver()
       game.decreaseEnergy()
       this.resetAP(15);
