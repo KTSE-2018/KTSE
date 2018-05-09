@@ -11,7 +11,7 @@
     this.message2 = ''
     this.jobArray = ['Captcha Enterer - $8k', 'Data Enterer - $15k', 'Data Center Support Specialist - $18k', 'IT Support - $21k', 'HTML Code Monkey - $22k', 'Network Technician - $25k', 'Network Systems Administrator - $32k',
       'Junior Software Developer - $40k', 'Software Engineer - $55k', 'Bootcamp Coach - $65k', 'Network Architect - $70k', 'Cloud Architect - $75k', 'Core Developer - $85k', 'Director of Technology - $100k', 'Principal Developer - $150k', 'Cryptocurrency Founder - $220k',
-      'Founder of Galaxy Bank - $460k', 'CTO of paceTrex - 1.1m', 'Founder of Hoogle - 3.2m', 'Creator of Internet 2.0 - 999m'
+      'Founder of Galaxy Bank - $460k', 'CTO of paceTrex - $1.1m', 'Founder of Hoogle - $3.2m', 'Creator of Internet 2.0 - $999m'
     ]
   }
 
