@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="css/rules.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div id="rulesHeader">
-      HOW TO PLAY CODECRAFT
+
+<head>
+  <link rel="stylesheet" href="css/rules.css">
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="rulesHeader">
+    HOW TO PLAY CODECRAFT
+  </div>
+
+  <div class="container">
+    <div id="screenshot" class="flex-item">
+      <img src="https://image.ibb.co/m7UvpS/Screen_Shot_2018_05_08_at_14_45_23.png" alt="Game">
     </div>
-    <div id="fullRules">
+    <div id="fullRules" class="flex-item">
+      <p>Your objective in Codecraft is help your player, Ada, to get the best possible job outcome. The higher her project quality, the better the job she will get. But just grinding by doing project work will not give the best outcome.</p>
+      <p>You will need to strategically balance project work, getting help from a coach, and replenishing your energy levels.
+      To complete these actions, you need to go to the assigned locations and confirm your choice. But bear in mind that every action you make will deplete your Action Points - even walking!</p>
       <ul>
-      <li>Press [W], [A], [S], [D] to move (up, left, down, right).</li>
-      <li>You can do the following:
-        <ul>
-          <li> Visit a workstation to do work, which improves your project quality.</li>
-          <li> Speak to a coach to get project support (bestows project score bonus).</li>
-          <li> Speak to the Chief Elation Officer to re-energise (bestows action point and energy level bonus).</li>
-        </ul>
-      <li>Plan your day carefully: every action you take costs action points.</li>
-      <li>Depending on your choice, your energy could go up or down.</li>
-      <li>When speaking to the CElO or a coach, press [SPACEBAR] to progress dialogue.</li>
-      <li>Press [Y] or [N] to make decisions during choice-dialogue.</li>
-      <li>Your energy levels will be effected based on these decisions.</li>
-      <li>Once you've spent all your action points, press [X] to start a new day.</li>
-      <li>Complete your time at Codecraft without all your energy being depleted or be banished to the fourth floor permanently.</li>
-      <li>Your progress througout the game determines what job you end up with, the higher your energy level, the better the job offer.</li>
-    </ul>
+        <li> Go to any workstation to do project work, which improves your Project Score (PS) but depletes your Energy Level (EL).</li>
+        <li> Speak to the coach (Ned) to get project support, which provides a PS multiplier effect up until the end of the following day.</li>
+        <li> Speak to the Chief Elation Officer (Lana) to re-energise, which will replenish some of your current EL and provide an Action Point (AP) bonus the next day.</li>
+      </ul>
+      <p>Once you run out of AP, the current day will end and the next will begin. This transition will also deplete your EL. If you run out of EL before the end of the game, you will Game Over.</p>
+      <p>In the current version of the game, there are 5 days until the end of the game. If you survive, you will be awarded a job at the end, which is determined by your final PS.</p>
+      <div id="buttons">
+        <a id="home" href="/" class="myButton">Home</a>
+        <a id="play" href="/game" class="myButton">Play</a>
+      </div>
+    </div>
+  </div>
+</body>
 
-    <a id="playFromRules" href="/game" class="myButton">Play</a>
-
-  </body>
 </html>
