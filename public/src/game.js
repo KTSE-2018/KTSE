@@ -23,7 +23,6 @@ function Game(cycle) {
 
   Game.prototype.turnOver = function() {
     this.projectScore.multiplierChecker();
-    console.log("MS", this.projectScore._multiplierStatus)
     this.cycle.turnOver(this.projectScore._score);
   }
 

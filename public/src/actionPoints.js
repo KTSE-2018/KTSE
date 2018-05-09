@@ -26,7 +26,7 @@ ActionPoints.prototype.meditate = function() {
 ActionPoints.prototype.resetAP = function(bonus = 1) {
   if (this._meditated === true) {
     this._points = this._MAX_POINTS + bonus;
-    console.log("BONUS: for meditating, you have gained an AP bonus for this cycle")
+    console.log("BONUS: For meditating, you have recovered some EL and gained an AP bonus for the next cycle")
   } else {
     this._points = this._MAX_POINTS;
   }

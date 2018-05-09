@@ -51,7 +51,6 @@
         case 'ned':
           game.actionPoints.consumeAP(25);
           game.projectScore.scoreMultiplier(2);
-          console.log(game.projectScore._multiplierStatus);
           break;
       }
     }

@@ -8,7 +8,7 @@ function ProjectScore(game) {
 ProjectScore.prototype.increaseProjectScore = function(x = 1) {
   this._score += (this._multiplier * x)
   if (this._multiplierStatus === true) {
-    console.log("BONUS: For getting a coach's help, your project quality has increased more than usual!")
+    console.log("BONUS: For getting a coach's help, your PQ has increased more than usual!")
   }
 };
 
