@@ -120,7 +120,11 @@ $(document).ready(function() {
     // SPACEBAR
     $(this).keyup(function(e) {
       if (e.keyCode == 32) {
-        if (dialogueBoxProject._inUse === true && dialogueBoxProject.finalDialogue() !== true) {
+        if (dialogueBoxProject.exhausted === true) {
+          dialogueBoxProject.hide();
+          dialogueBoxProject.exhausted = false;
+        }
+        else if (dialogueBoxProject._inUse === true && dialogueBoxProject.finalDialogue() !== true) {
           dialogueBoxProject._count += 1
         }
       }
