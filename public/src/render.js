@@ -53,9 +53,9 @@ $(document).ready(function() {
 
     dialogueBoxProject = new DialogueBox();
 
-    actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'A');
-    energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'E');
-    projectPointsBar = new StatsBar(10, 75, 200, 20, 'chartreuse', game, 'P');
+    actionPointsBar = new StatsBar(10, 15, 200, 20, 'red', game, 'AP');
+    energyPointsBar = new StatsBar(10, 45, 200, 20, 'yellow', game, 'EL');
+    projectPointsBar = new StatsBar(10, 75, 200, 20, 'chartreuse', game, 'PS');
 
 
 
@@ -182,6 +182,13 @@ $(document).ready(function() {
       var ask = confirm("This will take you away from the current page");
       if (ask === true) {
         location.replace("/rules");
+      }
+    });
+
+    $('#homeButton').click(function() {
+      var ask = confirm("Return to home page?");
+      if (ask === true) {
+        location.replace("/");
       }
     });
 

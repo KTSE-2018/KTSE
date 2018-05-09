@@ -14,7 +14,7 @@ function Player(game) {
   this._frameCount = 3;
 
   this._x = (this._canvas.width - this._spriteWidth) / 2;
-  this._y = this._canvas.height - this._spriteHeight;
+  this._y = (this._canvas.height - this._spriteHeight)/2;
   this._moveDelta = 10;
   this._collisionable = [];
 
