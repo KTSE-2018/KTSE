@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
 
-    <meta charset="utf-8">
-    <script src="lib/jquery.js"></script>
-    <title></title>
-  </head>
-  <body>
-    <div class="stage">
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-</div>
-<div id="intro_text">
-  You have been accepted into one of the world's most prestigious bootcamps.<br><br>
-  You are ambitious, driven and determined to get the best possible job out of it.<br><br>
-  However, what job you get is determined by how well you perform on the course!<br><br>
-  Will you succeed and become the next budding programmer at SpaceEx working alongside the inspirational Elon Musk?<br><br>
-  Will you botch it all and end up working as the Data Enterer at Boring Tech Ltd.<br><br>
-  Or will you not make it to graduation and be banished to the fourth floor for an eternity!<br><br>
-  Only time will tell...<br><br>
-  WELCOME TO CODECRAFT!
-</div>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
 
-    <div id="buttons">
-      <a href="/game" class="myButton">Play</a>
+  <meta charset="utf-8">
+  <script src="lib/jquery.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="flex-item">
+      <div class="stage">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+      </div>
+      <div id="screenshot">
+        <img src="https://image.ibb.co/m7UvpS/Screen_Shot_2018_05_08_at_14_45_23.png" alt="Game">
+      </div>
     </div>
-    <a id="mainRulesButton" href="/rules" class="myButton">Full Rules</a>
-    <div id="screenshot">
-    <img src="https://image.ibb.co/m7UvpS/Screen_Shot_2018_05_08_at_14_45_23.png" alt="Game">
+
+    <div class="flex-item">
+      <div id="intro-text">
+        You have been accepted into one of the world's most prestigious bootcamps.
+        <br><br> You are ambitious, driven and determined to get the best possible job out of it.
+        <br><br> However, what job you get is determined by how well you perform on the course!
+        <br><br> Will you succeed and become the next CTO at SpaceEx working alongside the inspirational Elon Musk?
+        <br><br> Will you botch it all and end up working as a lowly Data Enterer at Boring Tech Ltd?
+        <br><br> Will you burnout and not make it to graduation at all, and be banished to the mezzanine for all eternity?!
+        <br><br> Only time will tell...
+        <br><br> <span class="sub-text">WELCOME TO CODECRAFT!</span>
+      </div>
+
+      <div id="buttons">
+          <a href="/game" class="myButton">Play</a>
+          <a href="/rules" class="myButton floatRight">Full Rules</a>
+      </div>
+    </div>
+
   </div>
-  </body>
+</body>
+
 </html>

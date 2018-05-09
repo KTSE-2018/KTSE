@@ -2,11 +2,9 @@
 <html>
 <head>
    <meta charset="utf-8" />
-   <title>Gamedev Canvas Workshop</title>
-   <link rel="stylesheet" href="./css/main.css">
-   <style>
-       canvas { background-image: url('../img/background.png'); display: block;  }
-   </style>
+   <title>Codecraft</title>
+   <link rel="stylesheet" href="./css/game.css">
+
    <script src="lib/jquery.js"></script>
    <script src="src/game.js"></script>
    <script src="src/collisionLogic.js"></script>
@@ -26,25 +24,22 @@
 </head>
 <body>
 
-
+<div id=buttons>
   <button id="playButton" type="button" class="myButton">Controls</button>
-  <a id="rulesButton" class="myButton">Full Rules</a>
   <button id="gotItButton" type="button" class="myButton">Got it!</button>
-  <br>
-  <a href="/" id="restartButton" class="myButton">Restart</a>
-
-
-<div id="rules">
-  <ul>
-
-  <li>Press [W], [A], [S] or [D] to move.</li>
-  <li>Press the space bar to see more of what is being said.</li>
-  <li>Press [Y] or [N] to accept the action.</li>
-  <li>To start a new day, press [X].
-
-</ul>
+  <button id="rulesButton" type="button" class="myButton">Full Rules</button>
+  <button id="zoomButton" type="button" class="myButton">Optimise Zoom</button>
+  <button id="restartButton" type="button" class="myButton">Restart</button>
 </div>
-<canvas id="myCanvas" width="640" height="736"></canvas>
 
+<div id="controls">
+  <p><strong>Movement:</strong><br>[W], [A], [S], [D] to move up, left, down, right.</p>
+  <p><strong>Dialogue:</strong><br>[SPACEBAR] to progress dialogue.</p>
+  <p><strong>Decisions:</strong><br>[Y] or [N] to confirm or decline action choices.</p>
+  <p><strong>Progression:</strong><br>[X] when prompted to begin the next day.</p>
+</div>
+<div id="canvasContainer">
+  <canvas id="myCanvas" width="640" height="736"></canvas>
+</div>
 </body>
 </html>
