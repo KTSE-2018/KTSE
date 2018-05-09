@@ -41,15 +41,15 @@
     if (this.validAction() !== true) {
       switch(this._id) {
         case 'computer':
-          game.actionPoints.consumeAP(10);
+          game.actionPoints.consumeAP(25);
           game.projectScore.increaseProjectScore();
           break;
         case 'lana':
-          game.actionPoints.consumeAP(10);
+          game.actionPoints.consumeAP(25);
           game.actionPoints.meditate();
           break;
         case 'ned':
-          game.actionPoints.consumeAP(10);
+          game.actionPoints.consumeAP(25);
           game.projectScore.scoreMultiplier(2, true);
           break;
       }
@@ -57,7 +57,7 @@
   }
 
   Npc.prototype.validAction = function() {
-    return (game.actionPoints._points < 10)
+    return (game.actionPoints._points < 25)
   }
 
   exports.Npc = Npc;
