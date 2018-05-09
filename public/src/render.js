@@ -22,6 +22,7 @@ $(document).ready(function() {
     npc_computer6 = new Npc('computer', 455, 450, 50, 110, script, game, sprite_computer)
     npc_computer7 = new Npc('computer', 455, 160, 50, 175, script, game, sprite_computer)
     npc_computer8 = new Npc('computer', 455, 670, 50, 50, script, game, sprite_computer)
+    npc_computer9 = new Npc('computer', 550, 670, 50, 50, script, game, sprite_computer)
 
     sprite_lana = {
       src: '../img/npc_f.png',
@@ -30,7 +31,7 @@ $(document).ready(function() {
       w: 32,
       h: 45
     }
-    npc_lana = new Npc('lana', 500, 50, 32, 45, script, game, sprite_lana);
+    npc_lana = new Npc('lana', 510, 51, 32, 45, script, game, sprite_lana);
 
     sprite_ned = {
       src: '../img/npc_m.png',
@@ -61,9 +62,7 @@ $(document).ready(function() {
 
     player._collisionable.push(npc_lana, npc_ned, collisionBox10, collisionBox11,
       collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16, npc_computer1, npc_computer2,
-      npc_computer3, npc_computer4, npc_computer5, npc_computer6, npc_computer7, npc_computer8
-
-    )
+      npc_computer3, npc_computer4, npc_computer5, npc_computer6, npc_computer7, npc_computer8, npc_computer9)
 
     setInterval(function() {
       game.draw([player, npc_lana, npc_ned,
@@ -71,7 +70,7 @@ $(document).ready(function() {
         collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
         dialogueBoxProject, actionPointsBar, energyPointsBar, projectPointsBar, cycle,
         npc_computer1, npc_computer2, npc_computer3, npc_computer4, npc_computer5,
-        npc_computer6, npc_computer7, npc_computer8
+        npc_computer6, npc_computer7, npc_computer8, npc_computer9
       ])
     }, 100);
   });
@@ -122,8 +121,7 @@ $(document).ready(function() {
         if (dialogueBoxProject.exhausted === true) {
           dialogueBoxProject.hide();
           dialogueBoxProject.exhausted = false;
-        }
-        else if (dialogueBoxProject._inUse === true && dialogueBoxProject.finalDialogue() !== true) {
+        } else if (dialogueBoxProject._inUse === true && dialogueBoxProject.finalDialogue() !== true) {
           dialogueBoxProject._count += 1
         }
       }

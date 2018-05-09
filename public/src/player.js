@@ -117,27 +117,3 @@ getDimension = function(object, xy) {
   }
   return dimHash;
 }
-
-// Player.prototype.moveLeft = function(myPlayer, collisionObject) {
-//   if (myPlayer._x - myPlayer._moveDelta < 0) {
-//     myPlayer._x = 0;
-//   } else if (collisionObject['collide'] === true) {
-//     myPlayer._x = (collisionObject['object']._x + collisionObject['object']._spriteWidth)
-//     dialogueBoxProject.show(collisionObject['object'])
-//   } else {
-//     myPlayer._x -= myPlayer._moveDelta;
-//     game.consumeAP()
-//   };
-// };
-//
-// Player.prototype.moveUp = function(myPlayer, collisionObject) {
-//   if (myPlayer._y - myPlayer._moveDelta < 0) {
-//     myPlayer._y = 0;
-//   } else if (collisionObject['collide'] === true) {
-//     myPlayer._y = (collisionObject['object']._y + collisionObject['object']._spriteHeight)
-//     dialogueBoxProject.show(collisionObject['object'])
-//   } else {
-//     myPlayer._y -= myPlayer._moveDelta;
-//     game.consumeAP()
-//   };
-// };
