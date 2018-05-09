@@ -1,6 +1,7 @@
 function ProjectScore(game) {
   this._score = 0;
   this._multiplierStatus = false;
+  this._multiplierCount = 1;
   this._multiplier = 1;
 };
 
@@ -11,7 +12,17 @@ ProjectScore.prototype.increaseProjectScore = function(x = 1) {
   }
 };
 
-ProjectScore.prototype.scoreMultiplier = function(m, bool) {
-  this._multiplierStatus = bool;
-  this._multiplier = m
+ProjectScore.prototype.scoreMultiplier = function(m) {
+  this._multiplierStatus = true;
+  this._multiplier = m;
 };
+
+ProjectScore.prototype.multiplierChecker = function() {
+  if (this._multiplierCount > 0) {
+    this._multiplierCount -= 1;
+  } else {
+    this._multiplierStatus = false;
+    this._multiplierCount = 1;
+    this._multiplier = 1;
+  }
+}
