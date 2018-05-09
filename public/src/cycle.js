@@ -64,7 +64,7 @@
   }
 
   Cycle.prototype.jobSelect = function() {
-    return this.jobArray[this.projectScore]
+    return (this.projectScore > this.jobArray.length ? this.jobArray[9] : this.jobArray[this.projectScore]  )
   }
 
   exports.Cycle = Cycle;
