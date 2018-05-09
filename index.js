@@ -19,6 +19,6 @@ app.get('/rules', function (req, res) {
   res.sendFile('/views/rules.html', options)
 })
 
-app.listen(8000, function () {
+app.listen(process.env.port || 8000, function () {
   console.log('Example app listening on port 8000!')
 })
