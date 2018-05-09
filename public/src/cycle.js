@@ -9,9 +9,9 @@
     this.message = ''
     this.totalCycles = 5
     this.message2 = ''
-    this.jobArray = ['Data Enterer', 'IT Support', 'HTML Code Monkey', 'Network Technician',
-      'Junior Software Developer', 'Software Engineer', 'Core Developer', 'Principal Developer at Twitter',
-      'Founder of Galaxy Bank', 'CTO of SpaceEx'
+    this.jobArray = ['Captcha Enterer - $8k', 'Data Enterer - $15k', 'Data Center Support Specialist - $18k', 'IT Support - $21k', 'HTML Code Monkey - $22k', 'Network Technician - $25k', 'Network Systems Administrator - $32k',
+      'Junior Software Developer - $40k', 'Software Engineer - $55k', 'Bootcamp Coach - $65k', 'Network Architect - $70k', 'Cloud Architect - $75k', 'Core Developer - $85k', 'Director of Technology - $100k', 'Principal Developer - $150k', 'Cryptocurrency Founder - $220k',
+      'Founder of Galaxy Bank - $460k', 'CTO of paceTrex - 1.1m', 'Founder of Hoogle - 3.2m', 'Creator of Internet 2.0 - 999m'
     ]
   }
 
@@ -50,7 +50,6 @@
   }
 
   Cycle.prototype.gameOver = function(type, score = 0) {
-    // console.log(score)
     this.projectScore = score
     if (type === 'e') {
       this.message = 'Your energy has depleted and you have not finished'
