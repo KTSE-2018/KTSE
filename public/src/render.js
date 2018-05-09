@@ -2,15 +2,8 @@ $(document).ready(function() {
   $(function() {
     cycle = new Cycle()
     game = new Game(cycle);
-
     player = new Player(game);
     collisionLogic = new CollisionLogic();
-
-
-    $('#gotItButton').hide();
-    $('#rules').hide();
-
-
     script = new Script();
 
     sprite_computer = {
@@ -27,7 +20,7 @@ $(document).ready(function() {
     npc_computer4 = new Npc('computer', 70, 640, 50, 50, script, game, sprite_computer)
     npc_computer5 = new Npc('computer', 200, 640, 50, 50, script, game, sprite_computer)
     npc_computer6 = new Npc('computer', 455, 450, 50, 110, script, game, sprite_computer)
-    npc_computer7 = new Npc('computer',455, 160, 50, 175, script, game, sprite_computer)
+    npc_computer7 = new Npc('computer', 455, 160, 50, 175, script, game, sprite_computer)
     npc_computer8 = new Npc('computer', 455, 670, 50, 50, script, game, sprite_computer)
 
     sprite_lana = {
@@ -74,19 +67,25 @@ $(document).ready(function() {
 
     setInterval(function() {
       game.draw([player, npc_lana, npc_ned,
-         collisionBox10, collisionBox11,
+        collisionBox10, collisionBox11,
         collisionBox12, collisionBox13, collisionBox14, collisionBox15, collisionBox16,
         dialogueBoxProject, actionPointsBar, energyPointsBar, projectPointsBar, cycle,
         npc_computer1, npc_computer2, npc_computer3, npc_computer4, npc_computer5,
-         npc_computer6, npc_computer7, npc_computer8
+        npc_computer6, npc_computer7, npc_computer8
       ])
     }, 100);
   });
 
   $(function() {
     $(this).keydown(function(e) {
-      if (dialogueBoxProject._inUse === true) { console.log("You can't move while in dialogue..."); return; }
-      if (cycle.shade === 1) { console.log("You can't move while in dialogue..."); return; }
+      if (dialogueBoxProject._inUse === true) {
+        console.log("You can't move while in dialogue...");
+        return;
+      }
+      if (cycle.shade === 1) {
+        console.log("You can't move while in dialogue...");
+        return;
+      }
       if (e.keyCode == 68) {
         player._rightPressed = true;
       } else if (e.keyCode == 65) {
@@ -145,31 +144,64 @@ $(document).ready(function() {
       }
     })
 
-  $('#playButton').click(function() {
-        $('#myCanvas').animate({
-        'marginLeft' : "+=300px" //moves right
-        });
-        $('#playButton').hide();
-        $('#gotItButton').show();
-        $('#rules').show();
+    $('#gotItButton').hide();
+    $('#controls').hide();
+
+    $('#playButton').click(function() {
+      $('#myCanvas').animate({
+        'marginLeft': "+=200px"
+      });
+      $('#playButton').hide();
+      $('#gotItButton').show();
+      $('#controls').show();
     });
 
     $('#gotItButton').click(function() {
-          $('#myCanvas').animate({
-          'marginLeft' : "-=300px" //moves left
-          });
-          $('#gotItButton').hide();
-          $('#playButton').show();
-          $('#rules').hide();
+      $('#myCanvas').animate({
+        'marginLeft': "-=200px" //moves left
       });
+      $('#gotItButton').hide();
+      $('#playButton').show();
+      $('#controls').hide();
+    });
+
+    $('#zoomButton').click(function() {
+      optimiseZoom();
+    });
+
+
+    $('#widthButton').click(function() {
+      optimiseWidth();
+    });
 
     $('#rulesButton').click(function() {
-        var ask = confirm("This will take you away from the current page");
-        if (ask === true) {
-          location.replace("/rules");
-        }
-      });
+      var ask = confirm("This will take you away from the current page");
+      if (ask === true) {
+        location.replace("/rules");
+      }
+    });
 
+    $('#restartButton').click(function() {
+      var ask = confirm("Restart the game?");
+      if (ask === true) {
+        location.replace("/game");
+      }
+    });
 
+    optimiseZoom();
   });
+
+  function optimiseZoom() {
+    actualHeight = $(window).height();
+    ratioDecimal = actualHeight / 760;
+    ratioPercentStr = (ratioDecimal * 100).toString() + "%";
+    ratioDecimalStr = ratioDecimal.toString();
+
+    if (actualHeight < 760) {
+      $('body').css('zoom', ratioPercentStr); /* Webkit browsers */
+      $('body').css('zoom', ratioDecimalStr); /* Other non-webkit browsers */
+      $('body').css('-moz-transform', scale(ratioDecimal, ratioDecimal)); /* Moz-browsers */
+    }
+  };
+
 });
