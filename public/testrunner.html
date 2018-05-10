@@ -7,8 +7,6 @@
 </head>
 
 <body>
-  <canvas id="myCanvas" width="736" height="640"></canvas>
-
   <div id="mocha"></div>
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
@@ -18,42 +16,40 @@
   </script>
 
   <!-- load code you want to test here -->
-  <script src="src/player.js"></script>
-  <script src="src/collisionLogic.js"></script>
-  <script src="src/collisionBox.js"></script>
   <script src="src/actionPoints.js" charset="utf-8"></script>
-  <script src="src/energyLevel.js" charset="utf-8"></script>
-  <script src="src/projectScore.js" charset="utf-8"></script>
-  <script src="src/dialogueBox.js" charset="utf-8"></script>
-  <script src="src/script.js" charset="utf-8"></script>
-  <script src="src/npc.js" charset="utf-8"></script>
-  <script src="src/statsBar.js" charset="utf-8"></script>
-  <script src="src/game.js"></script>
+  <script src="src/collisionBox.js"></script>
+  <script src="src/collisionLogic.js"></script>
   <script src="src/cycle.js"></script>
-  <script src="src/wrapCanvasText.js"></script>
+  <script src="src/dialogueBox.js" charset="utf-8"></script>
+  <script src="src/energyLevel.js" charset="utf-8"></script>
+  <script src="src/game.js"></script>
   <script src="src/move.js"></script>
-
-
+  <script src="src/npc.js" charset="utf-8"></script>
+  <script src="src/player.js"></script>
+  <script src="src/projectScore.js" charset="utf-8"></script>
+  <script src="src/script.js" charset="utf-8"></script>
+  <script src="src/statsBar.js" charset="utf-8"></script>
+  <script src="src/wrapCanvasText.js"></script>
 
   <!-- load your test files here -->
-  <script src="../test/playerTest.js"></script>
   <script src="../test/actionPointsTest.js"></script>
-  <script src="../test/energyLevelTest.js"></script>
-  <script src="../test/projectScoreTest.js"></script>
   <script src="../test/collisionBoxTest.js"></script>
   <script src="../test/collisionLogicTest.js"></script>
+  <script src="../test/dialogueBoxTest.js"></script>
+  <script src="../test/energyLevelTest.js"></script>
   <script src="../test/interactionTest.js"></script>
   <script src="../test/introTest.js"></script>
-  <script src="../test/dialogueBoxTest.js"></script>
   <script src="../test/npcTest.js"></script>
+  <script src="../test/playerTest.js"></script>
+  <script src="../test/projectScoreTest.js"></script>
   <script src="../test/scriptTest.js"></script>
   <script src="../test/statsBarTest.js"></script>
-
-
 
   <script>
     mocha.run();
   </script>
+
+  <canvas id="myCanvas" width="736" height="640"></canvas>
 </body>
 
 </html>
