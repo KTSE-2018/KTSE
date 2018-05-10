@@ -23,9 +23,7 @@
     this._ctx.beginPath();
     this._ctx.drawImage(this._sprite, this._sprite_x, this._sprite_y, this._sprite_w,
                         this._sprite_h, this._x, this._y, this._sprite_w, this._sprite_h);
-
     this._ctx.fill();
-
     this._ctx.closePath();
   }
 
