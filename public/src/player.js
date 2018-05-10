@@ -52,15 +52,15 @@ Player.prototype.reposition = function(myPlayer) {
 
   if (myPlayer._rightPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'R');
-    myPlayer._x = move.moveRD(myPlayer, object, "R", "x");
+    myPlayer._x = move.moveRD(myPlayer, object, "x");
   } else if (myPlayer._downPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'D');
-    myPlayer._y = move.moveRD(myPlayer, object, "D", "y");
+    myPlayer._y = move.moveRD(myPlayer, object, "y");
   } else if (myPlayer._upPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'U');
-    myPlayer._y = move.moveLU(myPlayer, object, "U", "y");
+    myPlayer._y = move.moveLU(myPlayer, object, "y");
   } else if (myPlayer._leftPressed) {
     var object = collisionLogic.collision(myPlayer, myPlayer._collisionable, myPlayer._moveDelta, 'L');
-    myPlayer._x = move.moveLU(myPlayer, object, "L", "x");
+    myPlayer._x = move.moveLU(myPlayer, object, "x");
   };
 };

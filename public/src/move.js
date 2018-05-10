@@ -1,7 +1,7 @@
 (function(exports) {
   function Move() {
   }
-    Move.prototype.moveRD = function(myPlayer, collisionObject, rightUp, xy) {
+    Move.prototype.moveRD = function(myPlayer, collisionObject, xy) {
       playerCoord = getCoord(myPlayer, xy);
       canvasDimension = getDimension(myPlayer, xy)['canvasDimension'];
       spriteDimension = getDimension(myPlayer, xy)['spriteDimension'];
@@ -17,7 +17,7 @@
       };
     };
 
-    Move.prototype.moveLU = function(myPlayer, collisionObject, leftDown, xy) {
+    Move.prototype.moveLU = function(myPlayer, collisionObject, xy) {
       playerCoord = getCoord(myPlayer, xy);
 
       if (playerCoord - myPlayer._moveDelta < 0) {
