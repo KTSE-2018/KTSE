@@ -2,7 +2,11 @@ describe('EnergyLevel', function() {
   var expect = chai.expect;
 
   beforeEach(function(){
-    energyLevel = new EnergyLevel();
+    // cycle = new Cycle();
+    // cycleStub = sinon.stub(cycle)
+    cycle = {count: 4}
+    game = new Game(cycle);
+    energyLevel = new EnergyLevel(game);
   })
 
   describe('#points', function() {
@@ -14,19 +18,20 @@ describe('EnergyLevel', function() {
   describe('.increaseEnergy', function() {
     it('increases EnergyLevel points by 10 as default', function() {
       energyLevel.increaseEnergy()
-      expect(energyLevel._points).to.eq(110);
+      expect(energyLevel._points).to.eq(130);
     });
   });
 
   describe('decreaseEnergy', function() {
     it('decreases EnergyLevel points by 10 as default', function() {
       energyLevel.decreaseEnergy()
-      expect(energyLevel._points).to.eq(90);
+      expect(energyLevel._points).to.eq(65);
     });
 
-    it('does not change energy level if insufficient energy available', function() {
-      energyLevel.decreaseEnergy(101)
-      expect(energyLevel._points).to.eq(100);
+    it('ends the game when energy is fully depleted', function() {
+      gameOverStub = sinon.stub(game, "gameOver")
+      energyLevel.decreaseEnergy(100)
+      expect(gameOverStub.calledOnce).to.be.true;
     });
   });
 });

@@ -9,7 +9,7 @@ describe('ProjectScore', function() {
   describe('#increaseProjectScore', function() {
     it('increases ProjectScore #score by 1', function() {
       projectScore.increaseProjectScore()
-      expect(projectScore._score).to.eq(5);
+      expect(projectScore._score).to.eq(1);
     });
   });
 
@@ -18,7 +18,7 @@ describe('ProjectScore', function() {
       projectScore.scoreMultiplier(2, true);
       projectScore.increaseProjectScore();
       projectScore.increaseProjectScore();
-      expect(projectScore._score).to.eq(20)
+      expect(projectScore._score).to.eq(4)
     })
   })
 });
