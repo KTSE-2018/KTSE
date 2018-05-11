@@ -1,5 +1,4 @@
 function EnergyLevel(game) {
-  this._game = game
   this._points = 100;
 }
 
@@ -14,7 +13,7 @@ EnergyLevel.prototype.decreaseEnergy = function(x = 35) {
     this._points = 0;
   }
 
-  if (this._points <= 0 && this._game.cycle.count !== 5) {
-    this._game.gameOver("e");
+  if (this._points <= 0 && game.cycle.count !== 5) {
+    game.gameOver("e");
   }
 };
