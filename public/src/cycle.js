@@ -9,13 +9,14 @@
     this.message = ''
     this.totalCycles = 5
     this.message2 = ''
+    this.message3 = ''
     this.jobArray = ['Captcha Enterer - $8k', 'Data Enterer - $15k', 'Data Center Support Specialist - $18k', 'IT Support - $21k', 'HTML Code Monkey - $22k', 'Network Technician - $25k', 'Network Systems Administrator - $32k',
       'Junior Software Developer - $40k', 'Software Engineer - $55k', 'Bootcamp Coach - $65k', 'Network Architect - $70k', 'Cloud Architect - $75k', 'Core Developer - $85k', 'Director of Technology - $100k', 'Principal Developer - $150k', 'Cryptocurrency Founder - $220k',
       'Founder of Galaxy Bank - $460k', 'CTO of paceTrex - $1.1m', 'Founder of Hoogle - $3.2m', 'Creator of Internet 2.0 - $999m'
     ]
   }
 
-  Cycle.prototype.drawCollisionBox = function() {
+  Cycle.prototype.drawTextMessage = function() {
     this.ctx.beginPath();
     this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.fillStyle = `rgba(0, 0, 0, ${this.shade})`;
@@ -26,11 +27,15 @@
     this.ctx.fillText(this.message, 100, 200);
     this.ctx.fillText(this.message2, 100, 250)
 
+    this.ctx.fillStyle = 'RED';
+    this.ctx.font = '50px Arial';
+    this.ctx.fillText(this.message3, 100, 330)
+
     this.ctx.closePath();
   }
 
   Cycle.prototype.reposition = function() {
-    this.drawCollisionBox();
+    this.drawTextMessage();
   }
 
   Cycle.prototype.turnOver = function(projectScore) {
@@ -53,10 +58,12 @@
     this.projectScore = score
     if (type === 'e') {
       this.message = 'Your energy has depleted and you have not finished'
-      this.message2 = 'the course, you are banished to the fourth floor for eternity.'
+      this.message2 = ' the course, you are banished to the fourth floor for'
+      this.message3 = '   E T E R N I T Y'
     } else if (type === 'c') {
       this.message = 'Congratulations! You have completed Codecraft!'
       this.message2 = `Your new job is ${this.jobSelect()}.`
+      this.message3 = ``
     }
     this.shade = 1
     this.gameEnd = true;
