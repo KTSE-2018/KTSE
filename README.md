@@ -3,7 +3,7 @@
 ## Introduction
 Originally dubbed "Katsu to SpaceEx" (KTSE) as a project title, **Codecraft** is a strategic survival role playing game developed in pure vanilla JavaScript - with no game engines or frameworks. Codecraft is the Makers Academy final project developed by a team of 5 people: Tom Duffy, Julian Ng, Chris Ly, Charlene Bastians and Alfie Darko.
 
-The focus of the project was to learn how to create a well-designed game, as opposed to focusing on learning new technology or coming out with a polished marketable product. In the end, we created a fully working game which has been deployed online via [Heroku](http://play-codecraft.co.uk).
+The focus of the project was to learn how to create a well-designed game, as opposed to focusing on learning new technology or coming out with a polished marketable product. In the end, we created a fully working game which has been deployed online via [Heroku](http://play-codecraft.co.uk) (and an [alternate link](https://codecraft-game.herokuapp.com/) should the domain expire.
 
 ## Game Concept
 Codecraft is a strategic survival simulation (SSS) game where players control the character, Ada, to complete an educational coding bootcamp to secure the best job possible. Each day, the player has a limited number of Action Points (AP) which depletes as they walk around, do project work, or engage with Non-Playable Characters (NPCs). When they do project work, their Project Score increases, which dictactes the job they get at the end of the game. When AP depletes to 0, the day ends and a new one begins - this transition will deplete their Energy Level (EL), which must remain above 0 otherwise the game is over.
