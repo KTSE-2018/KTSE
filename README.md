@@ -24,7 +24,7 @@ We made our decision to go with these technologies via:
 ![Architecture Model Diagram](readme_diagrams/server_architecture.png)
 
 ## Domain Model
-![Domain Model](readme_diagrams/domain_model.png)
+![Domain Model](readme_diagrams/domain_model_simplified.png)
 
 ## Project Approach
 
